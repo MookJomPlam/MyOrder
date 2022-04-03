@@ -1,0 +1,40 @@
+CREATE TABLE user (
+    id INT(5) NOT NULL PRIMARY KEY AUTO_INCREMENT,
+    username VARCHAR(50) NOT NULL,
+    password VARCHAR(200) NOT NULL,
+    firstname VARCHAR(50) NOT NULL,
+    lastname VARCHAR(50) NOT NULL,
+    image varchar(200) NOT NULL,
+    userlevel VARCHAR(1) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+
+CREATE TABLE tbl_product (
+  p_id int(11) NOT NULL,
+  p_name varchar(200) NOT NULL,
+  p_price int(4) NOT NULL,
+  p_image varchar(200) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+------------------
+
+CREATE TABLE order (
+  id INT(10) NOT NULL PRIMARY KEY AUTO_INCREMENT,
+  user_id VARCHAR(50) NOT NULL,
+  product_id VARCHAR(200) NOT NULL,
+  createdAt VARCHAR(200) NOT NULL,
+  updateAt VARCHAR(200) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+CREATE TABLE cart (
+  id int(10) NOT NULL PRIMARY KEY AUTO_INCREMENT,
+  userid VARCHAR(50) NOT NULL,
+  product_id VARCHAR(200) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+CREATE TABLE tbl_user (
+  id int(10) NOT NULL PRIMARY KEY AUTO_INCREMENT,
+  name VARCHAR(50) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+

@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>index Page</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- icon ตะกร้า -->
+    <link rel="stylesheet" href="/CSS/index.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" integrity="sha512-+4zCK9k+qNFUR5X+cKL9EIR+ZOhtIloNl9GIKS57V1MyNsYpYcUrUeQc9vNfzsWfV28IaLL3i96P9sdNyeRssA==" crossorigin="anonymous" />
+
+  </head>
+  
+  <body>
+
+    <!-- header  -->
+    <header>
+      <div class = "container">
+        <!-- navbar -->
+        <nav class = "navbar">
+          <a href = "index.html" class = "navbar-brand">ร้านอาหารต้นไทร</a>
+
+          <div class = "cart">
+            <button class="click">
+            <i class = "fas fa-shopping-cart"></i>
+            </button>
+        </div>
+
+        <div class="list-order">
+            <div class="cart_in">
+                <h2>ตระกร้าสินค้า</h2>
+
+                    <div class="table_viet">
+                      <table>
+                          <tr>
+                              <th>รายการ</th>
+                              <th>จำนวน</th>
+                              <th>ราคา</th>
+                              <th>ลบ</th>
+                          </tr>
+
+                          <tr>
+                            <td>ข้าวกระเพราหมูสับ</td>
+                            <td>1</td>
+                            <td>50</td>
+                            <td><div class="del">
+                                  <a href="edit.html" class="delete">ลบ</a>
+                                </div>
+                            </td>
+
+                            <tr>
+                              <td>ข้าวไข่เจียว</td>
+                              <td>1</td>
+                              <td>50</td>
+                              <td><div class="del">
+                                    <a href="edit.html" class="delete">ลบ</a>
+                                  </div>
+                              </td>
+    
+                        </tr>
+                      
+                    </div>
+
+                     
+
+                </table>
+
+                <div class="group">
+
+                    <div class="group-table">
+                      <label>โต๊ะที่  :</label>
+                      <select name="table" required>
+                          <option value="">โต๊ะ</option>
+                          <option value="1">01</option>
+                          <option value="2">02</option>
+                          <option value="3">03</option>
+                          <option value="4">04</option>
+                          <option value="5">05</option>
+                          <option value="6">06</option>
+                          <option value="7">07</option>
+                          <option value="8">08</option>
+                          <option value="9">09</option>
+                          <option value="10">10</option>
+                          
+                      </select>
+                  </div>
+
+                  <div class="group-location">
+                    <label>ทานที่  :</label>
+                    <select name="location" required>
+                        <option value="">สถานที่</option>
+                        <option value="1">ร้าน</option>
+                        <option value="2">กลับบ้าน</option>
+                    </select>
+                </div>
+              </div>
+                
+                <div class="cart-total">
+                    <div class="cart-span">
+                        <h3>ราคา : </h3> 
+                        <h3> XXXXX</h3> 
+                        <h3> บาท</h3>
+                      </div>
+                        <a href = "order.html" class="cart_ok">ยืนยัน</a>
+                </div>
+
+          </div>
+        </nav>
+       
+
+        <!-- banner -->
+        <div class = "banner">
+          <div class = "banner-content">
+            <h1>ร้านต้นไทร</h1>
+            <p class = "text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quos eveniet, quis nisi recusandae assumenda ea sequi obcaecati accusantium in provident dolore debitis autem neque vel commodi atque voluptates incidunt aliquam delectus veritatis? Exercitationem, fugit sed!</p>
+          </div>
+
+        </div>
+
+      </div>
+    </header>
+   
+
+    <!-- products section  -->
+    <section class = "products">
+      <div class = "container">
+        <h2>เมนู</h2>
+        <div class = "product-list">
+
+            <div class = "product-item">
+                <div class = "product-img">
+                  <img src = "5.jpg" alt = "ไม่พบรูปภาพ">
+                </div>
+            
+                <div class = "product-content">
+                  <h3 class = "product-name">ข้าวกระเพราไก่ไข่ดาว</h3>
+                  <p class = "product-price">60 บาท</p>
+                  <button type = "button" class = "add-to-cart-btn">
+                    <i class = "fas fa-shopping-cart"></i>เพิ่มสินค้า
+                  </button>
+                </div>
+              </div>
+
+             
+
+              <div class = "product-item">
+                <div class = "product-img">
+                  <img src = "5.jpg" alt = "ไม่พบรูปภาพ">
+                </div>
+            
+                <div class = "product-content">
+                  <h3 class = "product-name">ข้าวผัดหมู</h3>
+                  <p class = "product-price">50 บาท</p>
+                  <button type = "button" class = "add-to-cart-btn">
+                    <i class = "fas fa-shopping-cart"></i>เพิ่มสินค้า
+                  </button>
+                </div>
+              </div>
+
+              <div class = "product-item">
+                <div class = "product-img">
+                  <img src = "5.jpg" alt = "ไม่พบรูปภาพ">
+                </div>
+            
+                <div class = "product-content">
+                  <h3 class = "product-name">ข้าวไข่เจียว</h3>
+                  <p class = "product-price">50 บาท</p>
+                  <button type = "button" class = "add-to-cart-btn">
+                    <i class = "fas fa-shopping-cart"></i>เพิ่มสินค้า
+                  </button>
+                </div>
+              </div>
+<!-- 
+              <div class = "product-item">
+                <div class = "product-img">
+                  <img src = "5.jpg" alt = "ไม่พบรูปภาพ">
+                </div>
+            
+                <div class = "product-content">
+                  <h3 class = "product-name">ชื่ออาหาร</h3>
+                  <p class = "product-price">60 บาท</p>
+                  <button type = "button" class = "add-to-cart-btn">
+                    <i class = "fas fa-shopping-cart"></i>เพิ่มสินค้า
+                  </button>
+                </div>
+              </div>
+
+              <div class = "product-item">
+                <div class = "product-img">
+                  <img src = "7.jpg" alt = "ไม่พบรูปภาพ">
+                </div>
+            
+                <div class = "product-content">
+                  <h3 class = "product-name">ชื่ออาหาร</h3>
+                  <p class = "product-price">60 บาท</p>
+                  <button type = "button" class = "add-to-cart-btn">
+                    <i class = "fas fa-shopping-cart"></i>เพิ่มสินค้า
+                  </button>
+                </div>
+              </div> -->
+
+        </div>
+      </div>
+    </section>
+    
+
+    <!-- footer -->
+    <footer>
+      <div class = "footer-banner">
+        <div class = "container">
+          <h2> ติดต่อ </h2>
+          <p class = "text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Maiores est quod maxime 
+            nisi possimus corporis qui aliquid molestias sit iusto itaque, cum delectus tempore, 
+            distinctio velit. Repellat reiciendis suscipit quidem aliquid ipsam, nemo minus repudiandae 
+            quas eligendi natus voluptate nostrum? 
+            <br>
+            โทร : 099-8765432
+
+          </p>
+        </div>
+      </div>
+
+      <div class = "container">
+        <div class = "social-icons">
+          <a href = "#">
+            <i class = "fab fa-facebook-f"></i>
+          </a>
+          <a href = "#">
+            <i class = "fab fa-twitter"></i>
+          </a>
+          <a href = "#">
+            <i class = "fab fa-instagram"></i>
+          </a>
+          <a href = "#">
+            <i class = "fab fa-pinterest"></i>
+          </a>
+          <a href = "#">
+            <i class = "fab fa-linkedin"></i>
+          </a>
+        </div>
+      </div>
+    </footer>
+    <!-- end of footer -->
+
+    <script>
+
+        let click = document.querySelector('.click');
+
+        let list = document.querySelector('.list-order');
+
+        click.addEventListener("click",()=>{
+
+            list.classList.toggle('newlist');
+
+        });
+
+    </script>
+    
+  </body>
+</html>

@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Page</title>
+    <link rel="stylesheet" href="/CSS/add_editmember.css">
+</head>
+<body>
+
+    <header>
+        <div class="container">
+            <nav class="navbar">
+                <h2>Admin</h2>
+                <h3>ยินดีต้อนรับคุณ : XXXXXXX </h3>
+            </nav>
+    </header>
+
+        <div class="content">
+            <div class="content_grid">
+            
+                <div class="side">
+    
+                    <ul>
+                        <li><a href="admin.html">หน้าแรก</a></li>
+                        <li><a href="member.html">สมาชิก</a></li>
+                        <li><a href="item.html">รายการอาหาร</a></li>
+                        <li><a href="order.html">ออเดอร์</a></li>
+                    </ul>
+                        <div class="out">
+                            <ul>
+                                <li>
+                                    <a href="logout.php">ออกจากระบบ</a>
+                                </li>
+                            </ul>
+                        </div>
+                </div>
+
+                <div class="section">
+                    <h4>แก้ไขสมาชิก</h4>
+                    <hr>
+
+                    <div class="showinfo">
+
+                    <div class="group">
+                        <label for="username">ชื่อผู้ใช้ :</label>
+                        <input type="text" name="username" placeholder=" ชื่อผู้ใช้">
+                    </div>
+
+                    <div class="group">
+                        <label for="password">รหัสผ่าน :</label>
+                        <input type="password" name="password" placeholder=" รหัส">
+                    </div>
+
+                    <div class="group">
+                        <label for="firstname">ชื่อจริง :</label>
+                        <input type="text" name="firstname" placeholder=" ชื่อ" required>
+                    </div>
+        
+                    <div class="group">
+                        <label for="lastname">นามสกุล :</label>
+                        <input type="text" name="lastname" placeholder=" สกุล" required>
+                    </div>
+
+                    <div class="group">
+                        <lable>รูปภาพ :</lable>
+                        <input type="file" name="image" alt="No have picture">
+                    </div>
+
+                    <div class="group">
+                        <label>ตำแหน่ง  :</label>
+                        <select name="status" required>
+                            <option value="">เลือกสถานะ</option>
+                            <option value="1">ผู้ดูแล</option>
+                            <option value="2">พนักงาน</option>
+                        </select>
+                    </div>
+
+                    <div class="group">
+                        <input type="submit" name="submit" value="ยืนยัน">
+                    </div>
+    
+</body>
+</html>
