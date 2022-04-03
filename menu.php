@@ -95,7 +95,7 @@
                               $p_name = $row['p_name'];
                               $p_price = $row['sumprice'];
                               $num = $row['num'];
-                              
+                            }
                         ?>
                         
 
@@ -104,15 +104,27 @@
                             <td><?php echo $num; ?></td> 
                             <td><?php echo $p_price; ?></td>
                             <td><div class="del">
-                              
+                      <?php
+                        $userid5=$_GET['id'];
+                        $userid2="SELECT * from tbl_user WHERE id=$userid5";
+                        $userid3 = mysqli_query($conn, $userid2);
+
+                    while ($row = mysqli_fetch_array($userid3)) {
+                      $userid4 = $row['cartstatus'];
+
+                      if($userid4 == 0){
+
+                      ?>
                                   <a href="delete_cart.php?id=<?php echo $id; ?>&userid=<?php echo $userid; ?>">ลบ</a>
-                                  
+                                  <?php }else if($userid4 == 1){?>
+
+                                  <?php }}?>
                                 </div>
                             </td>
                             
                         </tr>
 
-                        <?php } ?>
+                        
 
                       
                     </div>
@@ -166,7 +178,7 @@
                             </button>
                           </from>
                           <?php }else if($querytbluser==1) {?>
-                            <form id="updateorder" action="updateorder.php" method="post" enctype="multipart/form-data" >
+                            <form id="cancel_order" action="cancel_order.php" method="post" enctype="multipart/form-data" >
                             <!-- <input name="status" value="1" stype ="display:none"> -->
                             <button
                             name="submit"
