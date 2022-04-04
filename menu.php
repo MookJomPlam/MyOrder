@@ -80,10 +80,10 @@
                           </tr>
                           
                       <?php 
-                            $url_id = $_GET['id']; //dele_cart บรรทัด 5
+                            $url_idd = $_GET['id']; //dele_cart บรรทัด 5
 
                               //มีการจอย จาก cart ไป tbl_product หา c.product_id=t.p_id ที่  c.userid
-                            $select_post = "SELECT *,sum(t.p_price) as sumprice,count(c.product_id) as num FROM loginadminuser.cart c right join loginadminuser.tbl_product t on c.product_id=t.p_id where c.userid=$url_id group by c.product_id;";
+                            $select_post = "SELECT *,sum(t.p_price) as sumprice,count(c.product_id) as num FROM loginadminuser.cart c right join loginadminuser.tbl_product t on c.product_id=t.p_id where c.userid=$url_idd group by c.product_id;";
                         
                             $query_post = mysqli_query($conn, $select_post);
 
@@ -95,7 +95,7 @@
                               $p_name = $row['p_name'];
                               $p_price = $row['sumprice'];
                               $num = $row['num'];
-                            }
+                            
                         ?>
                         
 
@@ -107,7 +107,7 @@
                       <?php
                         $userid5=$_GET['id'];
                         $userid2="SELECT * from tbl_user WHERE id=$userid5";
-                        $userid3 = mysqli_query($conn, $userid2);
+                        $userid3= mysqli_query($conn,$userid2);
 
                     while ($row = mysqli_fetch_array($userid3)) {
                       $userid4 = $row['cartstatus'];
@@ -116,15 +116,16 @@
 
                       ?>
                                   <a href="delete_cart.php?id=<?php echo $id; ?>&userid=<?php echo $userid; ?>">ลบ</a>
-                                  <?php }else if($userid4 == 1){?>
+                                  <?php } else if($userid4 == 1){?>
 
-                                  <?php }}?>
+                                  <?php }
+                                }?>
                                 </div>
                             </td>
                             
                         </tr>
 
-                        
+                    <?php } ?>   
 
                       
                     </div>

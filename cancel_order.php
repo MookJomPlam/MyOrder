@@ -13,10 +13,10 @@
         // $run_edit = mysqli_query($conn, $edit_query);
         //วนลูป เก็บข้อมูลเก่า 
         // while ($edit_row = mysqli_fetch_array($run_edit)) {
-            $result = mysqli_query($conn, $update_query);
-            if ($result){
+            // $result = mysqli_query($conn, $update_query);
+            // if ($result){
                
-            }
+            // }
         // }
         $updatetbl_user = "UPDATE tbl_user SET cartstatus='0' WHERE id ='$geturlatid'"; 
         // check ถ้าสำเร็จ
