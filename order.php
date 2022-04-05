@@ -67,39 +67,45 @@
                                 <th>ลบรายการ</th>
                             </tr>
                                 
+                            <?php 
+                                //มีการจอย 
+                                $select_order = "SELECT o.updateAt,u.name,u.cartstatus FROM loginadminuser.orders o 
+                                left join loginadminuser.tbl_product t on o.product_id=t.p_id 
+                                left join loginadminuser.tbl_user u on o.user_id=u.id
+                                group by o.user_id;";
+                            
+                                $query_order = mysqli_query($conn, $select_order);
+
+                                while ($row = mysqli_fetch_array($query_order)) {
+                                    $id = $row['id'];
+                                    $user_id = $row['user_id'];
+                                    $updateAt = $row['updateAt'];
+                                    $name = $row['name'];
+                                    
+                                
+                            ?>
                             <tr>
-                                <td>01</td>
-                                <td>18:00</td>
-                                <td>03</td>
-                                <td>รอการยืนยัน</td>
-                                <td> <div class="view">
-                                    <label><a href="view.php">ดูรายการ</a></label>
-                                </div>
-                                </td>
+                            <td>01 <?php echo $id; ?></td>
+                                    <td>18:00 <?php echo $updateAt; ?></td>
+                                    <td>03 <?php echo $name; ?></td>
+                                    <td>รอการยืนยัน <?php echo $cartstatus; ?></td>
+                                    <td> <div class="view">
+                                        <label><a href="view.php">ดูรายการ</a></label>
+                                    </div>
+                                    <h1>asdffgh</h1>
+                                    </td>
 
                                 <td><div class="del">
                                     <a href="edit.php" class="delete">ลบ</a>
                                     </div>
                                 </td>
+                            </tr>
+                            <?php } ?>
                         </div>
 
-                        <tr>
-                            <td>01</td>
-                            <td>18:00</td>
-                            <td>03</td>
-                            <td>รอการยืนยัน</td>
-                            <td><div class="view">
-                                <label><a href="view.php">ดูรายการ</a></label>
-                            </div>
-                            </td>
+                        
 
-                            <td><div class="del">
-                                <a href="edit.php" class="delete">ลบ</a>
-                                </div>
-                            </td>
-
-                            
-                        </tr>
+                        
 
                                    
                     </div>
