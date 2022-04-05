@@ -26,7 +26,7 @@
         // check ถ้าสำเร็จ
         if (mysqli_query($conn, $updatetbl_user)) {
             echo "<script>alert('Successfully deleted');</scropt>";
-            header("location:menu.php?id=1");        
+            header("location:menu.php?id=$geturlatid");        
         }
      
     }

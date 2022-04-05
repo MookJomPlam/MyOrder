@@ -1,6 +1,7 @@
 <?php 
 
     require_once "connection.php";
+    require_once "console_log.php";
 
     session_start();
 
@@ -69,34 +70,61 @@
                                 
                             <?php 
                                 //มีการจอย 
-                                $select_order = "SELECT o.updateAt,u.name,u.cartstatus FROM loginadminuser.orders o 
+                                $select_order = "SELECT o.updateAt,u.name,u.cartstatus,u.id FROM loginadminuser.orders o 
                                 left join loginadminuser.tbl_product t on o.product_id=t.p_id 
                                 left join loginadminuser.tbl_user u on o.user_id=u.id
                                 group by o.user_id;";
                             
-                                $query_order = mysqli_query($conn, $select_order);
-
-                                while ($row = mysqli_fetch_array($query_order)) {
-                                    $id = $row['id'];
-                                    $user_id = $row['user_id'];
+                            $query_order = mysqli_query($conn, $select_order);
+                             $ran = 0;
+                            
+                            while ($row = mysqli_fetch_array($query_order)) {
+                                    $id = $row['id'];                     
+                                    $ran +=1;
                                     $updateAt = $row['updateAt'];
+                                    $date = date_create($updateAt);
                                     $name = $row['name'];
+                                    $cartstatus = $row['cartstatus'];
                                     
                                 
                             ?>
+                                    <?= console_log($row); ?>
                             <tr>
-                            <td>01 <?php echo $id; ?></td>
-                                    <td>18:00 <?php echo $updateAt; ?></td>
-                                    <td>03 <?php echo $name; ?></td>
-                                    <td>รอการยืนยัน <?php echo $cartstatus; ?></td>
+                                    <td><?php echo $ran; ?></td>
+                                    <td><?php echo date_format($date,"H:i:s"); ?></td>
+                                    <td><?php echo $name; ?></td>
+                                    <td><?php switch ($cartstatus) {
+                                        case 1:
+                                            ?>
+                                            <?php echo "รอการยืนยัน"; ?>
+                                            <?php break; ?>
+                                            
+                                            <?php  case 2: ?>
+                                                <?php echo "ดำเนินการ"; ?>
+
+                                                <?php break; ?>
+
+                                            <?php  case 3: ?>
+                                                <?php echo "สำเร็จ"; ?>
+
+                                                <?php break; ?>
+                                          <?php
+                                        default:
+                                            # code...
+                                            break;
+                                            ?>
+                                   <?php } ?>
+                                   <?= console_log($cartstatus); ?>
+
+                                    
+                                </td>
                                     <td> <div class="view">
                                         <label><a href="view.php">ดูรายการ</a></label>
                                     </div>
-                                    <h1>asdffgh</h1>
                                     </td>
 
                                 <td><div class="del">
-                                    <a href="edit.php" class="delete">ลบ</a>
+                                    <a href="cancelorder.php?id=<?php echo $id; ?>" class="delete">ลบ</a>
                                     </div>
                                 </td>
                             </tr>
