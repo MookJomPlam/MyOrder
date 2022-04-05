@@ -1,6 +1,7 @@
 <?php 
 
     require_once "connection.php";
+    require_once "console_log.php";
 
     session_start();
 
@@ -67,39 +68,47 @@
                                 <th>ลบรายการ</th>
                             </tr>
                                 
+                            <?php 
+                                //มีการจอย 
+                                $select_order = "SELECT o.updateAt,u.name,u.cartstatus FROM loginadminuser.orders o 
+                                left join loginadminuser.tbl_product t on o.product_id=t.p_id 
+                                left join loginadminuser.tbl_user u on o.user_id=u.id
+                                group by o.user_id;";
+                            
+                            $query_order = mysqli_query($conn, $select_order);
+                             $ran = 0;
+                            
+                            while ($row = mysqli_fetch_array($query_order)) {                                 
+                                    $ran +=1;
+                                    $updateAt = $row['updateAt'];
+                                    $date = date_create($updateAt);
+                                    $name = $row['name'];
+                                    $cartstatus = $row['cartstatus'];
+                                    
+                                
+                            ?>
+                                    <?= console_log($row); ?>
                             <tr>
-                                <td>01</td>
-                                <td>18:00</td>
-                                <td>03</td>
-                                <td>รอการยืนยัน</td>
-                                <td> <div class="view">
-                                    <label><a href="view.php">ดูรายการ</a></label>
-                                </div>
-                                </td>
+                                    <td><?php echo $ran; ?></td>
+                                    <td><?php echo date_format($date,"H:i:s"); ?></td>
+                                    <td><?php echo $name; ?></td>
+                                    <td><?php echo $cartstatus; ?></td>
+                                    <td> <div class="view">
+                                        <label><a href="view.php">ดูรายการ</a></label>
+                                    </div>
+                                    </td>
 
                                 <td><div class="del">
                                     <a href="edit.php" class="delete">ลบ</a>
                                     </div>
                                 </td>
+                            </tr>
+                            <?php } ?>
                         </div>
 
-                        <tr>
-                            <td>01</td>
-                            <td>18:00</td>
-                            <td>03</td>
-                            <td>รอการยืนยัน</td>
-                            <td><div class="view">
-                                <label><a href="view.php">ดูรายการ</a></label>
-                            </div>
-                            </td>
+                        
 
-                            <td><div class="del">
-                                <a href="edit.php" class="delete">ลบ</a>
-                                </div>
-                            </td>
-
-                            
-                        </tr>
+                        
 
                                    
                     </div>
