@@ -97,7 +97,7 @@
                                         <label><a href="view.php">ดูรายการ</a></label>
                                     </div>
                                     </td>
-
+<h1>werfgb </h1>
                                 <td><div class="del">
                                     <a href="edit.php" class="delete">ลบ</a>
                                     </div>
