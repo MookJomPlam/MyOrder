@@ -87,7 +87,7 @@
                                     </div>
                                     <div class="del">
                                     <div class="delete">
-                                        <label><a href="delete.php?del=<?php echo $p_id; ?>"onclick="return confirm('คุณต้องการลบข้อมูลที่เลือก')">ลบ</a></label>
+                                        <label><a href="delete_item.php?del=<?php echo $p_id; ?>"onclick="return confirm('คุณต้องการลบข้อมูลที่เลือก')">ลบ</a></label>
                                     </div>
                                     </div>
                                 </div>
