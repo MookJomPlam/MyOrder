@@ -85,7 +85,7 @@
                                 </div>
 
                                 <div class="edit">
-                                    <label><a href="editinfo__member.php">แก้ไข</a></label>
+                                    <label><a href="editinfo.php">แก้ไข</a></label>
                                 </div>
 
                                 <div class="del">
@@ -95,7 +95,6 @@
                                 </div>
                             </div>
                         </div>
-                        <h4>asddas</h4>
 
                     <?php } ?>
 
