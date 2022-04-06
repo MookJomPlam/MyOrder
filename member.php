@@ -43,7 +43,7 @@
                         <div class="out">
                             <ul>
                                 <li>
-                                    <a href="logout.php">ออกจากระบบ</a>
+                                    <a href="logout.php">ออกsจากระบบ</a>
                                 </li>
                             </ul>
                         </div>
@@ -81,14 +81,18 @@
                             
                             <div class="edit_del">
                                 <div class="edit">
-                                    <label><a href="infomember.php">ดูข้อมูล</a></label>
+                                    <label><a href="infomember.php">ข้อมูล</a></label>
+                                </div>
+
+                                <div class="edit">
+                                    <label><a href="editinfo.php">แก้ไข</a></label>
                                 </div>
 
                                 <div class="del">
                                     <div class="delete">
-                                        <label><a href="deleteuser.php?del=<?php echo $id; ?>"onclick="return confirm('คุณต้องการลบข้อมูลที่เลือก')">ลบ</a></label>
+                                        <label><a href="deleteuser.php?del=<?php echo $id; ?>"onclick="return confirm('คุณต้องการลบพนักงานที่เลือก')">ลบ</a></label>
                                     </div>
-                                    </div>
+                                </div>
                             </div>
                         </div>
 

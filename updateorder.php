@@ -22,7 +22,7 @@
                
             }
         }
-        $updatetbl_user = "UPDATE tbl_user SET cartstatus='1' WHERE id ='$geturlatid'"; 
+        $updatetbl_user = "UPDATE tbl_user SET status='$location', cartstatus='1' WHERE id ='$geturlatid'"; 
         // check ถ้าสำเร็จ
         if (mysqli_query($conn, $updatetbl_user)) {
             echo "<script>alert('Successfully deleted');</scropt>";
