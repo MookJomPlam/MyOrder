@@ -90,7 +90,7 @@
 
                                 <div class="del">
                                     <div class="delete">
-                                        <label><a href="deleteuser.php?del=<?php echo $id; ?>"onclick="return confirm('คุณต้องการลบข้อมูลที่เลือก')">ลบ</a></label>
+                                        <label><a href="deleteuser.php?del=<?php echo $id; ?>"onclick="return confirm('คุณต้องการลบพนักงานที่เลือก')">ลบ</a></label>
                                     </div>
                                 </div>
                             </div>
