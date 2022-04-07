@@ -120,7 +120,7 @@
                                     
                                 </td>
                                     <td> <div class="view">
-                                        <label><a href="view.php?id=<?php echo $id; ?>">รายละเอียด</a></label>
+                                        <label><a href="view.php?id=<?php echo $id; ?>">ดูรายละเอียด</a></label>
                                     </div>
                                     </td>
 
