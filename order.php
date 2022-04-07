@@ -125,7 +125,9 @@
                                     </td>
 
                                 <td><div class="del">
+
                                     <a href="cancelorder.php?id=<?php echo $id; ?>" class="delete">-ลบ</a>
+
                                     </div>
                                 </td>
                             </tr>
