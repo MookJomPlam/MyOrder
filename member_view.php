@@ -78,8 +78,7 @@
                             <div class="status">
                                 <select name="userlevel" required>
                                     <option value="">เลือกสถานะ</option>
-                                    <option value="1">กำลังนำเสริฟ</option>
-                                    <option value="2">สำเร็จ</option>
+                                    <option value="1">สำเร็จ</option>
                                 </select>
 
                             </div>
