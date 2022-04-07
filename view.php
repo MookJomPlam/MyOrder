@@ -122,7 +122,7 @@
                         </table>
                         
                         <div class="ok">
-                            <label><a href="edit.php">ยืนยัน</a></label>
+                            <label><a href="updatestatus2.php?id=<?php echo $url;?>">ยืนยัน</a></label>
                         </div>
                         
                         
