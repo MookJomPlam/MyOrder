@@ -120,12 +120,12 @@
                                     
                                 </td>
                                     <td> <div class="view">
-                                        <label><a href="view.php?id=<?php echo $id; ?>">ดูรายละเอียด</a></label>
+                                        <label><a href="view.php?id=<?php echo $id; ?>">รายละเอียด</a></label>
                                     </div>
                                     </td>
 
                                 <td><div class="del">
-                                    <a href="cancelorder.php?id=<?php echo $id; ?>" class="delete">ลบ</a>
+                                    <a href="cancelorder.php?id=<?php echo $id; ?>" class="delete">-ลบ</a>
                                     </div>
                                 </td>
                             </tr>
