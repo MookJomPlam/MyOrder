@@ -73,7 +73,8 @@
                                 $select_order = "SELECT o.updateAt,u.name,u.cartstatus,u.id FROM loginadminuser.orders o 
                                 left join loginadminuser.tbl_product t on o.product_id=t.p_id 
                                 left join loginadminuser.tbl_user u on o.user_id=u.id
-                                group by o.user_id;";
+                                group by o.user_id
+                                order by o.updateAt;";
                             
                             $query_order = mysqli_query($conn, $select_order);
                              $ran = 0;
@@ -119,12 +120,14 @@
                                     
                                 </td>
                                     <td> <div class="view">
-                                        <label><a href="view.php">ดูรายการ</a></label>
+                                        <label><a href="view.php?id=<?php echo $id; ?>">รายละเอียด</a></label>
                                     </div>
                                     </td>
 
                                 <td><div class="del">
+
                                     <a href="cancelorder.php?id=<?php echo $id; ?>" class="delete">ลบ</a>
+
                                     </div>
                                 </td>
                             </tr>

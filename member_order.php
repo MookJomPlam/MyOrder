@@ -1,8 +1,13 @@
 <?php 
 
     require_once "connection.php";
+    require_once "console_log.php";
 
     session_start();
+
+    if (!$_SESSION['userid']) {
+        header("Location: index.php");
+    } else {
 
 ?>
 
@@ -21,7 +26,7 @@
         <div class="container">
             <nav class="navbar">
                 <h2>พนักงาน</h2>
-                <h3>ยินดีต้อนรับคุณ :  </h3>
+                <h3>ยินดีต้อนรับคุณ : <?php echo $_SESSION['username']; ?> </h3>
             </nav>
     </header>
 
@@ -30,7 +35,7 @@
             
                 <div class="side">
     
-                    <ul>
+                <ul>
                         <li><a href="member_page.php">หน้าแรก</a></li>
                         <li><a href="member_info.php">ข้อมูลส่วนตัว</a></li>
                         <li><a href="member_item.php">รายการอาหาร</a></li>
@@ -47,6 +52,10 @@
 
                 <div class="section">
                 <h4>ออเดอร์อาหาร</h4>
+                <!-- SELECT o.updateAt,u.name,u.cartstatus FROM loginadminuser.orders o  -->
+                <!-- left join loginadminuser.tbl_product t on o.product_id=t.p_id  -->
+                <!-- left join loginadminuser.tbl_user u on o.user_id=u.id -->
+                <!-- group by o.user_id; -->
 
                     <div class="table_viet">
                         <table>
@@ -56,40 +65,73 @@
                                 <th>โต๊ะที่</th>
                                 <th>สถานะ</th>
                                 <th>รายการ</th>
-                                <!-- <th>ลบรายการ</th> -->
+
                             </tr>
                                 
+                            <?php 
+                                //มีการจอย 
+                                $select_order = "SELECT o.updateAt,u.name,u.cartstatus,u.id FROM loginadminuser.orders o 
+                                left join loginadminuser.tbl_product t on o.product_id=t.p_id 
+                                left join loginadminuser.tbl_user u on o.user_id=u.id
+                                group by o.user_id
+                                order by o.updateAt;";
+                            
+                            $query_order = mysqli_query($conn, $select_order);
+                             $ran = 0;
+                            
+                            while ($row = mysqli_fetch_array($query_order)) {
+                                    $id = $row['id'];                     
+                                    $ran +=1;
+                                    $updateAt = $row['updateAt'];
+                                    $date = date_create($updateAt);
+                                    $name = $row['name'];
+                                    $cartstatus = $row['cartstatus'];
+                                    
+                                
+                            ?>
+                                    <?= console_log($row); ?>
                             <tr>
-                                <td>01</td>
-                                <td>18:00</td>
-                                <td>03</td>
-                                <td>ดำเนินการ...</td>
-                                <td> <div class="view">
-                                    <label><a href="member_view.php">ดูรายการ</a></label>
-                                </div>
+                                    <td><?php echo $ran; ?></td>
+                                    <td><?php echo date_format($date,"H:i:s"); ?></td>
+                                    <td><?php echo $name; ?></td>
+                                    <td><?php switch ($cartstatus) {
+                                        case 1:
+                                            ?>
+                                            <?php echo "รอการยืนยัน"; ?>
+                                            <?php break; ?>
+                                            
+                                            <?php  case 2: ?>
+                                                <?php echo "ดำเนินการ"; ?>
+
+                                                <?php break; ?>
+
+                                            <?php  case 3: ?>
+                                                <?php echo "สำเร็จ"; ?>
+
+                                                <?php break; ?>
+                                          <?php
+                                        default:
+                                            # code...
+                                            break;
+                                            ?>
+                                   <?php } ?>
+                                   <?= console_log($cartstatus); ?>
+
+                                    
                                 </td>
-                                <!-- <td><div class="del">
-                                    <a href="edit.php" class="delete">ลบ</a>
+                                    <td> <div class="view">
+                                        <label><a href="member_view.php?id=<?php echo $id; ?>">ดูรายการ</a></label>
                                     </div>
-                                </td> -->
+                                    </td>
+
+                               
+                            </tr>
+                            <?php } ?>
+                        </div>
+
                         
 
-                        <tr>
-                            <td>01</td>
-                            <td>18:00</td>
-                            <td>03</td>
-                            <td>ดำเนินการ...</td>
-                            <td><div class="view">
-                                <label><a href="member_view.php">ดูรายการ</a></label>
-                            </div>
-                            </td>
-
-                            <!-- <td><div class="del">
-                                <a href="edit.php" class="delete">ลบ</a>
-                                </div>
-                            </td> -->
-                            
-                        </tr>
+                        
 
                                    
                     </div>
@@ -101,3 +143,4 @@
     
 </body>
 </html>
+<?php } ?>

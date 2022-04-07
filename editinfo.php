@@ -59,7 +59,7 @@
     <header>
         <div class="container">
             <nav class="navbar">
-                <h2>พนักงาน</h2>
+                <h2>Admin</h2>
                 <h3>ยินดีต้อนรับคุณ : </h3>
             </nav>
     </header>
@@ -69,11 +69,11 @@
             
                 <div class="side">
     
-                    <ul>
-                        <li><a href="member_page.php">หน้าแรก</a></li>
-                        <li><a href="member_info.php">ข้อมูลส่วนตัว</a></li>
-                        <li><a href="member_item.php">รายการอาหาร</a></li>
-                        <li><a href="member_order.php">ออเดอร์</a></li>
+                <ul>
+                        <li><a href="admin.php">หน้าแรก</a></li>
+                        <li><a href="member.php">พนักงาน</a></li>
+                        <li><a href="item.php">รายการอาหาร</a></li>
+                        <li><a href="order.php">ออเดอร์</a></li>
                     </ul>
                         <div class="out">
                             <ul>
@@ -92,42 +92,39 @@
 
                 <form action="edit.php?edit_form=<?php echo $id; ?>" method="post" enctype="multipart/form-data"> 
                     
-                <div class="group">
+                <!-- <div class="group">
                         <label for="username">ชื่อผู้ใช้ : </label>
                         <input type="text" name="username" value = "xxxxxx">
-                        <!-- <input type="text" name="username" value = "<?php echo $username; ?>"> -->
                     </div>
 
                     <div class="group">
                         <label for="password">รหัสผ่าน : </label>
                         <input type="password" name="password" placeholder=" รหัส">
-                    </div>
+                    </div> -->
 
-                    <!-- <div class="group">
+                    <div class="group">
                         <label for="firstname">ชื่อจริง : </label>
                         <input type="text" name="firstname" value = "xxxxxx">
-                        <input type="text" name="firstname" value = "<?php echo $firstname; ?>">
                     </div>
         
                     <div class="group">
                         <label for="lastname">นามสกุล : </label>
                         <input type="text" name="lastname" value = "xxxxxx">
-                         <input type="text" name="lastname" value = "<?php echo $lastname; ?>"> 
-                     </div>  -->
+                     </div>  
 
                     <!-- <div class="group">
                         <lable>รูปภาพ : xxxxx</lable>
                         <input type="file" name="image" alt="No have picture">
-                    </div>
+                    </div> -->
 
                     <div class="group">
-                        <label>ตำแหน่ง  : xxx</label>
+                        <label>ตำแหน่ง  : </label>
                         <select name="userlevel" required>
                             <option value="">เลือกสถานะ</option>
                             <option value="1">ผู้ดูแล</option>
                             <option value="2">พนักงาน</option>
                         </select>
-                    </div> -->
+                    </div>
 
                     <div class="group">
                         <input type="submit" name="submit" value="ยืนยัน">
