@@ -70,22 +70,22 @@
                     $query_tbl_user = mysqli_query($conn, $selectTBLUser);
 
                     while ($row = mysqli_fetch_array($query_tbl_user)) {
-$tbl_user_cartstatus = $row['cartstatus']
+                    $tbl_user_cartstatus = $row['cartstatus']
                     ?>  
-                    <h4>สถานะอาหาร : <?php switch ($tbl_user_cartstatus) {
+                    <label>สถานะอาหาร : <?php switch ($tbl_user_cartstatus) {
                       case 1:
-                        echo "รอ";
+                        echo "รอการยืนยัน";
                         break;
                         case 2:
-                          echo "กำลัง";
+                          echo "กำลังดำเนินการ";
                           break;
                           case 3:
-                            echo "เสร็จ";
+                            echo "สำเร็จ";
                             break;
                       default:
                         # code...
                         break;
-                    } ?></h4> 
+                    } ?></label> 
                     <?php }?>
                   </div>
 
