@@ -13,16 +13,15 @@
         while ($edit_row = mysqli_fetch_array($run_edit)) {
             $id = $edit_row['id'];
             $username = $edit_row['username'];
-            $password = $edit_row['password'];
+        
         }
     }   
     // อัพเดตข้อมูล
     if (isset($_POST['submit'])) {
         $update_id = $_GET['edit_form'];
         $username = $_POST['username'];
-        $password =$_POST['password'];
-
-        $update_query = "UPDATE user SET username = '$username', password = '$password' WHERE id = '$update_id'";
+        
+        $update_query = "UPDATE user SET username = '$username' WHERE id = '$update_id'";
 
         $result = mysqli_query($conn, $update_query);
         if ($result) {
@@ -88,7 +87,7 @@
 
                     <div class="group">
                         <label >รหัสผ่าน : </label>
-                        <input type="password" name="password" value= "<?php echo $username; ?>">
+                        <input type="password" name="password">
                     </div>
 
                     <div class="group">

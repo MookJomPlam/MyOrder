@@ -41,16 +41,7 @@
               <h2>รายการที่เลือก</h2>
 
             <div class="group">
-                  <!-- <div class="group-table">
-                    <label>โต๊ะที่  :</label>
-                    <select name="table" required>
-                        <option value="">โต๊ะ</option>
-                        <option value="1">01</option>
-                        <option value="2">02</option>
-                        <option value="3">03</option>
-                        <option value="4">04</option>
-                    </select>
-                  </div> -->
+
 
                   <div class="group-location">
                   <label>ทานที่  :</label>
@@ -196,21 +187,15 @@
                               if ($querytbluser==0){?>
                             <form id="updateorder" action="updateorder.php" method="post" enctype="multipart/form-data" >
                             <input name="id" value="<?php echo $getid ?>" style ="display:none">
-                            <button
-                            name="submit"
-                            type = "submit"
-                            class="cart_ok">ยืนยัน
-                            </button>
+                            <button class="cart_ok" type = "submit" name="submit">ยืนยัน </button>
                           </from>
+
                           <?php }else if($querytbluser==1) {?>
                             <form id="cancel_order" action="cancel_order.php" method="post" enctype="multipart/form-data" >
                             <!-- <input name="status" value="1" stype ="display:none"> -->
-                            <button
-                            name="submit"
-                            type = "submit"
-                            class="cart_ok">ยกเลิก
-                            </button>
+                            <button class="cart_ok" type = "submit" name="submit">ยกเลิก </button>
                           </from>
+
                           <?php } ?>  
 
                           <?php } ?>
@@ -267,13 +252,13 @@
                   <p class = "product-price"><?php echo $p_price; ?> บาท</p>
 
                   <!-- รับค่าid url -->
-                  <form action="add_cart.php" method="post" >
+                  <form action="add_cart.php" method="post" enctype="multipart/form-data">
 
                     <input type="text" style = "display : none" name="id" value = "<?php echo $_GET['id']; ?>">   <!-- GET['id'] จาก add_c.php  -->
                     <input type="text" style = "display : none" name="p_id" value = "<?php echo $p_id; ?>">
                     <!-- <input type="text" style = "display : none" name="qty" value = "1"> กำหนดค่า qty = 1   -->
                     
-                    <button type = "sumbit" name = "submit" class = "add-to-cart-btn">
+                    <button type = "submit" name = "submit" class = "add-to-cart-btn">
                       <i class = "fas fa-shopping-cart"></i>สั่งซื้อ
                     </button>
                     
