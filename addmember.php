@@ -34,7 +34,7 @@
             
 
             $query = "INSERT INTO user (username, password, firstname, lastname, image, userlevel) 
-            VALUE ('$username', '$passwordenc', '$firstname', '$lastname', '0001.jpg', 'm')";
+            VALUE ('$username', '$passwordenc', '$firstname', '$lastname', '0001.jpg', '$userlevel')";
             $result = mysqli_query($conn, $query);
 
             if ($result) {
