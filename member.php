@@ -43,7 +43,7 @@
                         <div class="out">
                             <ul>
                                 <li>
-                                    <a href="logout.php">ออกsจากระบบ</a>
+                                    <a href="logout.php">ออกจากระบบ</a>
                                 </li>
                             </ul>
                         </div>
@@ -62,8 +62,8 @@
 
                         <div class="grid-container">
                     <?php 
-                        
-                        $select_user = "SELECT * FROM user ORDER BY 1 DESC";
+                        // ใช้ต่อจาก 66 ORDER BY 1 DESC
+                        $select_user = "SELECT * FROM user ";
                         //ประมวลผล query
                         $query_user = mysqli_query($conn, $select_user);
                         
@@ -81,16 +81,18 @@
                             
                             <div class="edit_del">
                                 <div class="edit">
-                                    <label><a href="infomember.php">ข้อมูล</a></label>
+                                    <!-- มาจาก infomember _GET id บรรทัด60 -->
+                                    <label><a href="infomember.php?id=<?php echo $id; ?>">ข้อมูล</a></label>
                                 </div>
 
                                 <div class="edit">
-                                    <label><a href="editinfo.php">แก้ไข</a></label>
+                                <!-- มาจาก editinfo.php _GET edit บรรทัด7 -->
+                                    <label><a href="editinfo.php?edit=<?php echo $id; ?>">แก้ไข</a></label>     
                                 </div>
 
                                 <div class="del">
                                     <div class="delete">
-                                        <label><a href="deleteuser.php?del=<?php echo $id; ?>"onclick="return confirm('คุณต้องการลบข้อมูลที่เลือก')">ลบ</a></label>
+                                        <label><a href="deleteuser.php?del=<?php echo $id; ?>"onclick="return confirm('คุณต้องการลบพนักงานที่เลือก')">ลบ</a></label>
                                     </div>
                                 </div>
                             </div>

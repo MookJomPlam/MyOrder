@@ -62,7 +62,31 @@
                   </div>
 
                   <div class="status">
-                      <h4>สถานะอาหาร : รอการยืนยัน</h4>
+                    <?php
+                    $get_id_from_url = $_GET['id'];
+                    
+                    $selectTBLUser = "SELECT * FROM loginadminuser.tbl_user where id=$get_id_from_url";
+                        
+                    $query_tbl_user = mysqli_query($conn, $selectTBLUser);
+
+                    while ($row = mysqli_fetch_array($query_tbl_user)) {
+                    $tbl_user_cartstatus = $row['cartstatus']
+                    ?>  
+                    <label>สถานะอาหาร : <?php switch ($tbl_user_cartstatus) {
+                      case 1:
+                        echo "รอการยืนยัน";
+                        break;
+                        case 2:
+                          echo "กำลังดำเนินการ";
+                          break;
+                          case 3:
+                            echo "สำเร็จ";
+                            break;
+                      default:
+                        # code...
+                        break;
+                    } ?></label> 
+                    <?php }?>
                   </div>
 
                   </div>
