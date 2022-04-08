@@ -125,10 +125,9 @@
                                     </td>
 
                                 <td><div class="del">
-
-                                    <a href="cancelorder.php?id=<?php echo $id; ?>" class="delete">ลบ</a>
-
-
+                                <div class="delete">
+                                    <a href="cancelorder.php?id=<?php echo $id; ?>"onclick="return confirm('คุณต้องการลบออเดอร์ที่เลือก')">ลบ</a>
+                                    </div>
                                     </div>
                                 </td>
                             </tr>

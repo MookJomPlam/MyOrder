@@ -43,7 +43,7 @@
                         <div class="out">
                             <ul>
                                 <li>
-                                    <a href="logout.php">ออกsจากระบบ</a>
+                                    <a href="logout.php">ออกจากระบบ</a>
                                 </li>
                             </ul>
                         </div>
