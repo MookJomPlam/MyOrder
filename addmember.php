@@ -32,7 +32,6 @@
         } else {
             $passwordenc = md5($password);
             
-
             $query = "INSERT INTO user (username, password, firstname, lastname, image, userlevel) 
             VALUE ('$username', '$passwordenc', '$firstname', '$lastname', '0001.jpg', '$userlevel')";
             $result = mysqli_query($conn, $query);

@@ -4,6 +4,8 @@
 
     session_start();
 
+    $u_id = $_SESSION['userid'];
+
 ?>
 
 <!DOCTYPE html>
@@ -52,7 +54,7 @@
 
                     <div class="add">
                     <!-- member_edit_info.php?edit=  -->
-                        <a href="member_edit_info.php?edit=<?php echo $id; ?>"> แก้ไขข้อมูล</a></li>
+                        <a href="member_edit_info.php?edit=<?php echo $u_id; ?>"> แก้ไขข้อมูล</a></li>
                     </div>
                     <br>
 
@@ -61,8 +63,8 @@
                     <?php   
 
                         //แก้ยังไม่เสจ เเสดงหน้าข้อมูลพนักงาน เพียง1 คน 
-                        $select_user = "SELECT * FROM user";
-
+                        $select_user = "SELECT * FROM user WHERE id =$u_id";
+                        
                         $query_user = mysqli_query($conn, $select_user);
 
                         while ($row = mysqli_fetch_array($query_user)) {

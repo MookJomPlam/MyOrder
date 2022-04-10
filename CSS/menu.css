@@ -336,6 +336,10 @@ select[name="location"] {
     
 }
 
+.button {
+    padding: 1rem 2rem;
+    background-color: var(--granite-gray);
+}
 
 
 

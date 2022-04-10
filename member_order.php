@@ -61,6 +61,8 @@
                                 <th>โต๊ะที่</th>
                                 <th>สถานะ</th>
                                 <th>รายการ</th>
+                                <th>เคลียร์</th>
+
 
                             </tr>
                                 
@@ -83,51 +85,70 @@
                                     $name = $row['name'];
                                     $cartstatus = $row['cartstatus'];
                                     
-                                
-                            ?>
-                                    <?= console_log($row); ?>
-                            <tr>
-                                    <td><?php echo $ran; ?></td>
-                                    <td><?php echo date_format($date,"H:i:s"); ?></td>
-                                    <td><?php echo $name; ?></td>
-                                    <td><?php switch ($cartstatus) {
-                                        case 1:
-                                            ?>
-                                            <?php echo "รอการยืนยัน"; ?>
-                                            <?php break; ?>
-                                            
-                                            <?php  case 2: ?>
-                                                <?php echo "ดำเนินการ"; ?>
+                                switch ($cartstatus) {
+                                    case "2":
+                                        console_log("2");
+                                        $date_a = date_format($date,"H:i:s");
+                                        echo "
+                                        <tr>
+                                            <td>$ran</td>
+                                            <td>$date_a</td>
+                                            <td>$name</td>
+                                                <td>ดำเนินการ</td>
+                                                
+                                                </td>
+                                                <td> <div class='view'>
+                                                    <label><a href='member_view.php?id=$id'>ดูรายการ</a></label>
+                                                </div>
+                                                </td>
+            
+                                                <td><div class='del'>
+                                            <div class='delete'>
+                                                <a href='clear.php?id=$id'>เคลียร์</a>
+                                                </div>
+                                                </div>
+                                        </tr>
+                                        
+                                        ";
+                                        # code...
+                                        break;
 
-                                                <?php break; ?>
+                                        case "3":
+                                            console_log("3");
+                                            $date_a = date_format($date,"H:i:s");
+                                            echo "
+                                            <tr>
+                                            <td>$ran</td>
+                                            <td>$date_a</td>
+                                            <td>$name</td>
+                                                <td>สำเร็จ</td>
+                                                
+                                                </td>
+                                                <td> <div class='view'>
+                                                    <label><a href='member_view.php?id=$id'>ดูรายการ</a></label>
+                                                </div>
+                                                </td>
+            
+                                                <td><div class='del'>
+                                            <div class='delete'>
+                                                <a href='clear.php?id=$id'>เคลียร์</a>
+                                                </div>
+                                                </div>
+                                        </tr>
 
-                                            <?php  case 3: ?>
-                                                <?php echo "สำเร็จ"; ?>
-
-                                                <?php break; ?>
-                                          <?php
-                                        default:
+                                            " ;
                                             # code...
                                             break;
-                                            ?>
-                                   <?php } ?>
-                                   <?= console_log($cartstatus); ?>
-
-                                    
-                                </td>
-                                    <td> <div class="view">
-                                        <label><a href="member_view.php?id=<?php echo $id; ?>">ดูรายการ</a></label>
-                                    </div>
-                                    </td>
-
-                               
-                            </tr>
+                                    default:
+                                    console_log("1");
+                                        # code...
+                                        break;
+                                }
+                            ?>
+                                    <?= console_log($row); ?>
+                           
                             <?php } ?>
                         </div>
-
-                        
-
-                        
 
                                    
                     </div>

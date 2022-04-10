@@ -251,19 +251,12 @@
                   <h3 class = "product-name"><?php echo $p_name; ?></h3>
                   <p class = "product-price"><?php echo $p_price; ?> บาท</p>
 
-                  <!-- รับค่าid url -->
-                  <form action="add_cart.php" method="post" enctype="multipart/form-data">
-
-                    <input type="text" style = "display : none" name="id" value = "<?php echo $_GET['id']; ?>">   <!-- GET['id'] จาก add_c.php  -->
-                    <input type="text" style = "display : none" name="p_id" value = "<?php echo $p_id; ?>">
-                    <!-- <input type="text" style = "display : none" name="qty" value = "1"> กำหนดค่า qty = 1   -->
-                    
-                    <button type = "submit" name = "submit" class = "add-to-cart-btn">
+                      <!-- _GET จาก add_cart.php  -->
+                      <button>
+                      <a href="add_cart.php?id=<?php echo $_GET['id']; ?>&p_id=<?php echo $p_id; ?>">
                       <i class = "fas fa-shopping-cart"></i>สั่งซื้อ
-                    </button>
-                    
-                  </form>
-                  
+                      </a>
+                      </button>
 
                 </div>
               </div>

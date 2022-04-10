@@ -14,14 +14,18 @@
             $id = $edit_row['id'];
             $username = $edit_row['username'];
         
+        
         }
     }   
     // อัพเดตข้อมูล
     if (isset($_POST['submit'])) {
         $update_id = $_GET['edit_form'];
         $username = $_POST['username'];
+        $password = $_POST['password'];
+
+        $passwordenc = md5($password);
         
-        $update_query = "UPDATE user SET username = '$username' WHERE id = '$update_id'";
+        $update_query = "UPDATE user SET username = '$username', password = '$passwordenc' WHERE id = '$update_id'";
 
         $result = mysqli_query($conn, $update_query);
         if ($result) {
@@ -48,7 +52,7 @@
         <div class="container">
             <nav class="navbar">
                 <h2>พนักงาน</h2>
-                <h3>ยินดีต้อนรับคุณ : </h3>
+                <h3>ยินดีต้อนรับคุณ : <?php echo $_SESSION['username']; ?></h3>
             </nav>
     </header>
 
@@ -82,12 +86,12 @@
                     
                     <div class="group">
                         <label >ชื่อผู้ใช้ : </label>
-                        <input type="text" name="username" value= "<?php echo $username; ?>">
+                        <input type="text" name="username" value="<?php echo $username; ?>">
                     </div>
 
                     <div class="group">
                         <label >รหัสผ่าน : </label>
-                        <input type="password" name="password">
+                        <input type="password" name="password" >
                     </div>
 
                     <div class="group">

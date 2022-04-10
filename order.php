@@ -52,10 +52,6 @@
 
                 <div class="section">
                 <h4>ออเดอร์อาหาร</h4>
-                <!-- SELECT o.updateAt,u.name,u.cartstatus FROM loginadminuser.orders o  -->
-                <!-- left join loginadminuser.tbl_product t on o.product_id=t.p_id  -->
-                <!-- left join loginadminuser.tbl_user u on o.user_id=u.id -->
-                <!-- group by o.user_id; -->
 
                     <div class="table_viet">
                         <table>
