@@ -32,8 +32,10 @@ h1, p {
 }
 
 a{
+    padding: 0.3rem 1rem;
     text-decoration: none;
-    color: #000;
+    color: rgb(255, 255, 255);
+    background-color: var(--black-sea);
 }
 .container{
     max-width: 1280px;

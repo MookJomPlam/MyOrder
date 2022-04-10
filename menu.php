@@ -26,7 +26,7 @@
       <div class = "container">
         <!-- navbar -->
         <nav class = "navbar">
-          <a href = "Menu.php" class = "navbar-brand">ร้านอาหารต้นไทร</a>
+          <h1 class = "navbar-brand">ร้านอาหารต้นไทร</h1>
 
           <div class = "cart">
             <button class="click">
@@ -248,15 +248,13 @@
                 </div>
             
                 <div class = "product-content">
-                  
                   <h3 class = "product-name"><?php echo $p_name; ?></h3>
                   <p class = "product-price"><?php echo $p_price; ?> บาท</p>
-                      <!-- _GET จาก add_cart.php  -->
-                      <button>
-                        <a href="add_cart.php?id=<?php echo $_GET['id']; ?>&p_id=<?php echo $p_id; ?>">
-                        <i class = "fas fa-shopping-cart"></i>สั่งซื้อ
-                        </a>
-                      </button>
+
+                    <!-- _GET จาก add_cart.php  -->
+                    <a href="add_cart.php?id=<?php echo $_GET['id']; ?>&p_id=<?php echo $p_id; ?>">
+                    สั่งซื้อ
+                    </a>
 
                 </div>
               </div>
