@@ -3,11 +3,11 @@
     session_start();
 
     require_once "connection.php";
-    
-    if (isset($_POST['submit'])) {
+    //menu บรรทัด 
+    if (isset($_GET['id'])) {
 
-        $id = $_POST['id'];
-        $p_id = $_POST['p_id'];
+        $id = $_GET['id'];
+        $p_id = $_GET['p_id'];
 
         $insert_query = "INSERT INTO cart (userid, product_id) 
                         VALUES ('$id', '$p_id')";
