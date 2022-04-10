@@ -26,6 +26,7 @@ button{
     outline: 0;
 }
 
+
 h1, p {
     color: var(--white);
 }
@@ -335,12 +336,6 @@ select[name="location"] {
     border-radius: 5px;
     
 }
-
-.button {
-    padding: 1rem 2rem;
-    background-color: var(--granite-gray);
-}
-
 
 
 

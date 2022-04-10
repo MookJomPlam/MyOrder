@@ -248,14 +248,14 @@
                 </div>
             
                 <div class = "product-content">
+                  
                   <h3 class = "product-name"><?php echo $p_name; ?></h3>
                   <p class = "product-price"><?php echo $p_price; ?> บาท</p>
-
                       <!-- _GET จาก add_cart.php  -->
                       <button>
-                      <a href="add_cart.php?id=<?php echo $_GET['id']; ?>&p_id=<?php echo $p_id; ?>">
-                      <i class = "fas fa-shopping-cart"></i>สั่งซื้อ
-                      </a>
+                        <a href="add_cart.php?id=<?php echo $_GET['id']; ?>&p_id=<?php echo $p_id; ?>">
+                        <i class = "fas fa-shopping-cart"></i>สั่งซื้อ
+                        </a>
                       </button>
 
                 </div>
