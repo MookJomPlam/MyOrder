@@ -84,68 +84,55 @@
                                     $date = date_create($updateAt);
                                     $name = $row['name'];
                                     $cartstatus = $row['cartstatus'];
-                                    
-                                switch ($cartstatus) {
-                                    case "2":
-                                        console_log("2");
-                                        $date_a = date_format($date,"H:i:s");
-                                        echo "
-                                        <tr>
-                                            <td>$ran</td>
-                                            <td>$date_a</td>
-                                            <td>$name</td>
-                                                <td>ดำเนินการ</td>
-                                                
-                                                </td>
-                                                <td> <div class='view'>
-                                                    <label><a href='member_view.php?id=$id'>ดูรายการ</a></label>
-                                                </div>
-                                                </td>
-            
-                                                <td><div class='del'>
-                                            <div class='delete'>
-                                                <a href='clear.php?id=$id'>เคลียร์</a>
-                                                </div>
-                                                </div>
-                                        </tr>
-                                        
-                                        ";
-                                        # code...
-                                        break;
 
-                                        case "3":
-                                            console_log("3");
-                                            $date_a = date_format($date,"H:i:s");
-                                            echo "
-                                            <tr>
-                                            <td>$ran</td>
-                                            <td>$date_a</td>
-                                            <td>$name</td>
-                                                <td>สำเร็จ</td>
-                                                
-                                                </td>
-                                                <td> <div class='view'>
-                                                    <label><a href='member_view.php?id=$id'>ดูรายการ</a></label>
-                                                </div>
-                                                </td>
-            
-                                                <td><div class='del'>
-                                            <div class='delete'>
-                                                <a href='clear.php?id=$id'>เคลียร์</a>
-                                                </div>
-                                                </div>
-                                        </tr>
+                                    ?>
 
-                                            " ;
+                                    <?= console_log($row); ?>
+                            <tr>
+                                    <?php switch ($cartstatus) {
+                                        case 2: 
+                                        ?>
+                                            <td><?php echo $ran; ?></td>
+                                            <td><?php echo date_format($date,"H:i:s"); ?></td>
+                                            <td><?php echo $name; ?></td>
+                                            <td><?php echo "ดำเนินการ"; ?></td>
+                                            <td> 
+                                                <div class="view">
+                                                    <label><a href="member_view.php?id=<?php echo $id; ?>">ดูรายการ</a></label>
+                                                </div>
+                                            </td>
+
+                                            <?php break; ?>
+
+                                            <?php  case 3: 
+                                                ?>
+                                                <td><?php echo $ran; ?></td>
+                                                <td><?php echo date_format($date,"H:i:s"); ?></td>
+                                                <td><?php echo $name; ?></td>
+                                                <td><?php echo "สำเร็จ"; ?></td>
+                                                <td> 
+                                                    <div class="view">
+                                                        <label><a href="member_view.php?id=<?php echo $id; ?>">ดูรายการ</a></label>
+                                                    </div>
+                                                </td>
+
+                                                <td><div class='del'>
+                                                <div class='delete'>
+                                                    <!-- _GET id จาก clear.php บรรทัด 8 -->
+                                                    <a href="clear.php?id=<?php echo $id; ?>"onclick="return confirm('คุณต้องการเคลียร์โต๊ะที่เลือก')">เคลียร์</a>
+                                                </div>
+                                                </div>
+                                                </td>
+                                                
+                                                <?php break; ?>
+                                          <?php
+                                        default:
                                             # code...
                                             break;
-                                    default:
-                                    console_log("1");
-                                        # code...
-                                        break;
-                                }
-                            ?>
-                                    <?= console_log($row); ?>
+                                            ?>
+                                   <?php } ?>
+                                    
+                                
                            
                             <?php } ?>
                         </div>

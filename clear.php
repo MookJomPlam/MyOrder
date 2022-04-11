@@ -4,7 +4,7 @@
 
     session_start();
 
-    // เคลียร์โต๊ะ
+    // เคลียร์โต๊ะ  ไปบรรทัด 122 menu.php 
     if (isset($_GET['id'])) {
         $geturlatid = $_GET ['id'];
         //วนลูป เก็บข้อมูลเก่า 

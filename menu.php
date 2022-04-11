@@ -68,7 +68,7 @@
                         echo "รอการยืนยัน";
                         break;
                         case 2:
-                          echo "กำลังดำเนินการ";
+                          echo "ดำเนินการ";
                           break;
                           case 3:
                             echo "สำเร็จ";
