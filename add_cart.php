@@ -3,7 +3,7 @@
     session_start();
 
     require_once "connection.php";
-    //menu บรรทัด 
+    //menu บรรทัด 255
     if (isset($_GET['id'])) {
 
         $id = $_GET['id'];
@@ -14,7 +14,7 @@
         $result = mysqli_query($conn, $insert_query);
         if ($result) {
             echo "<script>alert('เพิ่มรายการสำเร็จ');</script>";
-            // \<!-- GET['id'] จาก add_c.php บรรทัด18 ไป menu.php 176 -->
+            // \<!-- GET['id'] จาก add_c.php บรรทัด18 ไป menu.php  -->
             header("location: menu.php?id=$id"); 
         
         } else {

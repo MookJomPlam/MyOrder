@@ -13,7 +13,7 @@
 }
 
 .container {
-    max-width: 1280px;
+    max-width: 100%;
     margin: 0 auto;
     
 }
@@ -43,7 +43,7 @@ h2 {
 }
 
 .side {
-    height: 30.5rem;
+    height: 16.5rem;
     background-color: var(--black-sea);
     
 } 
@@ -66,11 +66,6 @@ li a{
     
 }
 
-.out {
-    margin-top: 14rem;
-    border-top: 1px solid var(--granite-gray);
-    
-}
 
 a:hover{
     background-color: var(--granite-gray);
@@ -83,5 +78,23 @@ a:hover{
     border: 1px solid var(--grey);
 }
 
-
-
+@media screen and (max-width: 480px){
+  .content_grid {
+ 
+    grid-template-columns:1fr;
+}
+  li a{
+    width: 100%;
+}
+  
+  .navbar {
+    display: flex;
+  justify-content: space-between;
+    
+  }
+ 
+  h2 {
+     margin-left: 2rem;
+    margin-right: 2rem;
+  }
+}
