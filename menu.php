@@ -192,7 +192,8 @@
 
                           <?php }else if($querytbluser==1) {?>
                             <form id="cancel_order" action="cancel_order.php" method="post" enctype="multipart/form-data" >
-                            <!-- <input name="status" value="1" stype ="display:none"> -->
+                            <input name="id" value="<?php echo $getid ?>" style ="display:none">
+
                             <button class="cart_ok" type = "submit" name="submit">ยกเลิก </button>
                           </from>
 
