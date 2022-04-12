@@ -416,7 +416,7 @@ select[name="location"] {
         transform: scaleY(0);  
         transform-origin: top;
         transition: 0.3s;
-        margin-top: 37.5rem;
+        margin-top: 18.5rem;
         right: 3rem;
         overflow-y: scroll;
         background-color: rgb(248, 246, 246);
@@ -425,7 +425,7 @@ select[name="location"] {
     .newlist { 
         width :480px;
         transform: scaleY(1);
-        margin-top: 37.5rem;
+        /* margin-top: 37.5rem; */
         right: 3rem;
     }
   
@@ -475,7 +475,7 @@ select[name="location"] {
         transform: scaleY(0);  
         transform-origin: top;
         transition: 0.3s;
-        margin-top: 37.5rem;
+        margin-top: 18.5rem;
         margin-left: 26rem;
         overflow-y: scroll;
         background-color: rgb(248, 246, 246);
@@ -484,8 +484,8 @@ select[name="location"] {
     .newlist { 
       width : 480px;
         transform: scaleY(1);
-        margin-top: 37.5rem;
-        margin-left: 20rem;
+        /* margin-top: 37.5rem;
+        margin-left: 20rem; */
       
     }
   .cart_in {
@@ -526,7 +526,7 @@ select[name="location"] {
         transform: scaleY(0);  
         transform-origin: top;
         transition: 0.3s;
-        margin-top: 37.5rem;
+        margin-top: 18.5rem;
         margin-left: 36rem;
         overflow-y: scroll;
         background-color: rgb(248, 246, 246);
@@ -534,7 +534,7 @@ select[name="location"] {
     }
     .newlist { 
         transform: scaleY(1);
-        margin-top: 37.5rem;
-        margin-left: 36rem;
+        /* margin-top: 18.5rem;
+        margin-left: 36rem; */
     }
 }
