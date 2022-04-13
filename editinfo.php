@@ -3,7 +3,7 @@
     require_once "connection.php";
 
     session_start();
-
+    // member.php   edit?= บรรทัด 89
     if(isset($_GET['edit'])) { 
         $edit_id = $_GET['edit'];
         $edit_query = "SELECT * FROM user WHERE id = '$edit_id'"; 
@@ -11,29 +11,19 @@
         //วนลูป เก็บข้อมูลเก่า 
         while ($edit_row = mysqli_fetch_array($run_edit)) {
             $id = $edit_row['id'];
-            $username = $edit_row['username'];
-            $password = $edit_row['password'];
             $firstname = $edit_row['firstname'];
             $lastname = $edit_row['lastname'];
-            $image = $edit_row['image'];
             $userlevel = $edit_row['userlevel'];
-            echo $edit_id;
         }
     }   
-
+    // อัพเดตข้อมูล
     if (isset($_POST['submit'])) {
         $update_id = $_GET['edit_form'];
-        $username = $POST['username'];
-        $password = $_POST['password'];
         $firstname = $_POST['firstname'];
         $lastname = $_POST['lastname'];
-        $image = $_FILES['image']['name'];
-        $image_tmp = $_FILES['image']['tmp_name'];
         $userlevel = $_POST['userlevel'];
 
-        move_uploaded_file($image_tmp, "image/$image");
-
-        $update_query = "UPDATE user SET username = '$username', firstname = '$firstname', lastname = '$lastname', image = '$image', userlevel = '$userlevel' WHERE id = '$update_id'";
+        $update_query = "UPDATE user SET  firstname = '$firstname', lastname = '$lastname', userlevel = '$userlevel' WHERE id = '$update_id'";
 
         $result = mysqli_query($conn, $update_query);
         if ($result) {
@@ -52,7 +42,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Member Page</title>
-    <link rel="stylesheet" href="CSS/add_editmember.css">
+    <link rel="stylesheet" href="CSS/add_editmember_m.css">
 </head>
 <body>
 
@@ -74,14 +64,9 @@
                         <li><a href="member.php">พนักงาน</a></li>
                         <li><a href="item.php">รายการอาหาร</a></li>
                         <li><a href="order.php">ออเดอร์</a></li>
+                        <li><a href="logout.php">ออกจากระบบ</a></li>
                     </ul>
-                        <div class="out">
-                            <ul>
-                                <li>
-                                    <a href="logout.php">ออกจากระบบ</a>
-                                </li>
-                            </ul>
-                        </div>
+                        
                 </div>
 
                 <div class="section">
@@ -90,47 +75,32 @@
 
                     <div class="showinfo">
 
-                <form action="edit.php?edit_form=<?php echo $id; ?>" method="post" enctype="multipart/form-data"> 
+                <form action="editinfo.php?edit_form=<?php echo $id; ?>" method="post" enctype="multipart/form-data"> 
                     
-                <!-- <div class="group">
-                        <label for="username">ชื่อผู้ใช้ : </label>
-                        <input type="text" name="username" value = "xxxxxx">
-                    </div>
-
                     <div class="group">
-                        <label for="password">รหัสผ่าน : </label>
-                        <input type="password" name="password" placeholder=" รหัส">
-                    </div> -->
-
-                    <div class="group">
-                        <label for="firstname">ชื่อจริง : </label>
-                        <input type="text" name="firstname" value = "xxxxxx">
+                        <label>ชื่อจริง : </label>
+                        <input type="text" name="firstname" value="<?php echo $firstname; ?>">
                     </div>
         
                     <div class="group">
-                        <label for="lastname">นามสกุล : </label>
-                        <input type="text" name="lastname" value = "xxxxxx">
+                        <label>นามสกุล : </label>
+                        <input type="text" name="lastname" value = "<?php echo $lastname; ?>">
                      </div>  
 
-                    <!-- <div class="group">
-                        <lable>รูปภาพ : xxxxx</lable>
-                        <input type="file" name="image" alt="No have picture">
-                    </div> -->
-
                     <div class="group">
-                        <label>ตำแหน่ง  : </label>
-                        <select name="userlevel" required>
+                        <label>ตำแหน่ง : </label>
+                        <select name="userlevel" alue = "<?php echo $userlevel; ?>">
                             <option value="">เลือกสถานะ</option>
-                            <option value="1">ผู้ดูแล</option>
-                            <option value="2">พนักงาน</option>
+                            <option value="a">ผู้ดูแล</option>
+                            <option value="m">พนักงาน</option>
                         </select>
                     </div>
 
                     <div class="group">
                         <input type="submit" name="submit" value="ยืนยัน">
                     </div>
+                    
                 </form>
-
     
 </body>
 </html>

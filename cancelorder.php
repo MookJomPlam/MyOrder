@@ -4,8 +4,7 @@
 
     session_start();
 
-    
-
+    // adminลบออเดอร์ที่ลูกค้าสั่ง
     if (isset($_GET['id'])) {
         $geturlatid = $_GET ['id'];
         //วนลูป เก็บข้อมูลเก่า 

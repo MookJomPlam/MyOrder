@@ -72,14 +72,9 @@
                             <li><a href="member.php">พนักงาน</a></li>
                             <li><a href="item.php">รายการอาหาร</a></li>    
                             <li><a href="order.php">ออเดอร์</a></li>
+                            <li><a href="logout.php">ออกจากระบบ</a> </li>
                         </ul>
-                            <div class="out">
-                                <ul>
-                                    <li>
-                                        <a href="logout.php">ออกจากระบบ</a>
-                                    </li>
-                                </ul>
-                            </div>
+                            
                     </div>
                     </div>
 
@@ -101,18 +96,9 @@
                     </div>
 
                     <div class="group">
-                        <lable>รูปภาพ :</lable>
+                        <lable for="image">รูปภาพ :</lable>
                         <input type="file" name="image" value = "<?php echo $p_image; ?>">
                     </div>
-
-                    <!-- <div class="group">
-                        <label>สถานะ  :</label>
-                        <select name="status" required>
-                            <option value="">เลือกสถานะ</option>
-                            <option value="1">พร้อม</option>
-                            <option value="2">ไม่พร้อม</option>
-                        </select>
-                    </div> -->
 
                     <div class="group">
                         <input type="submit" name="submit" value="ยืนยัน">

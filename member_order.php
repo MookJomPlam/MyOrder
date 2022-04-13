@@ -18,7 +18,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>order Page</title>
-    <link rel="stylesheet" href="CSS/order.css">
+    <link rel="stylesheet" href="CSS/order_o.css">
 </head>
 <body>
 
@@ -40,22 +40,13 @@
                         <li><a href="member_info.php">ข้อมูลส่วนตัว</a></li>
                         <li><a href="member_item.php">รายการอาหาร</a></li>
                         <li><a href="member_order.php">ออเดอร์</a></li>
+                        <li><a href="logout.php">ออกจากระบบ</a> </li>
                     </ul>
-                        <div class="out">
-                            <ul>
-                                <li>
-                                    <a href="logout.php">ออกจากระบบ</a>
-                                </li>
-                            </ul>
-                        </div>
+                      
                 </div>
 
                 <div class="section">
                 <h4>ออเดอร์อาหาร</h4>
-                <!-- SELECT o.updateAt,u.name,u.cartstatus FROM loginadminuser.orders o  -->
-                <!-- left join loginadminuser.tbl_product t on o.product_id=t.p_id  -->
-                <!-- left join loginadminuser.tbl_user u on o.user_id=u.id -->
-                <!-- group by o.user_id; -->
 
                     <div class="table_viet">
                         <table>
@@ -65,6 +56,8 @@
                                 <th>โต๊ะที่</th>
                                 <th>สถานะ</th>
                                 <th>รายการ</th>
+                                <th>เคลียร์</th>
+
 
                             </tr>
                                 
@@ -86,28 +79,46 @@
                                     $date = date_create($updateAt);
                                     $name = $row['name'];
                                     $cartstatus = $row['cartstatus'];
-                                    
-                                
-                            ?>
+
+                                    ?>
+
                                     <?= console_log($row); ?>
                             <tr>
-                                    <td><?php echo $ran; ?></td>
-                                    <td><?php echo date_format($date,"H:i:s"); ?></td>
-                                    <td><?php echo $name; ?></td>
-                                    <td><?php switch ($cartstatus) {
-                                        case 1:
-                                            ?>
-                                            <?php echo "รอการยืนยัน"; ?>
-                                            <?php break; ?>
+                                    <?php switch ($cartstatus) {
+                                        case 2: 
+                                        ?>
+                                            <td><?php echo $ran; ?></td>
+                                            <td><?php echo date_format($date,"H:i:s"); ?></td>
+                                            <td><?php echo $name; ?></td>
+                                            <td><?php echo "ดำเนินการ"; ?></td>
+                                            <td> 
+                                                <div class="view">
+                                                    <label><a href="member_view.php?id=<?php echo $id; ?>">ดูรายการ</a></label>
+                                                </div>
+                                            </td>
                                             
-                                            <?php  case 2: ?>
-                                                <?php echo "ดำเนินการ"; ?>
+                                            <?php break; ?>
 
-                                                <?php break; ?>
+                                            <?php  case 3: 
+                                                ?>
+                                                <td><?php echo $ran; ?></td>
+                                                <td><?php echo date_format($date,"H:i:s"); ?></td>
+                                                <td><?php echo $name; ?></td>
+                                                <td><?php echo "สำเร็จ"; ?></td>
+                                                <td> 
+                                                    <div class="view">
+                                                        <label><a href="member_view.php?id=<?php echo $id; ?>">ดูรายการ</a></label>
+                                                    </div>
+                                                </td>
 
-                                            <?php  case 3: ?>
-                                                <?php echo "สำเร็จ"; ?>
-
+                                                <td><div class='del'>
+                                                <div class='delete'>
+                                                    <!-- _GET id จาก clear.php บรรทัด 8 -->
+                                                    <a href="clear.php?id=<?php echo $id; ?>"onclick="return confirm('คุณต้องการเคลียร์โต๊ะที่เลือก')">เคลียร์</a>
+                                                </div>
+                                                </div>
+                                                </td>
+                                                
                                                 <?php break; ?>
                                           <?php
                                         default:
@@ -115,23 +126,11 @@
                                             break;
                                             ?>
                                    <?php } ?>
-                                   <?= console_log($cartstatus); ?>
-
                                     
-                                </td>
-                                    <td> <div class="view">
-                                        <label><a href="member_view.php?id=<?php echo $id; ?>">ดูรายการ</a></label>
-                                    </div>
-                                    </td>
-
-                               
-                            </tr>
+                                
+                           
                             <?php } ?>
                         </div>
-
-                        
-
-                        
 
                                    
                     </div>

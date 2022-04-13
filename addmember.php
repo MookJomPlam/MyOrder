@@ -32,9 +32,8 @@
         } else {
             $passwordenc = md5($password);
             
-
             $query = "INSERT INTO user (username, password, firstname, lastname, image, userlevel) 
-            VALUE ('$username', '$passwordenc', '$firstname', '$lastname', '0001.jpg', 'm')";
+            VALUE ('$username', '$passwordenc', '$firstname', '$lastname', '0001.jpg', '$userlevel')";
             $result = mysqli_query($conn, $query);
 
             if ($result) {
@@ -58,7 +57,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Admin Page</title>
-    <link rel="stylesheet" href="CSS/add_editmember.css">
+    <link rel="stylesheet" href="CSS/add_editmember_m.css">
 </head>
 <body>
 
@@ -80,14 +79,9 @@
                         <li><a href="member.php">พนักงาน</a></li>
                         <li><a href="item.php">รายการอาหาร</a></li>
                         <li><a href="order.php">ออเดอร์</a></li>
+                        <li> <a href="logout.php">ออกจากระบบ</a></li>
                     </ul>
-                        <div class="out">
-                            <ul>
-                                <li>
-                                    <a href="logout.php">ออกจากระบบ</a>
-                                </li>
-                            </ul>
-                        </div>
+                        
                 </div>
 
                 <div class="section">

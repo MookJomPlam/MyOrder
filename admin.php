@@ -39,14 +39,15 @@
                         <li><a href="member.php">พนักงาน</a></li>
                         <li><a href="item.php">รายการอาหาร</a></li>
                         <li><a href="order.php">ออเดอร์</a></li>
+                        <li> <a href="logout.php">ออกจากระบบ</a> </li>
                     </ul>
-                        <div class="out">
+                        <!-- <div class="out">
                             <ul>
                                 <li>
                                     <a href="logout.php">ออกจากระบบ</a>
                                 </li>
                             </ul>
-                        </div>
+                        </div> -->
                 </div>
 
                 <div class="showinfo">

@@ -14,7 +14,7 @@
     <title>index Page</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- icon ตะกร้า -->
-    <link rel="stylesheet" href="CSS/index.css">
+    <link rel="stylesheet" href="CSS/menu.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" integrity="sha512-+4zCK9k+qNFUR5X+cKL9EIR+ZOhtIloNl9GIKS57V1MyNsYpYcUrUeQc9vNfzsWfV28IaLL3i96P9sdNyeRssA==" crossorigin="anonymous" />
 
   </head>
@@ -26,7 +26,7 @@
       <div class = "container">
         <!-- navbar -->
         <nav class = "navbar">
-          <a href = "Menu.php" class = "navbar-brand">ร้านอาหารต้นไทร</a>
+          <h1 class = "navbar-brand">ร้านอาหารต้นไทร</h1>
 
           <div class = "cart">
             <button class="click">
@@ -41,16 +41,7 @@
               <h2>รายการที่เลือก</h2>
 
             <div class="group">
-                  <!-- <div class="group-table">
-                    <label>โต๊ะที่  :</label>
-                    <select name="table" required>
-                        <option value="">โต๊ะ</option>
-                        <option value="1">01</option>
-                        <option value="2">02</option>
-                        <option value="3">03</option>
-                        <option value="4">04</option>
-                    </select>
-                  </div> -->
+
 
                   <div class="group-location">
                   <label>ทานที่  :</label>
@@ -70,22 +61,22 @@
                     $query_tbl_user = mysqli_query($conn, $selectTBLUser);
 
                     while ($row = mysqli_fetch_array($query_tbl_user)) {
-$tbl_user_cartstatus = $row['cartstatus']
+                    $tbl_user_cartstatus = $row['cartstatus']
                     ?>  
-                    <h4>สถานะอาหาร : <?php switch ($tbl_user_cartstatus) {
+                    <label>สถานะอาหาร : <?php switch ($tbl_user_cartstatus) {
                       case 1:
-                        echo "รอ";
+                        echo "รอการยืนยัน";
                         break;
                         case 2:
-                          echo "กำลัง";
+                          echo "ดำเนินการ";
                           break;
                           case 3:
-                            echo "เสร็จ";
+                            echo "สำเร็จ";
                             break;
                       default:
                         # code...
                         break;
-                    } ?></h4> 
+                    } ?></label> 
                     <?php }?>
                   </div>
 
@@ -196,21 +187,16 @@ $tbl_user_cartstatus = $row['cartstatus']
                               if ($querytbluser==0){?>
                             <form id="updateorder" action="updateorder.php" method="post" enctype="multipart/form-data" >
                             <input name="id" value="<?php echo $getid ?>" style ="display:none">
-                            <button
-                            name="submit"
-                            type = "submit"
-                            class="cart_ok">ยืนยัน
-                            </button>
+                            <button class="cart_ok" type = "submit" name="submit">ยืนยัน </button>
                           </from>
+
                           <?php }else if($querytbluser==1) {?>
                             <form id="cancel_order" action="cancel_order.php" method="post" enctype="multipart/form-data" >
-                            <!-- <input name="status" value="1" stype ="display:none"> -->
-                            <button
-                            name="submit"
-                            type = "submit"
-                            class="cart_ok">ยกเลิก
-                            </button>
+                            <input name="id" value="<?php echo $getid ?>" style ="display:none">
+
+                            <button class="cart_ok" type = "submit" name="submit">ยกเลิก </button>
                           </from>
+
                           <?php } ?>  
 
                           <?php } ?>
@@ -266,19 +252,10 @@ $tbl_user_cartstatus = $row['cartstatus']
                   <h3 class = "product-name"><?php echo $p_name; ?></h3>
                   <p class = "product-price"><?php echo $p_price; ?> บาท</p>
 
-                  <!-- รับค่าid url -->
-                  <form action="add_cart.php" method="post" >
-
-                    <input type="text" style = "display : none" name="id" value = "<?php echo $_GET['id']; ?>">   <!-- GET['id'] จาก add_c.php  -->
-                    <input type="text" style = "display : none" name="p_id" value = "<?php echo $p_id; ?>">
-                    <!-- <input type="text" style = "display : none" name="qty" value = "1"> กำหนดค่า qty = 1   -->
-                    
-                    <button type = "sumbit" name = "submit" class = "add-to-cart-btn">
-                      <i class = "fas fa-shopping-cart"></i>สั่งซื้อ
-                    </button>
-                    
-                  </form>
-                  
+                    <!-- _GET จาก add_cart.php  -->
+                    <a href="add_cart.php?id=<?php echo $_GET['id']; ?>&p_id=<?php echo $p_id; ?>">
+                    สั่งซื้อ
+                    </a>
 
                 </div>
               </div>
@@ -294,14 +271,13 @@ $tbl_user_cartstatus = $row['cartstatus']
       <div class = "footer-banner">
         <div class = "container">
           <h2> ติดต่อ </h2>
-          <p class = "text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Maiores est quod maxime 
-            nisi possimus corporis qui aliquid molestias sit iusto itaque, cum delectus tempore, 
-            distinctio velit. Repellat reiciendis suscipit quidem aliquid ipsam, nemo minus repudiandae 
-            quas eligendi natus voluptate nostrum? 
-            <br>
-            โทร : 099-8765432
-
-          </p>
+            <p class = "text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Maiores est quod maxime 
+              nisi possimus corporis qui aliquid molestias sit iusto itaque, cum delectus tempore, 
+              distinctio velit. Repellat reiciendis suscipit quidem aliquid ipsam, nemo minus repudiandae 
+              quas eligendi natus voluptate nostrum? 
+              <br>
+              โทร : 099-8765432
+            </p>
         </div>
       </div>
 

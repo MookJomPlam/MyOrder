@@ -4,6 +4,8 @@
 
     session_start();
 
+    $u_id = $_SESSION['userid'];
+
 ?>
 
 <!DOCTYPE html>
@@ -21,7 +23,7 @@
         <div class="container">
             <nav class="navbar">
                 <h2>พนักงาน</h2>
-                <h3>ยินดีต้อนรับคุณ :  </h3>
+                <h3>ยินดีต้อนรับคุณ : <?php echo $_SESSION['username']; ?> </h3>
             </nav>
     </header>
 
@@ -51,53 +53,52 @@
                 <hr>
 
                     <div class="add">
-                        <a href="member_edit_info.php"> แก้ไขข้อมูล</a></li>
+                    <!-- member_edit_info.php?edit=  -->
+                        <a href="member_edit_info.php?edit=<?php echo $u_id; ?>"> แก้ไขข้อมูล</a></li>
                     </div>
                     <br>
 
-
                         <div class="section">
 
-                            <form action="edit.php?edit_form=<?php echo $id; ?>" method="post" enctype="multipart/form-data"> 
-                                    
-                                <div class="group">
-                                        <label for="username">ชื่อผู้ใช้ : xxxxx</label>
-                                        <!-- <input type="text" name="username" value = "<?php echo $username; ?>"> -->
-                                    </div>
+                    <?php   
 
-                                    <!-- <div class="group">
-                                        <label for="password">รหัสผ่าน :</label>
-                                        <input type="password" name="password" placeholder=" รหัส">
-                                    </div> -->
+                        //แก้ยังไม่เสจ เเสดงหน้าข้อมูลพนักงาน เพียง1 คน 
+                        $select_user = "SELECT * FROM user WHERE id =$u_id";
+                        
+                        $query_user = mysqli_query($conn, $select_user);
 
-                                    <div class="group">
-                                        <label for="firstname">ชื่อจริง :xxxxxx </label>
-                                        <!-- <input type="text" name="firstname" value = "<?php echo $firstname; ?>"> -->
-                                    </div>
+                        while ($row = mysqli_fetch_array($query_user)) {
+                            $username = $row['username'];
+                            $firstname = $row['firstname'];
+                            $lastname = $row['lastname'];
+                            $userlevel = $row['userlevel'];
 
-                                    <div class="group">
-                                        <label for="lastname">นามสกุล : xxxxxx </label>
-                                        <!-- <input type="text" name="lastname" value = "<?php echo $lastname; ?>"> -->
-                                    </div>
+                    ?>
 
-                                    <!-- <div class="group">
-                                        <lable>รูปภาพ :</lable>
-                                        <input type="file" name="image" alt="No have picture">
-                                    </div> -->
+                        <div class="group">
 
-                                    <div class="group">
-                                        <label>ตำแหน่ง  : m </label>
-                                        <!-- <select name="userlevel" required>
-                                            <option value="">เลือกสถานะ</option>
-                                            <option value="1">ผู้ดูแล</option>
-                                            <option value="2">พนักงาน</option>
-                                        </select> -->
-                                    </div>
+                                <label name="username">ชื่อผู้ใช้ : <?php echo $username; ?></label>
+                            </div>
 
-                                    <!-- <div class="group">
-                                        <input type="submit" name="submit" value="ยืนยัน">
-                                    </div> -->
-                            </form>
+                            <div class="group">
+                                <label name="firstname">ชื่อจริง : <?php echo $firstname; ?> </label>
+                            </div>
+
+                            <div class="group">
+                                <label name="lastname">นามสกุล : <?php echo $lastname; ?> </label>
+                            </div>
+
+                            <!-- <div class="group">
+                                <lable>รูปภาพ :</lable>
+                                <input type="file" name="image" alt="No have picture">
+                            </div> -->
+
+                            <div class="group">
+                                <label name="userlevel">ตำแหน่ง  : <?php echo $userlevel; ?> </label>
+                            </div>
+
+                <?php } ?>
+
                         </div>
                         
 
@@ -106,3 +107,4 @@
     
 </body>
 </html>
+
