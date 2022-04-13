@@ -17,7 +17,6 @@
             $p_name = $edit_row['p_name'];
             $p_price = $edit_row['p_price'];
             $p_image = $edit_row['p_image'];
-            echo $edit_id;
         }
     }
 
