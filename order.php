@@ -18,7 +18,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>order Page</title>
-    <link rel="stylesheet" href="CSS/order.css">
+    <link rel="stylesheet" href="CSS/order_o.css">
 </head>
 <body>
 
@@ -40,14 +40,9 @@
                         <li><a href="member.php">พนักงาน</a></li>
                         <li><a href="item.php">รายการอาหาร</a></li>
                         <li><a href="order.php">ออเดอร์</a></li>
+                        <li><a href="logout.php">ออกจากระบบ</a></li>
                     </ul>
-                        <div class="out">
-                            <ul>
-                                <li>
-                                    <a href="logout.php">ออกจากระบบ</a>
-                                </li>
-                            </ul>
-                        </div>
+                        
                 </div>
 
                 <div class="section">
@@ -58,7 +53,7 @@
                             <tr>
                                 <th>ลำดับ</th>
                                 <th>เวลา</th>
-                                <th>โต๊ะที่</th>
+                                <th>โต๊ะ</th>
                                 <th>สถานะ</th>
                                 <th>รายการ</th>
                                 <th>ลบรายการ</th>
@@ -93,7 +88,7 @@
                                     <td><?php switch ($cartstatus) {
                                         case 1:
                                             ?>
-                                            <?php echo "รอการยืนยัน"; ?>
+                                            <?php echo "รอยืนยัน"; ?>
                                             <?php break; ?>
                                             
                                             <?php  case 2: ?>

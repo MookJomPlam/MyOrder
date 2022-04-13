@@ -79,66 +79,59 @@ a:hover{
     border: 1px solid var(--grey);
 }
 
-.section h4 {
+/* .section h4 {
     font-size: 1.5rem;
     margin: 1rem 40%;
-}
+} */
 
 hr {
     opacity: 0.8;
     margin-bottom: 1rem;
 }
 
-.add a{
-    margin-left: 1rem;
-    text-decoration: none;
-    font-size: 1rem;
-    background-color: var(--black-sea);
-    color: var(--white);
-    padding: 0.5rem 1rem;
-    border-radius: 5px;
+.section strong {
+    font-size: 1.5rem;
+    padding-left: 1rem;
+    padding-bottom: 1rem;
+    margin: 1rem 1rem 1rem 1rem;
 }
 
-img {
-    width: 8rem;
-    height: 8rem;  
-    margin-bottom: 0.5rem;
-    border-radius: 5px;
+.section {
+    margin: 1rem 0;
+    
+}
+hr {
+    opacity: 0.8;
+    margin: 1rem 0;
 }
 
-.grid-container {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr;
-  }
 
-.grid-item {
-    margin: 0.5rem;
-    padding: 10px;
-    font-size: 1rem;
+.table_viet {
+    margin: 0.5rem 0rem;
     text-align: center;
-    border: 1px solid var(--grey);
+}
+.table_viet th{
+    width: 18rem;
+    font-size: 1.1rem;
+    padding: 0.6rem 2rem;
+    border: 1px solid var(--granite-gray);
     border-radius: 5px;
 }
-
-p {
-    margin-bottom: 1rem;
-    line-height: 0.5rem;
+.table_viet td{
+    font-size: 1.1rem;
+    padding: 1.5rem 2rem;
+    border-bottom: 1px solid var(--grey);
 }
 
-.edit_del {
-    display: flex;
-    justify-content: space-between;
-    margin: 0 1rem;
-}
 
-.edit a{
+
+.view a{
     text-decoration: none;
     font-size: 1rem;
     background-color: var(--black-sea);
     color: var(--white);
     padding: 0.5rem 1rem;
     border-radius: 5px;
-    margin: 0.1rem;
 }
 
 .del a{
@@ -148,40 +141,93 @@ p {
     color: var(--white);
     padding: 0.5rem 0.5rem;
     border-radius: 5px;
-    margin-left: 0.1rem;
+}
+
+.ok{
+    margin-top: 1rem;
+    padding-left: 25rem;
+
+}
+.ok a{
+    text-decoration: none;
+    font-size: 1rem;
+    background-color: var(--black-sea);
+    color: var(--white);
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
 }
 
 @media screen and (max-width: 480px){
-  .content_grid {
-    grid-template-columns:1fr;
-}
-  li a{
-    width: 100%;
-}
-  
-  .navbar {
-    display: flex;
-  justify-content: space-between;
-    
-  }
- 
-  h2 {
-     margin-left: 2rem;
+
+    header{
+    padding: 0.5rem;
+    }
+    h2 {
+    margin-left: 2rem;
     margin-right: 2rem;
-  }
-  
-  .grid-container {
-    display: grid;
-    grid-template-columns: 1fr;
-  }
-  
-  .edit_del {
-    margin: 0 3rem;
-}
-  
-  
- .grid-item {
-    margin: 0.5rem 1rem;
-  }
-  
+    font-size: 20px;
+    }
+
+    h3 {
+    font-size: 16px;
+    }
+
+    .content{
+    padding: 0.5rem;
+
+    }
+    .content_grid {
+
+    grid-template-columns:1fr;
+    }
+
+    .side{
+    height: 13rem
+    }
+
+    li a{
+    width: 100%;
+    padding: 0.7rem;
+    font-size: 14px;
+    }
+    /* .navbar {
+    display: flex;
+    justify-content: space-between;
+
+    } */
+
+    /* .showinfo img {
+        width: 100% ;
+        height: 10rem;
+    }
+         */
+    .section strong{
+    font-size: 16px;
+    margin: 0.5rem;
+    text-align: center;
+    }
+
+
+    hr {
+        margin-bottom: 0.5rem;
+    }
+
+    .table_viet th{
+        font-size: 16px;
+        padding: 0.5rem 0rem;
+    }
+    .table_viet td{
+        font-size: 16px;
+        padding: 0.8rem 0rem;
+    }
+    
+
+    .ok{
+        margin-top: 0.7rem;
+        padding-left: 13rem;
+    
+    }
+    .ok a{
+        font-size: 13px;
+    }
 }

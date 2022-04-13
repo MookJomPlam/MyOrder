@@ -100,7 +100,7 @@ hr {
 }
 
 img {
-    width: 10rem;
+    width: 8rem;
     height: 8rem;  
     margin-bottom: 0.5rem;
     border-radius: 5px;
@@ -128,7 +128,7 @@ p {
 .edit_del {
     display: flex;
     justify-content: space-between;
-    margin: 0 2rem;
+    margin: 0 1rem;
 }
 
 .edit a{
@@ -151,44 +151,103 @@ p {
     margin-left: 0.1rem;
 }
 
-@media screen and (max-width: 480px){
-  .content_grid {
-    grid-template-columns:1fr;
-}
-  li a{
-    width: 100%;
-}
-  
-  .navbar {
-    display: flex;
-  justify-content: space-between;
-    
-  }
- 
-  h2 {
-     margin-left: 2rem;
+/* @media screen and (max-width: 480px){ */
+    @media screen and (max-width: 480px){
+
+    header{
+    padding: 0.5rem;
+    }
+    h2 {
+    margin-left: 2rem;
     margin-right: 2rem;
-  }
-  
+    font-size: 20px;
+    }
+
+    h3 {
+    font-size: 16px;
+    }
+
+    .content{
+    padding: 0.5rem;
+
+    }
+    .content_grid {
+
+    grid-template-columns:1fr;
+    }
+
+    .side{
+    height: 13rem
+    }
+
+    li a{
+    width: 100%;
+    padding: 0.7rem;
+    font-size: 14px;
+    }
+    /* .navbar {
+    display: flex;
+    justify-content: space-between;
+
+    } */
+
+    /* .showinfo img {
+        width: 100% ;
+        height: 10rem;
+    }
+         */
+    .section h4 {
+    font-size: 20px;
+    margin: 0.5rem;
+    text-align: center;
+}
+
+
+hr {
+    margin-bottom: 0.5rem;
+}
+
+.add a{
+    font-size: 16px;
+}
+
+
   .grid-container {
     display: grid;
-    grid-template-columns: 1fr;
+    grid-template-columns: 1fr 1fr;
   }
   
   .edit_del {
-    margin: 0 4rem;
+    margin: 0 0.5rem;
 }
-
-  .section h4{
-    font-size: 1.2rem;
-    margin: 1rem;
-    text-align: center;
-    
+  
+  
+ .grid-item {
+    font-size: 14px;
+     width:10rem;
+    margin: 0.5rem;
   }
 
-  img {
-    width: 13rem;
-    
+  .grid-item img {
+      width: 4rem;
+      height: 4rem;
   }
-                    
+
+  .grid-item p {
+    font-size: 14px;
+
+    }
+
+    .edit a{
+        font-size: 10px;
+        padding: 0.5rem;
+
+    }
+    .del a{
+        font-size: 10px;
+        padding: 0.5rem;
+
+    }
+
+  
 }

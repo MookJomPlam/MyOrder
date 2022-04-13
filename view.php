@@ -17,7 +17,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>view Page</title>
-    <link rel="stylesheet" href="CSS/view.css">
+    <link rel="stylesheet" href="CSS/view_v.css">
 </head>
 <body>
 
@@ -39,14 +39,9 @@
                         <li><a href="member.php">พนักงาน</a></li>
                         <li><a href="item.php">รายการอาหาร</a></li>
                         <li><a href="order.php">ออเดอร์</a></li>
+                        <li> <a href="logout.php">ออกจากระบบ</a></li>
                     </ul>
-                        <div class="out">
-                            <ul>
-                                <li>
-                                    <a href="logout.php">ออกจากระบบ</a>
-                                </li>
-                            </ul>
-                        </div>
+                        
                 </div>
 
             <div class="section">  
@@ -66,7 +61,7 @@
                             $info3 = $lol['status'];
 
                         ?>
-                        <strong>ออเดอร์อาหาร โต๊ะที่ :<?php echo $url;?> </strong> 
+                        <strong>ออเดอร์โต๊ะที่ :<?php echo $url;?> </strong> 
                         <strong> สถานะ : <?php switch ($info3) {
                                         case 1:   ?>
                                             <?php echo "ร้าน"; ?>

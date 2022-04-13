@@ -18,7 +18,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>order Page</title>
-    <link rel="stylesheet" href="CSS/order.css">
+    <link rel="stylesheet" href="CSS/order_o.css">
 </head>
 <body>
 
@@ -40,14 +40,9 @@
                         <li><a href="member_info.php">ข้อมูลส่วนตัว</a></li>
                         <li><a href="member_item.php">รายการอาหาร</a></li>
                         <li><a href="member_order.php">ออเดอร์</a></li>
+                        <li><a href="logout.php">ออกจากระบบ</a> </li>
                     </ul>
-                        <div class="out">
-                            <ul>
-                                <li>
-                                    <a href="logout.php">ออกจากระบบ</a>
-                                </li>
-                            </ul>
-                        </div>
+                      
                 </div>
 
                 <div class="section">
