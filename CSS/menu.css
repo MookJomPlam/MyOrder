@@ -562,8 +562,8 @@ select[name="location"] {
 }
 
 }
-
-@media screen and (min-width: 992px){
+/* min-width: 992px */
+@media screen and (min-width: 730px){
     .navbar{
         padding: 1.5rem 6rem;
     }
