@@ -78,7 +78,6 @@ header .container{
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 1.5rem 0;
     background: var(--black-sea);
     z-index: 999;
 }
@@ -202,7 +201,7 @@ footer{
     background-color: var(--black-sea);
 }
 .footer-banner{
-    background: linear-gradient(rgba(214, 1, 1, 0.438), rgba(0, 0, 0, 0.4)), url(images/footer-banner.jpg) center/cover no-repeat;
+    background: linear-gradient(rgba(214, 1, 1, 0.438), rgba(0, 0, 0, 0.4));
     padding: 3rem 0;
 }
 .footer-banner{
@@ -311,13 +310,13 @@ table{
 }
 
 
-select[name="table"] {
+/* select[name="table"] {
     width: 8rem;
     height: 2rem;
     font-size: 1.1rem;
     border-radius: 5px;
     border: 1px solid var(--granite-gray);
-}
+} */
 
 select[name="location"] {
     width: 8rem;
@@ -345,7 +344,7 @@ select[name="location"] {
 
 /* Media Queries for responsiveness */
 
-@media screen and (min-width: 300px){
+@media screen and (max-width: 480px){
     /* header */
     .btns button{
         display: inline-block;
@@ -353,6 +352,31 @@ select[name="location"] {
     .btns button:first-child{
         margin-right: 0.4rem;
     }
+    .navbar{
+        padding: 0.5rem 1rem;
+        
+    }
+
+    .navbar-brand{
+        font-size: 20px;
+    }
+
+    header{  
+        height: 380px;
+    }
+
+    h1 {
+        font-size: 20px;
+    }
+
+    .banner > div{
+        margin: 1rem 0;
+    }
+
+    .banner .text{
+        font-size: 16px;
+    }
+    
 
     .product-list{
         display: grid;
@@ -380,29 +404,129 @@ select[name="location"] {
         
        
     }
-  table{
-    border-collapse: collapse;
-    width: 100%;
-}
-  .table_viet th{
-   max-width : 100%;
-}
 
-.table_viet td {
-  max-width : 100%;
-  }
-  
+    table{
+        border-collapse: collapse;
+        width: 100%;
+    }
+    .table_viet th{
+    max-width : 100%;
+    font-size: 16px;
+    }
+
+    .table_viet td {
+    max-width : 100%;
+    font-size: 16px;
+    }
+    
+    .products{
+        padding: 0rem;
+    }
+
+    h2 {
+        font-size: 16px;
+    }
+
+    .products h2{
+        font-size: 20px;
+        margin-bottom: 0rem;
+    }
+
+    .product-item{
+        margin: 0rem;
+    }
+
+    .product-img img {
+        height: 8rem;
+    }
+
+    .product-content{
+        padding-top: 0.3rem;
+        padding-bottom: 1rem;
+    }
+
+    .product-name{
+        font-size: 16px;
+    }
+
+    .product-price{
+        font-size: 16px;
+        /* margin-bottom: 5px; */
+    }
+
+    .group {
+        padding: 0.3rem 1rem;
+        font-size: 16px;
+    }
+
+    /* select[name="table"] {
+        font-size: 15px;
+    } */
+
+    select[name="location"] {
+        width: 5.5rem;
+        font-size: 15px;
+    }
+
+    .cart-total{
+        padding: 0.3rem 3.5rem;
+    }
+
+    .cart-total h3{
+        margin-right: 1rem;
+        font-size: 16px;
+    }
+
+    .footer-banner h2{
+        font-size: 20px;
+    }
+
+    .footer-banner{
+        padding: 0.5rem 0;
+    }
+
+    .text{
+        font-size: 16px;
+        margin: 0rem;
+    }
+
+    .social-icons{
+        padding: 0.5rem 0;
+    }
+
 }
 
 @media screen and (min-width: 680px){
     .navbar{
         padding: 1.5rem 3rem;
     }
+
+    /* .navbar-brand{
+        font-size: 1.5rem;
+    } */
+
     .cart-container{
         width: 480px;
         left: auto;
         right: 3rem;
     }
+
+    /* header{  
+        height: 500px;
+    } */
+/* 
+    h1 {
+        font-size: 1.5rem;
+    }
+
+    .banner > div{
+        margin: 3rem 0;
+    }
+
+    .banner .text{
+        font-size: 1rem;
+    } */
+
     .product-list{
         display: grid;
         grid-template-columns: repeat(2, 1fr);
@@ -443,9 +567,23 @@ select[name="location"] {
     .navbar{
         padding: 1.5rem 6rem;
     }
+
+    /* .navbar-brand{
+        font-size: 1.5rem;
+    }
+
     .cart-container{
         right: 6rem ;
     }
+
+    h1 {
+        font-size: 1.5rem;
+    }
+
+    .banner .text{
+        font-size: 1rem;
+    } */
+
     .banner{
         padding-top: 0;
         display: grid;
@@ -510,12 +648,23 @@ select[name="location"] {
     .navbar{
         padding: 1.5rem 14rem;
     }
+
+    /* .navbar-brand{
+        font-size: 1.5rem;
+    }
+
     .cart-container{
         right: 14rem;
-    }
-    .banner-content h1{
+    } */
+
+    h1 {
         font-size: 3.5rem;
     }
+
+    /* .banner .text{
+        font-size: 1.2rem;
+    }  */
+
     .product-list{
         grid-template-columns: repeat(4, 1fr);
     }

@@ -271,14 +271,13 @@
       <div class = "footer-banner">
         <div class = "container">
           <h2> ติดต่อ </h2>
-          <p class = "text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Maiores est quod maxime 
-            nisi possimus corporis qui aliquid molestias sit iusto itaque, cum delectus tempore, 
-            distinctio velit. Repellat reiciendis suscipit quidem aliquid ipsam, nemo minus repudiandae 
-            quas eligendi natus voluptate nostrum? 
-            <br>
-            โทร : 099-8765432
-
-          </p>
+            <p class = "text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Maiores est quod maxime 
+              nisi possimus corporis qui aliquid molestias sit iusto itaque, cum delectus tempore, 
+              distinctio velit. Repellat reiciendis suscipit quidem aliquid ipsam, nemo minus repudiandae 
+              quas eligendi natus voluptate nostrum? 
+              <br>
+              โทร : 099-8765432
+            </p>
         </div>
       </div>
 
