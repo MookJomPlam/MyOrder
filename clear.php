@@ -7,7 +7,7 @@
     // เคลียร์โต๊ะ  ไปบรรทัด 122 menu.php 
     if (isset($_GET['id'])) {
         $geturlatid = $_GET ['id'];
-        //วนลูป เก็บข้อมูลเก่า
+        
         $update_query = "DELETE FROM orders  WHERE user_id=$geturlatid";
         $update_query2 = "DELETE FROM cart  WHERE userid=$geturlatid";
         $result = mysqli_query($conn, $update_query);

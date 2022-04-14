@@ -4,7 +4,9 @@
 
     session_start();
 
-    $u_id = $_SESSION['userid'];
+    if (!isset($_SESSION['userid'])) {
+        header("location: index.php");
+    }
 
 ?>
 
@@ -61,8 +63,9 @@
                         <div class="section">
 
                     <?php   
+                        //ตัวแปร 
+                        $u_id = $_SESSION['userid'];
 
-                        //แก้ยังไม่เสจ เเสดงหน้าข้อมูลพนักงาน เพียง1 คน 
                         $select_user = "SELECT * FROM user WHERE id =$u_id";
                         
                         $query_user = mysqli_query($conn, $select_user);
@@ -87,11 +90,6 @@
                             <div class="group">
                                 <label name="lastname">นามสกุล : <?php echo $lastname; ?> </label>
                             </div>
-
-                            <!-- <div class="group">
-                                <lable>รูปภาพ :</lable>
-                                <input type="file" name="image" alt="No have picture">
-                            </div> -->
 
                             <div class="group">
                                 <label name="userlevel">ตำแหน่ง  : <?php echo $userlevel; ?> </label>

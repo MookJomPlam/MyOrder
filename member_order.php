@@ -7,7 +7,7 @@
 
     if (!$_SESSION['userid']) {
         header("Location: index.php");
-    } else {
+    }
 
 ?>
 
@@ -142,4 +142,3 @@
     
 </body>
 </html>
-<?php } ?>

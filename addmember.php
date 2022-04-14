@@ -4,13 +4,10 @@
 
     require_once "connection.php";
 
-    // if (!$_SESSION['userid']) {
-    //     header("Location: index.php");
-    // } else {
-        // บรรทัดสดท้ายมี <?php } > ของบรรทัก8
-
-
-
+    if (!$_SESSION['userid']) {
+        header("Location: index.php");
+    }
+       
     if (isset($_POST['submit'])) {
 
         $username = $_POST['username'];

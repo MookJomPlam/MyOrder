@@ -3,6 +3,11 @@
     require_once "connection.php";
 
     session_start();
+
+    if (!isset($_SESSION['userid'])) {
+        header("location: index.php");
+    }
+    
     // member.php   edit?= บรรทัด 89
     if(isset($_GET['edit'])) { 
         $edit_id = $_GET['edit'];

@@ -4,6 +4,10 @@
 
     session_start();
 
+    if (!isset($_SESSION['userid'])) {
+        header("location: index.php");
+    }
+
     //   edit?= 
     if(isset($_GET['edit'])) { 
         $edit_id = $_GET['edit'];

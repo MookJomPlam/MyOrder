@@ -6,7 +6,8 @@
 
     if (!$_SESSION['userid']) {
         header("Location: index.php");
-    } 
+    }
+
     if(isset($_GET['edit'])) { 
         $edit_id = $_GET['edit'];
         $edit_query = "SELECT * FROM tbl_product WHERE p_id = '$edit_id'"; 

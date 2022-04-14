@@ -6,8 +6,7 @@
 
     if (!$_SESSION['userid']) {
         header("Location: index.php");
-    } else {
-
+    }
 ?>
 
 <!DOCTYPE html>
@@ -103,4 +102,3 @@
     
 </body>
 </html>
-<?php } ?>
