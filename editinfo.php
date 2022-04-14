@@ -55,7 +55,7 @@
         <div class="container">
             <nav class="navbar">
                 <h2>Admin</h2>
-                <h3>ยินดีต้อนรับคุณ : </h3>
+                <h3>ยินดีต้อนรับคุณ : <?php echo $_SESSION['username']; ?></h3>
             </nav>
     </header>
 
