@@ -4,10 +4,10 @@
 
     require_once "connection.php";
 
-    if (!isset($_SESSION['userid'])) {
+    if (!$_SESSION['userid']) {
         header("location: login.php");
-
     }
+
     
     if (isset($_POST['submit'])) {
 
@@ -60,14 +60,9 @@
                             <li><a href="member.php">พนักงาน</a></li>
                             <li><a href="item.php">รายการอาหาร</a></li>
                             <li><a href="order.php">ออเดอร์</a></li>
+                            <li> <a href="logout.php">ออกจากระบบ</a> </li>
                         </ul>
-                            <div class="out">
-                                <ul>
-                                    <li>
-                                        <a href="logout.php">ออกจากระบบ</a>
-                                    </li>
-                                </ul>
-                            </div>
+                            
                     </div>
                     </div>
 

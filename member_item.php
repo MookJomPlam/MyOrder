@@ -4,6 +4,10 @@
 
     session_start();
 
+    if (!isset($_SESSION['userid'])) {
+        header("location: login.php");
+    }
+
 ?>
 
 <!DOCTYPE html>
@@ -21,7 +25,7 @@
         <div class="container">
             <nav class="navbar">
                 <h2>พนักงาน</h2>
-                <h3>ยินดีต้อนรับคุณ : </h3>
+                <h3>ยินดีต้อนรับคุณ : <?php echo $_SESSION['username']; ?> </h3>
             </nav>
     </header>
 
@@ -77,7 +81,7 @@
                                 <img src="image/<?php echo $p_image; ?>" alt="ไม่พบรูปภาพ">
                                 <p>เมนู : <?php echo $p_name; ?></p>
                                 <p >ราคา : <?php echo $p_price ?></p>
-                                <div class="edit_del">
+                                <!-- <div class="edit_del"> -->
                                     <!-- <div class="edit">
                                         <label><a href="edit.php?edit=<?php echo $p_id; ?>"> แก้ไขเมนู</a></label>
                                     </div> -->
@@ -86,7 +90,7 @@
                                         <label><a href="delete.php?del=<?php echo $p_id; ?>"onclick="return confirm('คุณต้องการลบข้อมูลที่เลือก')">ลบ</a></label>
                                     </div>
                                     </div> -->
-                                </div>
+                                <!-- </div> -->
                             </div>
                             <?php } ?>
                         </div>

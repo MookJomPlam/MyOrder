@@ -6,8 +6,8 @@
     session_start();
 
     if (!$_SESSION['userid']) {
-        header("Location: index.php");
-    } else {
+        header("Location: login.php");
+    }
 
 ?>
 
@@ -40,29 +40,20 @@
                         <li><a href="member.php">พนักงาน</a></li>
                         <li><a href="item.php">รายการอาหาร</a></li>
                         <li><a href="order.php">ออเดอร์</a></li>
+                        <li><a href="logout.php">ออกจากระบบ</a></li>
                     </ul>
-                        <div class="out">
-                            <ul>
-                                <li>
-                                    <a href="logout.php">ออกจากระบบ</a>
-                                </li>
-                            </ul>
-                        </div>
+                        
                 </div>
 
                 <div class="section">
                 <h4>ออเดอร์อาหาร</h4>
-                <!-- SELECT o.updateAt,u.name,u.cartstatus FROM loginadminuser.orders o  -->
-                <!-- left join loginadminuser.tbl_product t on o.product_id=t.p_id  -->
-                <!-- left join loginadminuser.tbl_user u on o.user_id=u.id -->
-                <!-- group by o.user_id; -->
 
                     <div class="table_viet">
                         <table>
                             <tr>
                                 <th>ลำดับ</th>
                                 <th>เวลา</th>
-                                <th>โต๊ะที่</th>
+                                <th>โต๊ะ</th>
                                 <th>สถานะ</th>
                                 <th>รายการ</th>
                                 <th>ลบรายการ</th>
@@ -97,7 +88,7 @@
                                     <td><?php switch ($cartstatus) {
                                         case 1:
                                             ?>
-                                            <?php echo "รอการยืนยัน"; ?>
+                                            <?php echo "รอยืนยัน"; ?>
                                             <?php break; ?>
                                             
                                             <?php  case 2: ?>
@@ -125,9 +116,9 @@
                                     </td>
 
                                 <td><div class="del">
-
-                                    <a href="cancelorder.php?id=<?php echo $id; ?>" class="delete">-ลบ</a>
-                                   
+                                <div class="delete">
+                                    <a href="cancelorder.php?id=<?php echo $id; ?>"onclick="return confirm('คุณต้องการลบออเดอร์ที่เลือก')">ลบ</a>
+                                    </div>
                                     </div>
                                 </td>
                             </tr>
@@ -148,4 +139,3 @@
     
 </body>
 </html>
-<?php } ?>

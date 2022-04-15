@@ -3,7 +3,10 @@
     require_once "connection.php";
 
     session_start();
-
+    
+    if (!isset($_SESSION['userid'])) {
+        header("location: login.php");
+    }
 
 ?>
 
@@ -14,7 +17,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Admin Page</title>
-    <link rel="stylesheet" href="CSS/admin.css">
+    <link rel="stylesheet" href="CSS/admin_a.css">
 </head>
 <body>
 
@@ -22,7 +25,7 @@
         <div class="container">
             <nav class="navbar">
                 <h2>พนักงาน</h2>
-                <h3>ยินดีต้อนรับคุณ : </h3>
+                <h3>ยินดีต้อนรับคุณ : <?php echo $_SESSION['username']; ?> </h3>
             </nav>
     </header>
 
@@ -48,7 +51,7 @@
 
                 <div class="showinfo">
                     <h4>ยินดีต้อนรับสู่หน้า พนักงาน</h4>
-                    <img width="640" height="360" src="#"  alt="No have picture">
+                    <img width="640" height="360" src="image/member.jpg"  alt="No have picture">
                 </div>
 
             </div>

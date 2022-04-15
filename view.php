@@ -5,8 +5,8 @@
     session_start();
 
     if (!$_SESSION['userid']) {
-        header("Location: index.php");
-    } else {
+        header("Location: login.php");
+    }
 
 ?>
 
@@ -39,14 +39,9 @@
                         <li><a href="member.php">พนักงาน</a></li>
                         <li><a href="item.php">รายการอาหาร</a></li>
                         <li><a href="order.php">ออเดอร์</a></li>
+                        <li> <a href="logout.php">ออกจากระบบ</a></li>
                     </ul>
-                        <div class="out">
-                            <ul>
-                                <li>
-                                    <a href="logout.php">ออกจากระบบ</a>
-                                </li>
-                            </ul>
-                        </div>
+                        
                 </div>
 
             <div class="section">  
@@ -66,7 +61,7 @@
                             $info3 = $lol['status'];
 
                         ?>
-                        <strong>ออเดอร์อาหาร โต๊ะที่ :<?php echo $url;?> </strong> 
+                        <strong>ออเดอร์โต๊ะที่ :<?php echo $url;?> </strong> 
                         <strong> สถานะ : <?php switch ($info3) {
                                         case 1:   ?>
                                             <?php echo "ร้าน"; ?>
@@ -122,7 +117,7 @@
                         </table>
                         
                         <div class="ok">
-                            <label><a href="edit.php">ยืนยัน</a></label>
+                            <label><a href="updatestatus2.php?id=<?php echo $url;?>">ยืนยัน</a></label>
                         </div>
                         
                         
@@ -135,4 +130,3 @@
     
 </body>
 </html>
-<?php } ?>

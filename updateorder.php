@@ -9,6 +9,7 @@
     if (isset($_POST['submit'])) {
         $location = $_POST['location'];
         $geturlatid = $_POST ['id'];
+        
         $edit_query = "SELECT * FROM cart WHERE userid = '$geturlatid'"; 
         $run_edit = mysqli_query($conn, $edit_query);
         //วนลูป เก็บข้อมูลเก่า 

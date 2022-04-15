@@ -5,8 +5,8 @@
     session_start();
 
     if (!$_SESSION['userid']) {
-        header("Location: index.php");
-    } else {
+        header("Location: login.php");
+    }
 
 ?>
 
@@ -17,7 +17,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Item Page</title>
-    <link rel="stylesheet" href="CSS/item.css">
+    <link rel="stylesheet" href="CSS/item_t.css">
 </head>
 <body>
 
@@ -39,14 +39,9 @@
                         <li><a href="member.php">พนักงาน</a></li>
                         <li><a href="item.php">รายการอาหาร</a></li>
                         <li><a href="order.php">ออเดอร์</a></li>
+                        <li><a href="logout.php">ออกจากระบบ</a></li>
                     </ul>
-                        <div class="out">
-                            <ul>
-                                <li>
-                                    <a href="logout.php">ออกจากระบบ</a>
-                                </li>
-                            </ul>
-                        </div>
+                       
                 </div>
                 </div>
                 
@@ -79,7 +74,7 @@
                             <div class="grid-item">
                                 <p>รหัสสินค้า : <?php echo $p_id; ?></p>
                                 <img src="image/<?php echo $p_image; ?>" alt="ไม่พบรูปภาพ">
-                                <p>เมนู : <?php echo $p_name; ?></p>
+                                <p><?php echo $p_name; ?></p>
                                 <p >ราคา : <?php echo $p_price ?></p>
                                 <div class="edit_del">
                                     <div class="edit">
@@ -101,4 +96,3 @@
     
 </body>
 </html>
-<?php } ?>
