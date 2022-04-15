@@ -5,7 +5,7 @@
     require_once "connection.php";
 
     if (!$_SESSION['userid']) {
-        header("Location: index.php");
+        header("Location: login.php");
     }
        
     if (isset($_POST['submit'])) {

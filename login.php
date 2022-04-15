@@ -2,41 +2,77 @@
 
     session_start();
 
-    if (isset($_POST['username'])) {
+?>
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>หน้าล็อกอิน</title>
+
+    <link rel="stylesheet" href="CSS/loginn.css">
+
+</head>
+<body>
+
+    <?php if (isset($_SESSION['success'])) : ?>
+        <div class="success">
+            <?php 
+                echo $_SESSION['success'];
+            ?>
+        </div>
+    <?php endif; ?>
+
+
+    <?php if (isset($_SESSION['error'])) : ?>
+        <div class="error">
+            <?php 
+                echo $_SESSION['error'];
+            ?>
+        </div>
+    <?php endif; ?>
+
+    <div class="box">
+    <form action="login_file.php" method="post">
         
-        include('connection.php');
+        <div class="group">
+        <label for="username">ชื่อผู้ใช้</label>
+        <input type="text" name="username" placeholder="Username" required>
+        </div>
 
-        $username = $_POST['username'];
-        $password = $_POST['password'];
-        $passwordenc = md5($password);
+        <br>
 
-        $query = "SELECT * FROM user WHERE username = '$username' AND password = '$passwordenc'";
+        <div class="group">
+        <label for="password">รหัสผ่าน</label>
+        <input type="password" name="password" placeholder="Password" required>
+        </div>
 
-        $result = mysqli_query($conn, $query);
+        <br>
 
-        if (mysqli_num_rows($result) == 1) {
+        <div class="group">
+        <input type="submit" name="login" value="เข้าสู่ระบบ">
+        </div>
 
-            $row = mysqli_fetch_array($result);
+        <br>
 
-            $_SESSION['userid'] = $row['id'];
-            $_SESSION['username'] = $row['firstname'] . " " . $row['lastname'];
-            $_SESSION['userlevel'] = $row['userlevel'];
+        <!-- <div class="group">
+        <a href="register.php">สมัครบัญชีผู้ใช้</a>
+        </div> -->
 
-            if ($_SESSION['userlevel'] == 'a') {
-                header("Location: admin.php");
-            }
 
-            if ($_SESSION['userlevel'] == 'm') {
-                header("Location: member_page.php");
-            }
-         else {
-            echo "<script>alert('User หรือ Password ไม่ถูกต้อง);</script>";
-        }
+    </form>
+    </div>
 
-    } else {
-        header("Location: index.php");
+</body>
+</html>
+
+<?php 
+
+    if (isset($_SESSION['success']) || isset($_SESSION['error'])) {
+        session_destroy();
     }
-}
-
 
 ?>

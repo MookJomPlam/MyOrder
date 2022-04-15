@@ -4,8 +4,8 @@
 
     require_once "connection.php";
 
-    if (!isset($_SESSION['userid'])) {
-        header("location: index.php");
+    if (!$_SESSION['userid']) {
+        header("location: login.php");
     }
 
     

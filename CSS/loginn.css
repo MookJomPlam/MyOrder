@@ -81,3 +81,10 @@ h1 {
 .admin-user-coler{
     color: #fff;
 }
+
+@media screen and (max-width: 480px){
+
+    .box {
+        width: 80%;
+    }
+}   
