@@ -8,6 +8,8 @@
         header("location: login.php");
     }
 
+    $u_id = $_SESSION['userid'];
+
 ?>
 
 <!DOCTYPE html>
@@ -39,14 +41,9 @@
                         <li><a href="member_info.php">ข้อมูลส่วนตัว</a></li>
                         <li><a href="member_item.php">รายการอาหาร</a></li>
                         <li><a href="member_order.php">ออเดอร์</a></li>
+                        <li><a href="logout.php">ออกจากระบบ</a></li>
                     </ul>
-                        <div class="out">
-                            <ul>
-                                <li>
-                                    <a href="logout.php">ออกจากระบบ</a>
-                                </li>
-                            </ul>
-                        </div>
+
                 </div>
                 </div>
 
@@ -63,9 +60,7 @@
                         <div class="section">
 
                     <?php   
-                        //ตัวแปร 
-                        $u_id = $_SESSION['userid'];
-
+                        //u_id บรรทัด8
                         $select_user = "SELECT * FROM user WHERE id =$u_id";
                         
                         $query_user = mysqli_query($conn, $select_user);
