@@ -11,7 +11,7 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>index Page</title>
+    <title>Menu Page</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- icon ตะกร้า -->
     <link rel="stylesheet" href="CSS/menu.css">
