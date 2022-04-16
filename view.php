@@ -58,7 +58,7 @@
                             $info = $lol['id'];
                             $info1 = $lol['name'];
                             $info2 = $lol['cartstatus'];
-                            $info3 = $lol['status'];
+                            $info3 = $lol['location'];
 
                         ?>
                         <strong>ออเดอร์โต๊ะที่ :<?php echo $url;?> </strong> 
