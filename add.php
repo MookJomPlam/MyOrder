@@ -90,15 +90,6 @@
                         <input type="file" name="image" alt=" ไม่พบรูปภาพ ">
                     </div>
 
-                    <!-- <div class="group">
-                        <label>สถานะ  :</label>
-                        <select name="status" required>
-                            <option value="">เลือกสถานะ</option>
-                            <option value="1">พร้อม</option>
-                            <option value="2">ไม่พร้อม</option>
-                        </select>
-                    </div> -->
-
                     <div class="group">
                         <input type="submit" name="submit" value="ยืนยัน">
                     </div>

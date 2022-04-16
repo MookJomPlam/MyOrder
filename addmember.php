@@ -14,11 +14,9 @@
         $password = $_POST['password'];
         $firstname = $_POST['firstname'];
         $lastname = $_POST['lastname'];
-        $image = $_FILES['image']['name'];
-        $image_tmp = $_FILES['image']['tmp_name'];
+        $image = $_POST['image'];
         $userlevel = $_POST['userlevel'];
 
-        move_uploaded_file($image_tmp, "image/$image");
         
         $user_check = "SELECT * FROM user WHERE username = '$username' LIMIT 1";
         $result = mysqli_query($conn, $user_check);
@@ -34,10 +32,10 @@
             $result = mysqli_query($conn, $query);
 
             if ($result) {
-                $_SESSION['success'] = "สมัครบัญชีผู้ใช้สำเเร็จ";
+                echo "<script>alert('เพิ่มสมาชิกสำเร็จ');</script>";
                 header("Location: member.php");
             } else {
-                $_SESSION['error'] = "เกิดบางอย่างผิดพลาด";
+                echo "<script>alert('เกิดบางอย่างผิดพลาด');</script>";
                 header("Location: addmember.php");
             }
         }
@@ -109,10 +107,9 @@
                         <input type="text" name="lastname" placeholder=" สกุล" required>
                     </div>
 
-                    <!-- <div class="group">
-                        <lable>รูปภาพ :</lable>
-                        <input type="file" name="image" alt="No have picture">
-                    </div> -->
+                    <div class="group">
+                        <input type="file" name="image" style ="display:none">
+                    </div>
 
                     <div class="group">
                         <label>ตำแหน่ง  :</label>

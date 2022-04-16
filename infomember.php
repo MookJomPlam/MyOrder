@@ -79,11 +79,6 @@
                         <label >นามสกุล : <?php echo $lastname; ?> </label>
                     </div>
 
-                    <!-- <div class="group">
-                        <lable>รูปภาพ :</lable>
-                        <input type="file" name="image" alt="No have picture">
-                    </div> -->
-
                     <div class="group">
                         <label>ตำแหน่ง  : <?php echo $userlevel; ?> </label>
                     </div>

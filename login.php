@@ -60,10 +60,6 @@
 
         <br>
 
-        <!-- <div class="group">
-        <a href="register.php">สมัครบัญชีผู้ใช้</a>
-        </div> -->
-
 
     </form>
     </div>
