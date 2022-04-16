@@ -12,7 +12,7 @@
         $updatetbl_user = "UPDATE tbl_user SET location='0', cartstatus='0' WHERE id ='$geturlatid'"; 
         // check ถ้าสำเร็จ
         if (mysqli_query($conn, $updatetbl_user)) {
-            echo "<script>alert('Successfully deleted');</scropt>";
+            echo "<script>alert('Successfully deleted');</script>";
             header("location:menu.php?id=$geturlatid");        
         }
      

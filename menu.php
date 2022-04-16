@@ -56,7 +56,7 @@
                     <?php
                     $get_id_from_url = $_GET['id'];
                     
-                    $selectTBLUser = "SELECT * FROM loginadminuser.tbl_user where id=$get_id_from_url";
+                    $selectTBLUser = "SELECT * FROM tbl_user where id=$get_id_from_url";
                         
                     $query_tbl_user = mysqli_query($conn, $selectTBLUser);
 
