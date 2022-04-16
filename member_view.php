@@ -120,6 +120,24 @@
                             
                             <?php } ?>   
                         </table>
+
+                <!-- // ราคารวม -->
+                    <?php $url_id = $_GET['id'];
+        
+                        //มีการจอย จาก cart       sumสร้างตัวเเปร sumprice=product_id
+                        $select_post = "SELECT *,sum(t.p_price) as sumprice,count(c.product_id) as num FROM loginadminuser.cart c right join loginadminuser.tbl_product t on c.product_id=t.p_id where c.userid=$url_id;";
+
+                        $query_post = mysqli_query($conn, $select_post);
+
+                        while ($row = mysqli_fetch_array($query_post)) {
+                        $p_price = $row['sumprice'];
+
+                        ?>
+
+                        <h3>ราคารวม : <?php echo $p_price; ?> บาท </h3> 
+
+                    <?php } ?>    
+                <!-- //  -->
                         
                         <div class="ok">
                             <label><a href="updatestatus3.php?id=<?php echo $url;?>">สำเร็จ</a></label>

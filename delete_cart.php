@@ -11,7 +11,7 @@
         $delete_query = "DELETE FROM cart WHERE id = $delete_id"; 
         // check ถ้าสำเร็จ
         if (mysqli_query($conn, $delete_query)) {
-            echo "<script>alert('Successfully deleted');</scropt>";
+            echo "<script>alert('Successfully deleted');</script>";
             header("location: menu.php?id=$del");        
         }
     }
