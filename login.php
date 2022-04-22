@@ -18,22 +18,6 @@
 </head>
 <body>
 
-    <?php if (isset($_SESSION['success'])) : ?>
-        <div class="success">
-            <?php 
-                echo $_SESSION['success'];
-            ?>
-        </div>
-    <?php endif; ?>
-
-
-    <?php if (isset($_SESSION['error'])) : ?>
-        <div class="error">
-            <?php 
-                echo $_SESSION['error'];
-            ?>
-        </div>
-    <?php endif; ?>
 
     <div class="box">
     <form action="login_file.php" method="post">
@@ -66,11 +50,3 @@
 
 </body>
 </html>
-
-<?php 
-
-    if (isset($_SESSION['success']) || isset($_SESSION['error'])) {
-        session_destroy();
-    }
-
-?>
