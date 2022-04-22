@@ -2,10 +2,9 @@
 
     session_start();
 
-    if (isset($_POST['username'])) {
-        
-        include('connection.php');
+    require_once "connection.php";
 
+    if (isset($_POST['login'])) {
         $username = $_POST['username'];
         $password = $_POST['password'];
         $passwordenc = md5($password);
@@ -30,7 +29,7 @@
                 header("Location: member_page.php");
             }
          else {
-            echo "<script>alert('User หรือ Password ไม่ถูกต้อง);</script>";
+            echo "<script>alert('User หรือ Password ไม่ถูกต้อง');</script>";
         }
 
     } else {

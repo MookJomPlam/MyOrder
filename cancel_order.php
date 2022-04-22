@@ -5,7 +5,7 @@
     session_start(); 
     // ยกเลิกออเดอร์ที่กดสั่งซื่อ
     if (isset($_POST['submit'])) {
-        $geturlatid = $_POST ['id'];
+        $geturlatid = $_POST ['id']; // id โต๊ะ
         $update_query = "DELETE FROM orders WHERE user_id=$geturlatid";
         $result = mysqli_query($conn, $update_query);
 

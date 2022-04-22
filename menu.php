@@ -119,28 +119,32 @@
                             <td><?php echo $num; ?></td> 
                             <td><?php echo $p_price; ?></td>
                             <td><div class="del">
-                      <?php
-                        $userid5=$_GET['id'];
-                        $userid2="SELECT * from tbl_user WHERE id=$userid5";
-                        $userid3= mysqli_query($conn,$userid2);
 
-                    while ($row = mysqli_fetch_array($userid3)) {
-                      $userid4 = $row['cartstatus'];
+                              <?php
+                                $delete_cart = $_GET['id']; // delete_cart 5
 
-                      if($userid4 == 0){
+                                $delete_cart2 = "SELECT * from tbl_user WHERE id=$delete_cart";
+                                $delete_cart3 = mysqli_query($conn,$delete_cart2);
 
-                      ?>
-                                  <a href="delete_cart.php?id=<?php echo $id; ?>&userid=<?php echo $userid; ?>">ลบ</a>
-                                  <?php } else if($userid4 == 1){?>
+                                while ($row = mysqli_fetch_array($delete_cart3)) {
+                                      $delete_cart4 = $row['cartstatus'];
 
-                                  <?php }
-                                }?>
+                                      if($delete_cart4 == 0){
+
+                                      ?>
+                                        <a href="delete_cart.php?id=<?php echo $id; ?>&userid=<?php echo $userid; ?>">ลบ</a>
+                                        
+                                        <?php } else if($delete_cart4 == 1){?>
+
+                                        <?php }
+                                      }?>
+
                                 </div>
                             </td>
-                            
-                        </tr>
+                              
+                          </tr>
 
-                    <?php } ?>   
+                      <?php } ?>   
 
                       
                     </div>
@@ -231,6 +235,8 @@
         <div class = "product-list">
     <?php 
 
+            $id = $_GET['id']; //จาก add_cart 9
+
             $select_tbl = "SELECT * FROM tbl_product";
 
             $run_tbl = mysqli_query($conn, $select_tbl);
@@ -253,7 +259,7 @@
                   <p class = "product-price"><?php echo $p_price; ?> บาท</p>
 
                     <!-- _GET จาก add_cart.php  -->
-                    <a href="add_cart.php?id=<?php echo $_GET['id']; ?>&p_id=<?php echo $p_id; ?>">
+                    <a href="add_cart.php?id=<?php echo $id; ?>&p_id=<?php echo $p_id; ?>">
                     สั่งซื้อ
                     </a>
 
