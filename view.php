@@ -46,7 +46,7 @@
 
             <div class="section">  
             <?php 
-                        $url = $_GET['id'];
+                        $url = $_GET['id']; //50
                         $select_location2 = "SELECT * FROM tbl_user WHERE id='$url'";
 
 

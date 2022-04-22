@@ -2,7 +2,7 @@
 
     require_once "connection.php";
 
-    if(isset($_GET['id'])) { // menu 124
+    if(isset($_GET['id'])) { // menu 135
 
         $delete_id = $_GET['id'];
         

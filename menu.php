@@ -54,7 +54,7 @@
 
                   <div class="status">
                     <?php
-                    $get_id_from_url = $_GET['id']; //
+                    $get_id_from_url = $_GET['id']; //57
                     
                     $selectTBLUser = "SELECT * FROM tbl_user where id=$get_id_from_url";
                         
@@ -95,7 +95,7 @@
                           </tr>
                           
                       <?php 
-                            $url_idd = $_GET['id']; //
+                            $url_idd = $_GET['id']; //100
 
                               //มีการจอย จาก cart ไป tbl_product หา c.product_id=t.p_id ที่  c.userid
                             $select_post = "SELECT *,sum(t.p_price) as sumprice,count(c.product_id) as num FROM loginadminuser.cart c right join loginadminuser.tbl_product t on c.product_id=t.p_id where c.userid=$url_idd group by c.product_id;";
@@ -121,7 +121,7 @@
                             <td><div class="del">
 
                               <?php
-                                $delete_cart = $_GET['id']; // delete_cart 5
+                                $delete_cart = $_GET['id']; //126
 
                                 $delete_cart2 = "SELECT * from tbl_user WHERE id=$delete_cart";
                                 $delete_cart3 = mysqli_query($conn,$delete_cart2);
@@ -132,7 +132,9 @@
                                       if($delete_cart4 == 0){
 
                                       ?>
+                                      <!--  delete_cart 5 -->
                                         <a href="delete_cart.php?id=<?php echo $id; ?>&userid=<?php echo $userid; ?>">ลบ</a>
+                                        
                                         
                                         <?php } else if($delete_cart4 == 1){?>
 
@@ -152,7 +154,7 @@
                 </table>
                 
 
-                    <?php $url_id = $_GET['id']; //
+                    <?php $url_id = $_GET['id']; //158
 
                       //มีการจอย จาก cart       sumสร้างตัวเเปร sumprice=product_id
                       $select_post = "SELECT *,sum(t.p_price) as sumprice,count(c.product_id) as num FROM loginadminuser.cart c right join loginadminuser.tbl_product t on c.product_id=t.p_id where c.userid=$url_id;";
@@ -179,7 +181,7 @@
                       
                           </div>
                           <?php
-                          $getid=$_GET['id']; //
+                          $getid=$_GET['id']; //183
                           $tbl_user="SELECT * from tbl_user WHERE id=$getid";
                           $querytbl_user = mysqli_query($conn, $tbl_user);
 

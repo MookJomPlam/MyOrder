@@ -77,17 +77,17 @@
 
                     <div class="group">
                         <label for="username">ชื่ออาหาร :</label>
-                        <input type="text" name="name" placeholder=" อาหาร ">
+                        <input type="text" name="name" placeholder=" อาหาร " required>
                     </div>
 
                     <div class="group">
                         <label for="username">ราคา :</label>
-                        <input type="text" name="price" placeholder=" ราคา">
+                        <input type="text" name="price" placeholder=" ราคา" required>
                     </div>
 
                     <div class="group">
                         <lable>รูปภาพ :</lable>
-                        <input type="file" name="image" alt=" ไม่พบรูปภาพ ">
+                        <input type="file" name="image" alt=" ไม่พบรูปภาพ " required>
                     </div>
 
                     <div class="group">
