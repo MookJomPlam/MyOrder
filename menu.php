@@ -181,7 +181,8 @@
                       
                           </div>
                           <?php
-                          $getid=$_GET['id']; //183
+                          $getid = $_GET['id']; //186
+
                           $tbl_user="SELECT * from tbl_user WHERE id=$getid";
                           $querytbl_user = mysqli_query($conn, $tbl_user);
 
@@ -287,15 +288,19 @@
 
       <div class = "container">
         <div class = "social-icons">
-          <a href = "#">
+
+          <!-- <a href = "#">
             <i class = "fab fa-facebook-f"></i>
           </a>
+
           <a href = "#">
             <i class = "fab fa-twitter"></i>
           </a>
+
           <a href = "#">
             <i class = "fab fa-instagram"></i>
-          </a>
+          </a> -->
+
         </div>
       </div>
     </footer>
