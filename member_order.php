@@ -93,6 +93,7 @@
                                             <td><?php echo "ดำเนินการ"; ?></td>
                                             <td> 
                                                 <div class="view">
+                                                    <!-- _GET id จาก member_view.php 54 -->
                                                     <label><a href="member_view.php?id=<?php echo $id; ?>">ดูรายการ</a></label>
                                                 </div>
                                             </td>
@@ -107,13 +108,14 @@
                                                 <td><?php echo "สำเร็จ"; ?></td>
                                                 <td> 
                                                     <div class="view">
+                                                    <!-- _GET id จาก member_view.php 54 -->
                                                         <label><a href="member_view.php?id=<?php echo $id; ?>">ดูรายการ</a></label>
                                                     </div>
                                                 </td>
 
                                                 <td><div class='del'>
                                                 <div class='delete'>
-                                                    <!-- _GET id จาก clear.php บรรทัด 8 -->
+                                                    <!-- _GET id จาก clear.php  8 -->
                                                     <a href="clear.php?id=<?php echo $id; ?>"onclick="return confirm('คุณต้องการเคลียร์โต๊ะที่เลือก')">เคลียร์</a>
                                                 </div>
                                                 </div>

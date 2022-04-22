@@ -3,7 +3,7 @@
     require_once "connection.php";
 
     session_start(); 
-    // ยกเลิกออเดอร์ที่กดสั่งซื่อ
+    // ยกเลิกออเดอร์ที่กดสั่งซื่อ menu 198
     if (isset($_POST['submit'])) {
         $geturlatid = $_POST ['id']; // id โต๊ะ
         $update_query = "DELETE FROM orders WHERE user_id=$geturlatid";

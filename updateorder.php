@@ -5,7 +5,7 @@
     session_start();
 
     
-
+    // ยืนยันออเดอร์ที่กดสั่งซื้อ menu 102
     if (isset($_POST['submit'])) {
         $location = $_POST['location'];
         $geturlatid = $_POST ['id'];

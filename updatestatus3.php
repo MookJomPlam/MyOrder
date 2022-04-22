@@ -4,7 +4,7 @@
 
     session_start();
 
-    // member_view _GET id อัพสถานะอาหาร 125
+    //  อัพสถานะอาหาร 
     if (isset($_GET['id'])) {
         $geturlatid = $_GET ['id'];
         $updatetbl_user = "UPDATE tbl_user SET cartstatus='3' WHERE id ='$geturlatid'"; 

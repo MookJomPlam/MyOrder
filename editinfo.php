@@ -8,7 +8,7 @@
         header("location: login.php");
     }
     
-    // member.php   edit?= บรรทัด 89
+    // member.php   edit?= บรรทัด 84
     if(isset($_GET['edit'])) { 
         $edit_id = $_GET['edit'];
         $edit_query = "SELECT * FROM user WHERE id = '$edit_id'"; 

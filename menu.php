@@ -54,7 +54,7 @@
 
                   <div class="status">
                     <?php
-                    $get_id_from_url = $_GET['id'];
+                    $get_id_from_url = $_GET['id']; //
                     
                     $selectTBLUser = "SELECT * FROM tbl_user where id=$get_id_from_url";
                         
@@ -95,7 +95,7 @@
                           </tr>
                           
                       <?php 
-                            $url_idd = $_GET['id']; //dele_cart บรรทัด 5
+                            $url_idd = $_GET['id']; //
 
                               //มีการจอย จาก cart ไป tbl_product หา c.product_id=t.p_id ที่  c.userid
                             $select_post = "SELECT *,sum(t.p_price) as sumprice,count(c.product_id) as num FROM loginadminuser.cart c right join loginadminuser.tbl_product t on c.product_id=t.p_id where c.userid=$url_idd group by c.product_id;";
@@ -152,7 +152,7 @@
                 </table>
                 
 
-                    <?php $url_id = $_GET['id']; //dele_cart บรรทัด 5
+                    <?php $url_id = $_GET['id']; //
 
                       //มีการจอย จาก cart       sumสร้างตัวเเปร sumprice=product_id
                       $select_post = "SELECT *,sum(t.p_price) as sumprice,count(c.product_id) as num FROM loginadminuser.cart c right join loginadminuser.tbl_product t on c.product_id=t.p_id where c.userid=$url_id;";
@@ -179,7 +179,7 @@
                       
                           </div>
                           <?php
-                          $getid=$_GET['id'];
+                          $getid=$_GET['id']; //
                           $tbl_user="SELECT * from tbl_user WHERE id=$getid";
                           $querytbl_user = mysqli_query($conn, $tbl_user);
 
@@ -187,14 +187,14 @@
                         $querytbluser = $row['cartstatus'];
                       
                           ?>
-                            <?php
+                            <?php 
                               if ($querytbluser==0){?>
                             <form id="updateorder" action="updateorder.php" method="post" enctype="multipart/form-data" >
                             <input name="id" value="<?php echo $getid ?>" style ="display:none">
                             <button class="cart_ok" type = "submit" name="submit">ยืนยัน </button>
                           </from>
-
-                          <?php }else if($querytbluser==1) {?>
+                      
+                          <?php }else if($querytbluser==1) {?> 
                             <form id="cancel_order" action="cancel_order.php" method="post" enctype="multipart/form-data" >
                             <input name="id" value="<?php echo $getid ?>" style ="display:none">
 
@@ -214,7 +214,6 @@
         </nav>
        
 
-        <!-- banner -->
         <div class = "banner">
           <div class = "banner-content">
             <h1>ร้านต้นไทร</h1>
@@ -227,7 +226,6 @@
     </header>
    
 
-    <!-- products section  -->
     <section class = "products">
       <div class = "container">
         <h2>เมนู</h2>
@@ -235,7 +233,7 @@
         <div class = "product-list">
     <?php 
 
-            $id = $_GET['id']; //จาก add_cart 9
+            $id = $_GET['id']; //จาก add_cart 9  //262*
 
             $select_tbl = "SELECT * FROM tbl_product";
 
@@ -259,9 +257,7 @@
                   <p class = "product-price"><?php echo $p_price; ?> บาท</p>
 
                     <!-- _GET จาก add_cart.php  -->
-                    <a href="add_cart.php?id=<?php echo $id; ?>&p_id=<?php echo $p_id; ?>">
-                    สั่งซื้อ
-                    </a>
+                    <a href="add_cart.php?id=<?php echo $id; ?>&p_id=<?php echo $p_id; ?>"> สั่งซื้อ </a>
 
                 </div>
               </div>
