@@ -84,17 +84,17 @@
                     
                     <div class="group">
                         <label>ชื่อจริง : </label>
-                        <input type="text" name="firstname" value="<?php echo $firstname; ?>">
+                        <input type="text" name="firstname" value="<?php echo $firstname; ?>" required>
                     </div>
         
                     <div class="group">
                         <label>นามสกุล : </label>
-                        <input type="text" name="lastname" value = "<?php echo $lastname; ?>">
+                        <input type="text" name="lastname" value = "<?php echo $lastname; ?>" required>
                      </div>  
 
                     <div class="group">
                         <label>ตำแหน่ง : </label>
-                        <select name="userlevel" alue = "<?php echo $userlevel; ?>">
+                        <select name="userlevel" alue = "<?php echo $userlevel; ?>" required>
                             <option value="">เลือกสถานะ</option>
                             <option value="a">ผู้ดูแล</option>
                             <option value="m">พนักงาน</option>
