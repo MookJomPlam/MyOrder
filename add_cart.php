@@ -3,7 +3,7 @@
     session_start();
 
     require_once "connection.php";
-    //menu บรรทัด 262   _GET จาก add_cart.php
+    //menu บรรทัด 262   _GET add_cart.php
     if (isset($_GET['id'])) {
 
         $id = $_GET['id'];

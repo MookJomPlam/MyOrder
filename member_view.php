@@ -35,23 +35,18 @@
                 <div class="side">
     
                 <ul>
-                        <li><a href="member_page.php">หน้าแรก</a></li>
-                        <li><a href="member_info.php">ข้อมูลส่วนตัว</a></li>
-                        <li><a href="member_item.php">รายการอาหาร</a></li>
-                        <li><a href="member_order.php">ออเดอร์</a></li>
-                    </ul>
-                        <div class="out">
-                            <ul>
-                                <li>
-                                    <a href="logout.php">ออกจากระบบ</a>
-                                </li>
-                            </ul>
-                        </div>
+                    <li><a href="member_page.php">หน้าแรก</a></li>
+                    <li><a href="member_info.php">ข้อมูลส่วนตัว</a></li>
+                    <li><a href="member_item.php">รายการอาหาร</a></li>
+                    <li><a href="member_order.php">ออเดอร์</a></li>
+                    <li><a href="logout.php">ออกจากระบบ</a></li>
+                </ul>
+                        
                 </div>
 
             <div class="section">  
             <?php 
-                        $url = $_GET['id']; //member_order 111
+                        $url = $_GET['id']; //5o
                         $select_location2 = "SELECT * FROM tbl_user WHERE id='$url'";
 
 

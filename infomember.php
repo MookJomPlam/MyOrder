@@ -51,7 +51,7 @@
                     <div class="showinfo">
 
                  <?php   
-                //  ไป member.php ?id= บรรทัด 84 ดูขอ้มูล
+                //  ไป member.php ?id= บรรทัด 79 ดูขอ้มูล
                     if(isset($_GET['id'])) {
                     $select_id = $_GET['id'];
 
