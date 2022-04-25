@@ -18,7 +18,7 @@
             $userid=$edit_row['userid'];
             $product_id =$edit_row['product_id'];
             
-            $update_query = "INSERT into orders(user_id,product_id,status,location) values ($userid,$product_id,0,$location)";
+            $update_query = "INSERT into orders(user_id,product_id,location) values ($userid,$product_id,$location)";
             $result = mysqli_query($conn, $update_query);
             if ($result){
                

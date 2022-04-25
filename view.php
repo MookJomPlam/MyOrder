@@ -93,8 +93,8 @@
 
                             <?php 
 
-                            $select_view = "SELECT *,sum(t.p_price) as sumprice,count(o.product_id) as num FROM loginadminuser.orders o
-                            right join loginadminuser.tbl_product t on o.product_id=t.p_id where o.user_id=$url group by o.product_id";
+                            $select_view = "SELECT *,sum(t.p_price) as sumprice,count(o.product_id) as num FROM id18837104_loginadminuser.orders o
+                            right join id18837104_loginadminuser.tbl_product t on o.product_id=t.p_id where o.user_id=$url group by o.product_id";
                                      
                             $query_view = mysqli_query($conn, $select_view);
                             $ran = 0;
@@ -121,7 +121,7 @@
                     <?php $url_id = $_GET['id'];
         
                       //มีการจอย จาก cart       sumสร้างตัวเเปร sumprice=product_id
-                      $select_post = "SELECT *,sum(t.p_price) as sumprice,count(c.product_id) as num FROM loginadminuser.cart c right join loginadminuser.tbl_product t on c.product_id=t.p_id where c.userid=$url_id;";
+                      $select_post = "SELECT *,sum(t.p_price) as sumprice,count(c.product_id) as num FROM id18837104_loginadminuser.cart c right join id18837104_loginadminuser.tbl_product t on c.product_id=t.p_id where c.userid=$url_id;";
 
                       $query_post = mysqli_query($conn, $select_post);
 
