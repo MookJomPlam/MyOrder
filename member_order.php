@@ -70,7 +70,7 @@
                                 order by o.updateAt;";
                             
                             $query_order = mysqli_query($conn, $select_order);
-                             $ran = 0;
+                            $ran = 0;
                             
                             while ($row = mysqli_fetch_array($query_order)) {
                                     $id = $row['id'];                     
