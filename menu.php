@@ -14,7 +14,7 @@
     <title>Menu Page</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- icon ตะกร้า -->
-    <link rel="stylesheet" href="CSS/menu_n.css">
+    <link rel="stylesheet" href="CSS/menu_m.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" integrity="sha512-+4zCK9k+qNFUR5X+cKL9EIR+ZOhtIloNl9GIKS57V1MyNsYpYcUrUeQc9vNfzsWfV28IaLL3i96P9sdNyeRssA==" crossorigin="anonymous" />
 
   </head>
@@ -236,8 +236,14 @@
 
         <div class = "banner">
           <div class = "banner-content">
-            <h1>ร้านต้นไทร</h1>
-            <p class = "text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quos eveniet, quis nisi recusandae assumenda ea sequi obcaecati accusantium in provident dolore debitis autem neque vel commodi atque voluptates incidunt aliquam delectus veritatis? Exercitationem, fugit sed!</p>
+            <h1>ยินดีต้อนรับ</h1>
+            <p class = "text"> ร้านอาหารเปิดให้บริการมากกว่า 10 ปี 
+                <br>
+                หลากหลายเมนู อาหารจานเดียว, อาหารตามสั่ง, ก๋วยเตี๋ยว  
+                <br>
+                เหมาะสำหรับเด็กและผู้ใหญ่เป็นร้านอาหารครอบครัว
+                พร้อมเปิดให้บริการแก่ทุกท่าน
+                </p>
           </div>
 
         </div>
