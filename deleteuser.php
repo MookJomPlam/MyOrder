@@ -2,7 +2,7 @@
 
     require_once "connection.php";
 
-    if(isset($_GET['del'])) { //จาก viewpost (84)
+    if(isset($_GET['del'])) { // member.php 89
         $delete_id = $_GET['del'];
 
         $deleteu_query = "DELETE FROM user WHERE id = '$delete_id'"; 

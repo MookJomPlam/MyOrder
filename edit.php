@@ -5,8 +5,9 @@
     session_start();
 
     if (!$_SESSION['userid']) {
-        header("Location: index.php");
-    } 
+        header("Location: login.php");
+    }
+
     if(isset($_GET['edit'])) { 
         $edit_id = $_GET['edit'];
         $edit_query = "SELECT * FROM tbl_product WHERE p_id = '$edit_id'"; 
@@ -17,7 +18,6 @@
             $p_name = $edit_row['p_name'];
             $p_price = $edit_row['p_price'];
             $p_image = $edit_row['p_image'];
-            echo $edit_id;
         }
     }
 
@@ -72,14 +72,9 @@
                             <li><a href="member.php">พนักงาน</a></li>
                             <li><a href="item.php">รายการอาหาร</a></li>    
                             <li><a href="order.php">ออเดอร์</a></li>
+                            <li><a href="logout.php">ออกจากระบบ</a> </li>
                         </ul>
-                            <div class="out">
-                                <ul>
-                                    <li>
-                                        <a href="logout.php">ออกจากระบบ</a>
-                                    </li>
-                                </ul>
-                            </div>
+                            
                     </div>
                     </div>
 
@@ -92,27 +87,18 @@
                 
                     <div class="group">
                         <label for="username">ชื่ออาหาร : </label>
-                        <input type="text" name="name" value = "<?php echo $p_name; ?>">
+                        <input type="text" name="name" value = "<?php echo $p_name; ?>" required>
                     </div>
 
                     <div class="group">
                         <label for="price">ราคา :</label>
-                        <input type="text" name="price" value = "<?php echo $p_price; ?>">
+                        <input type="text" name="price" value = "<?php echo $p_price; ?>" required>
                     </div>
 
                     <div class="group">
-                        <lable>รูปภาพ :</lable>
-                        <input type="file" name="image" value = "<?php echo $p_image; ?>">
+                        <lable for="image">รูปภาพ :</lable>
+                        <input type="file" name="image" value = "<?php echo $p_image; ?>" required>
                     </div>
-
-                    <!-- <div class="group">
-                        <label>สถานะ  :</label>
-                        <select name="status" required>
-                            <option value="">เลือกสถานะ</option>
-                            <option value="1">พร้อม</option>
-                            <option value="2">ไม่พร้อม</option>
-                        </select>
-                    </div> -->
 
                     <div class="group">
                         <input type="submit" name="submit" value="ยืนยัน">

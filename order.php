@@ -6,8 +6,8 @@
     session_start();
 
     if (!$_SESSION['userid']) {
-        header("Location: index.php");
-    } else {
+        header("Location: login.php");
+    }
 
 ?>
 
@@ -40,29 +40,20 @@
                         <li><a href="member.php">พนักงาน</a></li>
                         <li><a href="item.php">รายการอาหาร</a></li>
                         <li><a href="order.php">ออเดอร์</a></li>
+                        <li><a href="logout.php">ออกจากระบบ</a></li>
                     </ul>
-                        <div class="out">
-                            <ul>
-                                <li>
-                                    <a href="logout.php">ออกจากระบบ</a>
-                                </li>
-                            </ul>
-                        </div>
+                        
                 </div>
 
                 <div class="section">
                 <h4>ออเดอร์อาหาร</h4>
-                <!-- SELECT o.updateAt,u.name,u.cartstatus FROM loginadminuser.orders o  -->
-                <!-- left join loginadminuser.tbl_product t on o.product_id=t.p_id  -->
-                <!-- left join loginadminuser.tbl_user u on o.user_id=u.id -->
-                <!-- group by o.user_id; -->
 
                     <div class="table_viet">
                         <table>
                             <tr>
                                 <th>ลำดับ</th>
                                 <th>เวลา</th>
-                                <th>โต๊ะที่</th>
+                                <th>โต๊ะ</th>
                                 <th>สถานะ</th>
                                 <th>รายการ</th>
                                 <th>ลบรายการ</th>
@@ -70,9 +61,9 @@
                                 
                             <?php 
                                 //มีการจอย 
-                                $select_order = "SELECT o.updateAt,u.name,u.cartstatus,u.id FROM loginadminuser.orders o 
-                                left join loginadminuser.tbl_product t on o.product_id=t.p_id 
-                                left join loginadminuser.tbl_user u on o.user_id=u.id
+                                $select_order = "SELECT o.updateAt,u.name,u.cartstatus,u.id FROM id18837104_loginadminuser.orders o 
+                                left join id18837104_loginadminuser.tbl_product t on o.product_id=t.p_id 
+                                left join id18837104_loginadminuser.tbl_user u on o.user_id=u.id
                                 group by o.user_id
                                 order by o.updateAt;";
                             
@@ -97,7 +88,7 @@
                                     <td><?php switch ($cartstatus) {
                                         case 1:
                                             ?>
-                                            <?php echo "รอการยืนยัน"; ?>
+                                            <?php echo "รอยืนยัน"; ?>
                                             <?php break; ?>
                                             
                                             <?php  case 2: ?>
@@ -119,7 +110,8 @@
 
                                     
                                 </td>
-                                    <td> <div class="view">
+                                    <td> <div class="view"> 
+                                        <!-- //view.php?id 49 -->
                                         <label><a href="view.php?id=<?php echo $id; ?>">รายละเอียด</a></label>
                                     </div>
                                     </td>
@@ -148,4 +140,3 @@
     
 </body>
 </html>
-<?php } ?>
