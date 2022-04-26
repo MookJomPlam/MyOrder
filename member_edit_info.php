@@ -4,6 +4,10 @@
 
     session_start();
 
+    if (!isset($_SESSION['userid'])) {
+        header("location: login.php");
+    }
+
     //   edit?= 
     if(isset($_GET['edit'])) { 
         $edit_id = $_GET['edit'];
@@ -81,12 +85,12 @@
                     
                     <div class="group">
                         <label >ชื่อผู้ใช้ : </label>
-                        <input type="text" name="username" value="<?php echo $username; ?>">
+                        <input type="text" name="username" value="<?php echo $username; ?>" required>
                     </div>
 
                     <div class="group">
                         <label >รหัสผ่าน : </label>
-                        <input type="password" name="password" >
+                        <input type="password" name="password" required>
                     </div>
 
                     <div class="group">

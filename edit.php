@@ -5,8 +5,9 @@
     session_start();
 
     if (!$_SESSION['userid']) {
-        header("Location: index.php");
-    } 
+        header("Location: login.php");
+    }
+
     if(isset($_GET['edit'])) { 
         $edit_id = $_GET['edit'];
         $edit_query = "SELECT * FROM tbl_product WHERE p_id = '$edit_id'"; 
@@ -86,17 +87,17 @@
                 
                     <div class="group">
                         <label for="username">ชื่ออาหาร : </label>
-                        <input type="text" name="name" value = "<?php echo $p_name; ?>">
+                        <input type="text" name="name" value = "<?php echo $p_name; ?>" required>
                     </div>
 
                     <div class="group">
                         <label for="price">ราคา :</label>
-                        <input type="text" name="price" value = "<?php echo $p_price; ?>">
+                        <input type="text" name="price" value = "<?php echo $p_price; ?>" required>
                     </div>
 
                     <div class="group">
                         <lable for="image">รูปภาพ :</lable>
-                        <input type="file" name="image" value = "<?php echo $p_image; ?>">
+                        <input type="file" name="image" value = "<?php echo $p_image; ?>" required>
                     </div>
 
                     <div class="group">

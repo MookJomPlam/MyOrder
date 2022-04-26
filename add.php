@@ -4,10 +4,10 @@
 
     require_once "connection.php";
 
-    if (!isset($_SESSION['userid'])) {
+    if (!$_SESSION['userid']) {
         header("location: login.php");
-
     }
+
     
     if (isset($_POST['submit'])) {
 
@@ -77,27 +77,18 @@
 
                     <div class="group">
                         <label for="username">ชื่ออาหาร :</label>
-                        <input type="text" name="name" placeholder=" อาหาร ">
+                        <input type="text" name="name" placeholder=" อาหาร " required>
                     </div>
 
                     <div class="group">
                         <label for="username">ราคา :</label>
-                        <input type="text" name="price" placeholder=" ราคา">
+                        <input type="text" name="price" placeholder=" ราคา" required>
                     </div>
 
                     <div class="group">
                         <lable>รูปภาพ :</lable>
-                        <input type="file" name="image" alt=" ไม่พบรูปภาพ ">
+                        <input type="file" name="image" alt=" ไม่พบรูปภาพ " required>
                     </div>
-
-                    <!-- <div class="group">
-                        <label>สถานะ  :</label>
-                        <select name="status" required>
-                            <option value="">เลือกสถานะ</option>
-                            <option value="1">พร้อม</option>
-                            <option value="2">ไม่พร้อม</option>
-                        </select>
-                    </div> -->
 
                     <div class="group">
                         <input type="submit" name="submit" value="ยืนยัน">

@@ -3,7 +3,12 @@
     require_once "connection.php";
 
     session_start();
-    // member.php   edit?= บรรทัด 89
+
+    if (!isset($_SESSION['userid'])) {
+        header("location: login.php");
+    }
+    
+    // member.php   edit?= บรรทัด 84
     if(isset($_GET['edit'])) { 
         $edit_id = $_GET['edit'];
         $edit_query = "SELECT * FROM user WHERE id = '$edit_id'"; 
@@ -50,7 +55,7 @@
         <div class="container">
             <nav class="navbar">
                 <h2>Admin</h2>
-                <h3>ยินดีต้อนรับคุณ : </h3>
+                <h3>ยินดีต้อนรับคุณ : <?php echo $_SESSION['username']; ?></h3>
             </nav>
     </header>
 
@@ -79,17 +84,17 @@
                     
                     <div class="group">
                         <label>ชื่อจริง : </label>
-                        <input type="text" name="firstname" value="<?php echo $firstname; ?>">
+                        <input type="text" name="firstname" value="<?php echo $firstname; ?>" required>
                     </div>
         
                     <div class="group">
                         <label>นามสกุล : </label>
-                        <input type="text" name="lastname" value = "<?php echo $lastname; ?>">
+                        <input type="text" name="lastname" value = "<?php echo $lastname; ?>" required>
                      </div>  
 
                     <div class="group">
                         <label>ตำแหน่ง : </label>
-                        <select name="userlevel" alue = "<?php echo $userlevel; ?>">
+                        <select name="userlevel" alue = "<?php echo $userlevel; ?>" required>
                             <option value="">เลือกสถานะ</option>
                             <option value="a">ผู้ดูแล</option>
                             <option value="m">พนักงาน</option>

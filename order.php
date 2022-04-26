@@ -6,8 +6,8 @@
     session_start();
 
     if (!$_SESSION['userid']) {
-        header("Location: index.php");
-    } else {
+        header("Location: login.php");
+    }
 
 ?>
 
@@ -18,7 +18,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>order Page</title>
-    <link rel="stylesheet" href="CSS/order_o.css">
+    <link rel="stylesheet" href="CSS/order.css">
 </head>
 <body>
 
@@ -61,9 +61,9 @@
                                 
                             <?php 
                                 //มีการจอย 
-                                $select_order = "SELECT o.updateAt,u.name,u.cartstatus,u.id FROM loginadminuser.orders o 
-                                left join loginadminuser.tbl_product t on o.product_id=t.p_id 
-                                left join loginadminuser.tbl_user u on o.user_id=u.id
+                                $select_order = "SELECT o.updateAt,u.name,u.cartstatus,u.id FROM id18837104_loginadminuser.orders o 
+                                left join id18837104_loginadminuser.tbl_product t on o.product_id=t.p_id 
+                                left join id18837104_loginadminuser.tbl_user u on o.user_id=u.id
                                 group by o.user_id
                                 order by o.updateAt;";
                             
@@ -110,7 +110,8 @@
 
                                     
                                 </td>
-                                    <td> <div class="view">
+                                    <td> <div class="view"> 
+                                        <!-- //view.php?id 49 -->
                                         <label><a href="view.php?id=<?php echo $id; ?>">รายละเอียด</a></label>
                                     </div>
                                     </td>
@@ -139,4 +140,3 @@
     
 </body>
 </html>
-<?php } ?>

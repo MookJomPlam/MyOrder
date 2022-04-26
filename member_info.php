@@ -4,6 +4,10 @@
 
     session_start();
 
+    if (!isset($_SESSION['userid'])) {
+        header("location: login.php");
+    }
+
     $u_id = $_SESSION['userid'];
 
 ?>
@@ -15,7 +19,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Item Page</title>
-    <link rel="stylesheet" href="CSS/member.css">
+    <link rel="stylesheet" href="CSS/member_m.css">
 </head>
 <body>
 
@@ -37,14 +41,9 @@
                         <li><a href="member_info.php">ข้อมูลส่วนตัว</a></li>
                         <li><a href="member_item.php">รายการอาหาร</a></li>
                         <li><a href="member_order.php">ออเดอร์</a></li>
+                        <li><a href="logout.php">ออกจากระบบ</a></li>
                     </ul>
-                        <div class="out">
-                            <ul>
-                                <li>
-                                    <a href="logout.php">ออกจากระบบ</a>
-                                </li>
-                            </ul>
-                        </div>
+
                 </div>
                 </div>
 
@@ -61,8 +60,7 @@
                         <div class="section">
 
                     <?php   
-
-                        //แก้ยังไม่เสจ เเสดงหน้าข้อมูลพนักงาน เพียง1 คน 
+                        //u_id บรรทัด8
                         $select_user = "SELECT * FROM user WHERE id =$u_id";
                         
                         $query_user = mysqli_query($conn, $select_user);
@@ -89,13 +87,27 @@
                             </div>
 
                             <!-- <div class="group">
-                                <lable>รูปภาพ :</lable>
-                                <input type="file" name="image" alt="No have picture">
+                                <label name="userlevel">ตำแหน่ง  : <?php echo $userlevel; ?> </label>
                             </div> -->
 
+                            <?php switch ($userlevel) {
+                                case "a":
+                            ?>
                             <div class="group">
-                                <label name="userlevel">ตำแหน่ง  : <?php echo $userlevel; ?> </label>
+                                <label> ตำแหน่ง  : <?php echo "Admin"; ?> </label>
                             </div>
+                            <?php break; ?>
+
+                            
+                            <?php  case "m": ?>
+                                <div class="group">
+                                <label> ตำแหน่ง  : <?php echo "พนักงาน"; ?> </label>
+                            </div>
+
+                                <?php break; ?>
+
+                    <?php } ?>
+
 
                 <?php } ?>
 

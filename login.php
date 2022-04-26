@@ -2,41 +2,51 @@
 
     session_start();
 
-    if (isset($_POST['username'])) {
-        
-        include('connection.php');
-
-        $username = $_POST['username'];
-        $password = $_POST['password'];
-        $passwordenc = md5($password);
-
-        $query = "SELECT * FROM user WHERE username = '$username' AND password = '$passwordenc'";
-
-        $result = mysqli_query($conn, $query);
-
-        if (mysqli_num_rows($result) == 1) {
-
-            $row = mysqli_fetch_array($result);
-
-            $_SESSION['userid'] = $row['id'];
-            $_SESSION['username'] = $row['firstname'] . " " . $row['lastname'];
-            $_SESSION['userlevel'] = $row['userlevel'];
-
-            if ($_SESSION['userlevel'] == 'a') {
-                header("Location: admin.php");
-            }
-
-            if ($_SESSION['userlevel'] == 'm') {
-                header("Location: member_page.php");
-            }
-         else {
-            echo "<script>alert('User หรือ Password ไม่ถูกต้อง);</script>";
-        }
-
-    } else {
-        header("Location: index.php");
-    }
-}
-
-
 ?>
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>หน้าล็อกอิน</title>
+
+    <link rel="stylesheet" href="CSS/loginn.css">
+
+</head>
+<body>
+
+
+    <div class="box">
+    <form action="login_file.php" method="post">
+
+    <h2>เข้าสู่ระบบ</h2>
+        
+        <div class="group">
+        <label for="username">ชื่อผู้ใช้</label>
+        <input type="text" name="username" placeholder="Username" required>
+        </div>
+
+        <br>
+
+        <div class="group">
+        <label for="password">รหัสผ่าน</label>
+        <input type="password" name="password" placeholder="Password" required>
+        </div>
+
+        <br>
+
+        <div class="group">
+        <input type="submit" name="login" value="เข้าสู่ระบบ">
+        </div>
+
+        <br>
+
+
+    </form>
+    </div>
+
+</body>
+</html>

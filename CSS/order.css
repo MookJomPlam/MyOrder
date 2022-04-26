@@ -79,39 +79,22 @@ a:hover{
     border: 1px solid var(--grey);
 }
 
-/* .section h4 {
+.section h4 {
     font-size: 1.5rem;
     margin: 1rem 40%;
-} */
+}
 
 hr {
     opacity: 0.8;
     margin-bottom: 1rem;
 }
 
-.section strong {
-    font-size: 1.5rem;
-    padding-left: 1rem;
-    padding-bottom: 1rem;
-    margin: 1rem 1rem 1rem 1rem;
-}
-
-.section {
-    margin: 1rem 0;
-    
-}
-hr {
-    opacity: 0.8;
-    margin: 1rem 0;
-}
-
-
 .table_viet {
     margin: 0.5rem 0rem;
     text-align: center;
 }
 .table_viet th{
-    width: 18rem;
+    width: 12rem;
     font-size: 1.1rem;
     padding: 0.6rem 2rem;
     border: 1px solid var(--granite-gray);
@@ -140,20 +123,6 @@ hr {
     background-color: var(--fire-bush);
     color: var(--white);
     padding: 0.5rem 0.5rem;
-    border-radius: 5px;
-}
-
-.ok{
-    margin-top: 1rem;
-    padding-left: 25rem;
-
-}
-.ok a{
-    text-decoration: none;
-    font-size: 1rem;
-    background-color: var(--black-sea);
-    color: var(--white);
-    padding: 0.5rem 1rem;
     border-radius: 5px;
 }
 
@@ -201,8 +170,8 @@ hr {
         height: 10rem;
     }
          */
-    .section strong{
-    font-size: 16px;
+    .section h4 {
+    font-size: 20px;
     margin: 0.5rem;
     text-align: center;
     }
@@ -213,21 +182,22 @@ hr {
     }
 
     .table_viet th{
-        font-size: 16px;
-        padding: 0.5rem 0rem;
+        font-size: 14px;
+        padding: 0.1rem 0rem;
     }
     .table_viet td{
-        font-size: 16px;
-        padding: 0.8rem 0rem;
+        font-size: 14px;
+        padding: 1rem 0rem;
     }
-    
 
-    .ok{
-        margin-top: 0.7rem;
-        padding-left: 13rem;
-    
-    }
-    .ok a{
+    .view a{
         font-size: 13px;
+        padding: 0.5rem 0rem;
     }
+
+    .del a{
+        font-size: 13px;
+        padding: 0.5rem 0.7rem;
+    }
+
 }

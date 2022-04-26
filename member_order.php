@@ -6,8 +6,8 @@
     session_start();
 
     if (!$_SESSION['userid']) {
-        header("Location: index.php");
-    } else {
+        header("Location: login.php");
+    }
 
 ?>
 
@@ -18,7 +18,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>order Page</title>
-    <link rel="stylesheet" href="CSS/order_o.css">
+    <link rel="stylesheet" href="CSS/order.css">
 </head>
 <body>
 
@@ -63,14 +63,14 @@
                                 
                             <?php 
                                 //มีการจอย 
-                                $select_order = "SELECT o.updateAt,u.name,u.cartstatus,u.id FROM loginadminuser.orders o 
-                                left join loginadminuser.tbl_product t on o.product_id=t.p_id 
-                                left join loginadminuser.tbl_user u on o.user_id=u.id
+                                $select_order = "SELECT o.updateAt,u.name,u.cartstatus,u.id FROM id18837104_loginadminuser.orders o 
+                                left join id18837104_loginadminuser.tbl_product t on o.product_id=t.p_id 
+                                left join id18837104_loginadminuser.tbl_user u on o.user_id=u.id
                                 group by o.user_id
                                 order by o.updateAt;";
                             
                             $query_order = mysqli_query($conn, $select_order);
-                             $ran = 0;
+                            $ran = 0;
                             
                             while ($row = mysqli_fetch_array($query_order)) {
                                     $id = $row['id'];                     
@@ -93,6 +93,7 @@
                                             <td><?php echo "ดำเนินการ"; ?></td>
                                             <td> 
                                                 <div class="view">
+                                                    <!-- _GET id จาก member_view.php 54 -->
                                                     <label><a href="member_view.php?id=<?php echo $id; ?>">ดูรายการ</a></label>
                                                 </div>
                                             </td>
@@ -107,13 +108,14 @@
                                                 <td><?php echo "สำเร็จ"; ?></td>
                                                 <td> 
                                                     <div class="view">
+                                                    <!-- _GET id จาก member_view.php 54 -->
                                                         <label><a href="member_view.php?id=<?php echo $id; ?>">ดูรายการ</a></label>
                                                     </div>
                                                 </td>
 
                                                 <td><div class='del'>
                                                 <div class='delete'>
-                                                    <!-- _GET id จาก clear.php บรรทัด 8 -->
+                                                    <!-- _GET id จาก clear.php  8 -->
                                                     <a href="clear.php?id=<?php echo $id; ?>"onclick="return confirm('คุณต้องการเคลียร์โต๊ะที่เลือก')">เคลียร์</a>
                                                 </div>
                                                 </div>
@@ -142,4 +144,3 @@
     
 </body>
 </html>
-<?php } ?>

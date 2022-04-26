@@ -5,8 +5,8 @@
     session_start();
 
     if (!$_SESSION['userid']) {
-        header("Location: index.php");
-    } else {
+        header("Location: login.php");
+    }
 
 ?>
 
@@ -51,7 +51,7 @@
                     <div class="showinfo">
 
                  <?php   
-                //  ไป member.php ?id= บรรทัด 84 ดูขอ้มูล
+                //  ไป member.php ?id= บรรทัด 79 ดูขอ้มูล
                     if(isset($_GET['id'])) {
                     $select_id = $_GET['id'];
 
@@ -80,13 +80,31 @@
                     </div>
 
                     <!-- <div class="group">
-                        <lable>รูปภาพ :</lable>
-                        <input type="file" name="image" alt="No have picture">
+                        <label>ตำแหน่ง  : <?php echo $userlevel; ?> </label>
                     </div> -->
 
-                    <div class="group">
-                        <label>ตำแหน่ง  : <?php echo $userlevel; ?> </label>
-                    </div>
+                    <?php switch ($userlevel) {
+                        case "a":
+                            ?>
+                            <div class="group">
+                                <label> ตำแหน่ง  : <?php echo "Admin"; ?> </label>
+                            </div>
+                            <?php break; ?>
+
+                            
+                            <?php  case "m": ?>
+                                <div class="group">
+                                <label> ตำแหน่ง  : <?php echo "พนักงาน"; ?> </label>
+                            </div>
+
+                                <?php break; ?>
+
+                            <?php
+                        default:
+                            # code...
+                            break;
+                            ?>
+                    <?php } ?>
 
                     
                     <?php } ?>
@@ -95,5 +113,4 @@
     
 </body>
 </html>
-<?php } ?>
 

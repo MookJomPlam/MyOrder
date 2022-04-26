@@ -5,8 +5,8 @@
     session_start();
 
     if (!$_SESSION['userid']) {
-        header("Location: index.php");
-    } else {
+        header("Location: login.php");
+    }
 
 ?>
 
@@ -17,7 +17,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Item Page</title>
-    <link rel="stylesheet" href="CSS/item.css">
+    <link rel="stylesheet" href="CSS/item_t.css">
 </head>
 <body>
 
@@ -49,8 +49,8 @@
                     <div class="section">
                     <h4>รายการอาหาร</h4>
                     <hr>
-
-                        <div class="add">
+                        
+                        <div class="add"> 
                             <a href="add.php"> + เพิ่มรายการอาหาร</a></li>
                         </div>
                         <br>
@@ -96,4 +96,3 @@
     
 </body>
 </html>
-<?php } ?>
