@@ -56,7 +56,7 @@
 
                         <div class="grid-container">
                     <?php 
-                        // ใช้ต่อจาก 66 ORDER BY 1 DESC
+                        //  ORDER BY 1 DESC
                         $select_user = "SELECT * FROM user ";
                         //ประมวลผล query
                         $query_user = mysqli_query($conn, $select_user);
@@ -71,7 +71,30 @@
                         <div class="grid-item">
                             <img src="image/<?php echo $image; ?>" alt="ไม่พบรูปภาพ">
                             <p>ชื่อผู้ใช้ : <?php echo $username; ?> </p>
-                            <p >ตำแหน่ง : <?php echo $userlevel; ?></p>
+                            <!-- <p >ตำแหน่ง : <?php echo $userlevel; ?></p> -->
+
+                            <?php switch ($userlevel) {
+                                 case "a":
+                            ?>
+                            <div class="group">
+                                <p> ตำแหน่ง  : <?php echo "Admin"; ?> </p>
+                            </div>
+                            <?php break; ?>
+
+                            
+                            <?php  case "m": ?>
+                                <div class="group">
+                                <p> ตำแหน่ง  : <?php echo "พนักงาน"; ?> </p>
+                            </div>
+
+                                <?php break; ?>
+
+                            <?php
+                        default:
+                            # code...
+                            break;
+                            ?>
+                    <?php } ?>
                             
                             <div class="edit_del">
                                 <div class="edit">

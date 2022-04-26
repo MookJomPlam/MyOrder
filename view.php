@@ -46,7 +46,7 @@
 
             <div class="section">  
             <?php 
-                        $url = $_GET['id']; //50
+                        $url = $_GET['id']; //order.php 115
                         $select_location2 = "SELECT * FROM tbl_user WHERE id='$url'";
 
 
@@ -120,7 +120,7 @@
 
                     <?php $url_id = $_GET['id'];
         
-                      //มีการจอย จาก cart       sumสร้างตัวเเปร sumprice=product_id
+                      //มีการจอย จาก cart       
                       $select_post = "SELECT *,sum(t.p_price) as sumprice,count(c.product_id) as num FROM id18837104_loginadminuser.cart c right join id18837104_loginadminuser.tbl_product t on c.product_id=t.p_id where c.userid=$url_id;";
 
                       $query_post = mysqli_query($conn, $select_post);

@@ -110,7 +110,8 @@
 
                                     
                                 </td>
-                                    <td> <div class="view">
+                                    <td> <div class="view"> 
+                                        <!-- //view.php?id 49 -->
                                         <label><a href="view.php?id=<?php echo $id; ?>">รายละเอียด</a></label>
                                     </div>
                                     </td>
