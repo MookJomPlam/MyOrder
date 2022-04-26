@@ -86,9 +86,28 @@
                                 <label name="lastname">นามสกุล : <?php echo $lastname; ?> </label>
                             </div>
 
-                            <div class="group">
+                            <!-- <div class="group">
                                 <label name="userlevel">ตำแหน่ง  : <?php echo $userlevel; ?> </label>
+                            </div> -->
+
+                            <?php switch ($userlevel) {
+                                case "a":
+                            ?>
+                            <div class="group">
+                                <label> ตำแหน่ง  : <?php echo "Admin"; ?> </label>
                             </div>
+                            <?php break; ?>
+
+                            
+                            <?php  case "m": ?>
+                                <div class="group">
+                                <label> ตำแหน่ง  : <?php echo "พนักงาน"; ?> </label>
+                            </div>
+
+                                <?php break; ?>
+
+                    <?php } ?>
+
 
                 <?php } ?>
 
