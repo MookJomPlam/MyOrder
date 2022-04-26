@@ -14,7 +14,7 @@
     <title>Menu Page</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- icon ตะกร้า -->
-    <link rel="stylesheet" href="CSS/menu.css">
+    <link rel="stylesheet" href="CSS/menu_n.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" integrity="sha512-+4zCK9k+qNFUR5X+cKL9EIR+ZOhtIloNl9GIKS57V1MyNsYpYcUrUeQc9vNfzsWfV28IaLL3i96P9sdNyeRssA==" crossorigin="anonymous" />
 
   </head>
@@ -313,10 +313,12 @@
       <div class = "footer-banner">
         <div class = "container">
           <h2> ติดต่อ </h2>
-            <p class = "text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Maiores est quod maxime 
-              nisi possimus corporis qui aliquid molestias sit iusto itaque, cum delectus tempore, 
-              distinctio velit. Repellat reiciendis suscipit quidem aliquid ipsam, nemo minus repudiandae 
-              quas eligendi natus voluptate nostrum? 
+            <p class = "text">ที่อยู่: หมู่ 4 เลขที่ 134 ระหว่างปั๊มปตทคลองหกและเดอะพอย์ทคอนโด ถนน รังสิต - นครนายก อำเภอธัญบุรี ปทุมธานี 12110
+              เวลาทำการ: 
+              <br>
+                เปิดบริการ 06:00 - 15:00
+                <br>
+                ปิดบริการ วันจันทร์
               <br>
               โทร : 099-8765432
             </p>
