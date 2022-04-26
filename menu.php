@@ -41,19 +41,7 @@
               <h2>รายการที่เลือก</h2>
 
             <div class="group">
-
-
-                  <div class="group-location">
-                  <label>ทานที่  :</label>
-                  <select form="updateorder" name="location" required>
-                      <option value="">สถานที่</option>
-                      <option value="1">ร้าน</option>
-                      <option value="2">กลับบ้าน</option>
-                  </select>
-                  </div>
-
-                  <div class="status">
-                    <?php
+            <?php
                     $get_id_from_url = $_GET['id']; //57
                     
                     $selectTBLUser = "SELECT * FROM tbl_user where id=$get_id_from_url";
@@ -61,26 +49,54 @@
                     $query_tbl_user = mysqli_query($conn, $selectTBLUser);
 
                     while ($row = mysqli_fetch_array($query_tbl_user)) {
-                    $tbl_user_cartstatus = $row['cartstatus']
-                    ?>  
-                    <label>สถานะอาหาร : <?php switch ($tbl_user_cartstatus) {
-                      case 1:
-                        echo "รอการยืนยัน";
-                        break;
-                        case 2:
-                          echo "ดำเนินการ";
-                          break;
-                          case 3:
-                            echo "สำเร็จ";
+                    $tbl_user_cartstatus = $row['cartstatus'];
+                    $tbl_user_location = $row['location'];
+
+                    if($tbl_user_location == 0){
+                    ?>
+                      <div class="group-location">
+                          <label>ทานที่  :</label>
+                          <select form="updateorder" name="location" required>
+                              <option value="">สถานที่</option>
+                              <option value="1">ร้าน</option>
+                              <option value="2">กลับบ้าน</option>
+                          </select>
+                      </div>
+
+                      <?php } if($tbl_user_location == 1){?>
+                          <label>ทานที่ : <?php switch ($tbl_user_location) {
+                          case 1:
+                            echo "ร้าน";
                             break;
-                      default:
-                        # code...
-                        break;
-                    } ?></label> 
-                    <?php }?>
+
+                            } ?></label> 
+                            <?php } ?>
+
+                            <?php } if($tbl_user_location == 2){?>
+                          <label>ทานที่ : <?php switch ($tbl_user_location) {
+                            case 2:
+                              echo "กลับบ้าน";
+                              break;
+                            } ?></label> 
+                            <?php } ?>
+
+                  <div class="status">
+                    
+                          <label>สถานะอาหาร : <?php switch ($tbl_user_cartstatus) {
+                            case 1:
+                              echo "รอการยืนยัน";
+                              break;
+                              case 2:
+                                echo "ดำเนินการ";
+                                break;
+                                case 3:
+                                  echo "สำเร็จ";
+                                  break;
+                          } ?></label> 
                   </div>
 
-                  </div>
+              </div>
+              
                  
 
                   
@@ -121,8 +137,8 @@
                             <td><?php echo $p_price; ?></td>
                             <td><div class="del">
 
-                              <?php
-                                $delete_cart = $_GET['id']; //126
+                              <?php //ตัวเดียวกับ สั่งซื้อ 294
+                                $delete_cart = $_GET['id']; 
 
                                 $delete_cart2 = "SELECT * from tbl_user WHERE id=$delete_cart";
                                 $delete_cart3 = mysqli_query($conn,$delete_cart2);
@@ -195,14 +211,14 @@
                               if ($querytbluser==0){?>
                             <form id="updateorder" action="updateorder.php" method="post" enctype="multipart/form-data" >
                             <input name="id" value="<?php echo $getid ?>" style ="display:none">
-                            <button class="cart_ok" type = "submit" name="submit">ยืนยัน </button>
+                            <button class="cart_ok" type = "submit" name="submit" onclick="return confirm('ยืนยันรายการ')">ยืนยัน </button>
                           </from>
                       
                           <?php }else if($querytbluser==1) {?> 
                             <form id="cancel_order" action="cancel_order.php" method="post" enctype="multipart/form-data" >
                             <input name="id" value="<?php echo $getid ?>" style ="display:none">
 
-                            <button class="cart_ok" type = "submit" name="submit">ยกเลิก </button>
+                            <button class="cart_ok" type = "submit" name="submit" onclick="return confirm('ยกเลิกรายการ')">ยกเลิก </button>
                           </from>
 
                           <?php } ?>  
@@ -237,7 +253,7 @@
         <div class = "product-list">
     <?php 
 
-            $id = $_GET['id']; //จาก add_cart 9  //262*
+            $id = $_GET['id'];  //294*
 
             $select_tbl = "SELECT * FROM tbl_product";
 
@@ -260,8 +276,28 @@
                   <h3 class = "product-name"><?php echo $p_name; ?></h3>
                   <p class = "product-price"><?php echo $p_price; ?> บาท</p>
 
-                    <!-- _GET จาก add_cart.php  -->
-                    <a href="add_cart.php?id=<?php echo $id; ?>&p_id=<?php echo $p_id; ?>"> สั่งซื้อ </a>
+        <!-- กดสั่งซื้อ ตัวเดียวกับ ลบ 141-->
+              <?php
+                  $add_cart = $_GET['id']; 
+
+                  $add_cart2 = "SELECT * from tbl_user WHERE id=$add_cart";
+
+                  $add_cart3 = mysqli_query($conn,$add_cart2);
+
+                  while ($row = mysqli_fetch_array($add_cart3)) {
+                        $add_cart4 = $row['cartstatus'];
+
+                        if($add_cart4 == 0){
+
+                        ?>
+                        <!-- _GET จาก add_cart.php  -->
+                        <a href="add_cart.php?id=<?php echo $id; ?>&p_id=<?php echo $p_id; ?>"> สั่งซื้อ </a>
+                          
+                          <?php } else if($add_cart4 == 1){?>
+
+                          <?php }
+                        }?>
+
 
                 </div>
               </div>
