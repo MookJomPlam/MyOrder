@@ -5,9 +5,8 @@
     session_start();
 
     if (!$_SESSION['userid']) {
-        header("Location: index.php");
-    } else {
-
+        header("Location: login.php");
+    }
 ?>
 
 <!DOCTYPE html>
@@ -17,7 +16,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Item Page</title>
-    <link rel="stylesheet" href="CSS/member.css">
+    <link rel="stylesheet" href="CSS/member_m.css">
 </head>
 <body>
 
@@ -39,14 +38,9 @@
                         <li><a href="member.php">พนักงาน</a></li>
                         <li><a href="item.php">รายการอาหาร</a></li>
                         <li><a href="order.php">ออเดอร์</a></li>
+                        <li><a href="logout.php">ออกจากระบบ</a> </li>
                     </ul>
-                        <div class="out">
-                            <ul>
-                                <li>
-                                    <a href="logout.php">ออกsจากระบบ</a>
-                                </li>
-                            </ul>
-                        </div>
+                        
                 </div>
                 </div>
 
@@ -62,8 +56,8 @@
 
                         <div class="grid-container">
                     <?php 
-                        
-                        $select_user = "SELECT * FROM user ORDER BY 1 DESC";
+                        //  ORDER BY 1 DESC
+                        $select_user = "SELECT * FROM user ";
                         //ประมวลผล query
                         $query_user = mysqli_query($conn, $select_user);
                         
@@ -77,15 +71,40 @@
                         <div class="grid-item">
                             <img src="image/<?php echo $image; ?>" alt="ไม่พบรูปภาพ">
                             <p>ชื่อผู้ใช้ : <?php echo $username; ?> </p>
-                            <p >ตำแหน่ง : <?php echo $userlevel; ?></p>
+                            <!-- <p >ตำแหน่ง : <?php echo $userlevel; ?></p> -->
+
+                            <?php switch ($userlevel) {
+                                 case "a":
+                            ?>
+                            <div class="group">
+                                <p> ตำแหน่ง  : <?php echo "Admin"; ?> </p>
+                            </div>
+                            <?php break; ?>
+
+                            
+                            <?php  case "m": ?>
+                                <div class="group">
+                                <p> ตำแหน่ง  : <?php echo "พนักงาน"; ?> </p>
+                            </div>
+
+                                <?php break; ?>
+
+                            <?php
+                        default:
+                            # code...
+                            break;
+                            ?>
+                    <?php } ?>
                             
                             <div class="edit_del">
                                 <div class="edit">
-                                    <label><a href="infomember.php">ข้อมูล</a></label>
+                                    <!-- มาจาก infomember _GET id บรรทัด60 -->
+                                    <label><a href="infomember.php?id=<?php echo $id; ?>">ข้อมูล</a></label>
                                 </div>
 
                                 <div class="edit">
-                                    <label><a href="editinfo.php">แก้ไข</a></label>
+                                <!-- มาจาก editinfo.php _GET edit บรรทัด7 -->
+                                    <label><a href="editinfo.php?edit=<?php echo $id; ?>">แก้ไข</a></label>     
                                 </div>
 
                                 <div class="del">
@@ -106,4 +125,3 @@
     
 </body>
 </html>
-<?php } ?>

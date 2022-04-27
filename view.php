@@ -5,8 +5,8 @@
     session_start();
 
     if (!$_SESSION['userid']) {
-        header("Location: index.php");
-    } else {
+        header("Location: login.php");
+    }
 
 ?>
 
@@ -39,19 +39,14 @@
                         <li><a href="member.php">พนักงาน</a></li>
                         <li><a href="item.php">รายการอาหาร</a></li>
                         <li><a href="order.php">ออเดอร์</a></li>
+                        <li> <a href="logout.php">ออกจากระบบ</a></li>
                     </ul>
-                        <div class="out">
-                            <ul>
-                                <li>
-                                    <a href="logout.php">ออกจากระบบ</a>
-                                </li>
-                            </ul>
-                        </div>
+                        
                 </div>
 
             <div class="section">  
             <?php 
-                        $url = $_GET['id'];
+                        $url = $_GET['id']; //order.php 115
                         $select_location2 = "SELECT * FROM tbl_user WHERE id='$url'";
 
 
@@ -63,10 +58,10 @@
                             $info = $lol['id'];
                             $info1 = $lol['name'];
                             $info2 = $lol['cartstatus'];
-                            $info3 = $lol['status'];
+                            $info3 = $lol['location'];
 
                         ?>
-                        <strong>ออเดอร์อาหาร โต๊ะที่ :<?php echo $url;?> </strong> 
+                        <strong>ออเดอร์โต๊ะที่ :<?php echo $url;?> </strong> 
                         <strong> สถานะ : <?php switch ($info3) {
                                         case 1:   ?>
                                             <?php echo "ร้าน"; ?>
@@ -98,8 +93,8 @@
 
                             <?php 
 
-                            $select_view = "SELECT *,sum(t.p_price) as sumprice,count(o.product_id) as num FROM loginadminuser.orders o
-                            right join loginadminuser.tbl_product t on o.product_id=t.p_id where o.user_id=$url group by o.product_id";
+                            $select_view = "SELECT *,sum(t.p_price) as sumprice,count(o.product_id) as num FROM id18837104_loginadminuser.orders o
+                            right join id18837104_loginadminuser.tbl_product t on o.product_id=t.p_id where o.user_id=$url group by o.product_id";
                                      
                             $query_view = mysqli_query($conn, $select_view);
                             $ran = 0;
@@ -120,6 +115,26 @@
                             
                             <?php } ?>   
                         </table>
+
+                <!-- // ราคารวม -->
+
+                    <?php $url_id = $_GET['id'];
+        
+                      //มีการจอย จาก cart       
+                      $select_post = "SELECT *,sum(t.p_price) as sumprice,count(c.product_id) as num FROM id18837104_loginadminuser.cart c right join id18837104_loginadminuser.tbl_product t on c.product_id=t.p_id where c.userid=$url_id;";
+
+                      $query_post = mysqli_query($conn, $select_post);
+
+                      while ($row = mysqli_fetch_array($query_post)) {
+                      $p_price = $row['sumprice'];
+            
+                      ?>
+
+                        <h3>ราคารวม : <?php echo $p_price; ?> บาท </h3> 
+
+                    <?php } ?>    
+                <!-- //  -->
+                
                         
                         <div class="ok">
                             <label><a href="updatestatus2.php?id=<?php echo $url;?>">ยืนยัน</a></label>
@@ -135,4 +150,3 @@
     
 </body>
 </html>
-<?php } ?>

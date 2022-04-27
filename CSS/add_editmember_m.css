@@ -7,13 +7,14 @@
 }
 
 *{
+    max-width: 100%;
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
 .container {
-    max-width: 1280px;
+    max-width: 100%;
     margin: 0 auto;
     
 }
@@ -43,7 +44,7 @@ h2 {
 }
 
 .side {
-    height: 30.5rem;
+    height: 16.5rem;
     background-color: var(--black-sea);
     
 } 
@@ -63,12 +64,6 @@ li a{
     border-bottom: 1px solid var(--granite-gray);
     text-align: center;
     transition: 0.3s;
-    
-}
-
-.out {
-    margin-top: 14rem;
-    border-top: 1px solid var(--granite-gray);
     
 }
 
@@ -121,6 +116,87 @@ select{
     width: 6rem;
     height: 2rem;
 }
+
+/* @media screen and (max-width: 480px){ */
+@media screen and (max-width: 480px){
+
+    header{
+    padding: 0.5rem;
+    }
+    h2 {
+    margin-left: 2rem;
+    margin-right: 2rem;
+    font-size: 20px;
+    }
+
+    h3 {
+    font-size: 16px;
+    }
+
+    .content{
+    padding: 0.5rem;
+
+    }
+    .content_grid {
+
+    grid-template-columns:1fr;
+    }
+
+    .side{
+    height: 13rem
+    }
+
+    li a{
+    width: 100%;
+    padding: 0.7rem;
+    font-size: 14px;
+    }
+    /* .navbar {
+    display: flex;
+    justify-content: space-between;
+
+    } */
+
+    .section h4 {
+    font-size: 20px;
+    margin: 0.5rem;
+    text-align: center;
+}
+
+
+hr {
+    margin-bottom: 0.5rem;
+}
+
+    .showinfo {
+        margin: 0.5rem 1rem;
+    } 
+
+    .group {
+        margin: 0.8rem;
+        font-size: 15px;
+    }
+
+    input[type="text"],
+    input[type="password"],
+    input[type="fils"]{
+    width: 11rem;
+    height: 2rem;
+
+    }
+
+    input[type="submit"] {
+        width: 4rem;
+        margin: 0.7rem;
+        margin-left: 13rem;
+    }
+
+    select{
+        font-size: 12px;
+    }
+    
+}
+
 
 
 
