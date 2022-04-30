@@ -94,7 +94,7 @@
 
                     <div class="group">
                         <label>ตำแหน่ง : </label>
-                        <select name="userlevel" alue = "<?php echo $userlevel; ?>" required>
+                        <select name="userlevel" value = "<?php echo $userlevel; ?>" required>
                             <option value="">เลือกสถานะ</option>
                             <option value="a">ผู้ดูแล</option>
                             <option value="m">พนักงาน</option>
