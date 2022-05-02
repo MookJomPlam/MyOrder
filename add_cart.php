@@ -10,7 +10,7 @@
         $p_id = $_GET['p_id'];
 
         $insert_query = "INSERT INTO cart (userid, product_id) 
-                        VALUES ('$id', '$p_id')";
+                         VALUES ('$id', '$p_id')";
         $result = mysqli_query($conn, $insert_query);
         if ($result) {
             echo "<script>alert('เพิ่มรายการสำเร็จ');</script>";
