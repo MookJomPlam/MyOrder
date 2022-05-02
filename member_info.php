@@ -23,74 +23,69 @@
 </head>
 <body>
 
-    <header>
-        <div class="container">
-            <nav class="navbar">
-                <h2>พนักงาน</h2>
-                <h3>ยินดีต้อนรับคุณ : <?php echo $_SESSION['username']; ?> </h3>
-            </nav>
-    </header>
+<header>
+    <div class="container">
+        <nav class="navbar">
+            <h2>พนักงาน</h2>
+            <h3>ยินดีต้อนรับคุณ : <?php echo $_SESSION['username']; ?> </h3>
+        </nav>
+</header>
 
-        <div class="content">
-            <div class="content_grid">
-            
-                <div class="side">
-                <div class="side_bar">
-                    <ul>
-                        <li><a href="member_page.php">หน้าแรก</a></li>
-                        <li><a href="member_info.php">ข้อมูลส่วนตัว</a></li>
-                        <li><a href="member_item.php">รายการอาหาร</a></li>
-                        <li><a href="member_order.php">ออเดอร์</a></li>
-                        <li><a href="logout.php">ออกจากระบบ</a></li>
-                    </ul>
+    <div class="content">
+        <div class="content_grid">
+        
+            <div class="side">
+            <ul>
+                <li><a href="member_page.php">หน้าแรก</a></li>
+                <li><a href="member_info.php">ข้อมูลส่วนตัว</a></li>
+                <li><a href="member_item.php">รายการอาหาร</a></li>
+                <li><a href="member_order.php">ออเดอร์</a></li>
+                <li><a href="logout.php">ออกจากระบบ</a></li>
+            </ul>
+            </div>
 
+            <div class="section">
+            <h4>ข้อมูลส่วนตัว</h4>
+            <hr>
+
+                <div class="add">
+                <!-- member_edit_info.php?edit=  -->
+                    <a href="member_edit_info.php?edit=<?php echo $u_id; ?>"> แก้ไขข้อมูล</a></li>
                 </div>
-                </div>
+                <br>
 
                 <div class="section">
-                <h4>ข้อมูลส่วนตัว</h4>
-                <hr>
+                <?php   
+                    //u_id บรรทัด8
+                    $select_user = "SELECT * FROM user WHERE id =$u_id";
+                    
+                    $query_user = mysqli_query($conn, $select_user);
 
-                    <div class="add">
-                    <!-- member_edit_info.php?edit=  -->
-                        <a href="member_edit_info.php?edit=<?php echo $u_id; ?>"> แก้ไขข้อมูล</a></li>
-                    </div>
-                    <br>
+                    while ($row = mysqli_fetch_array($query_user)) {
+                        $username = $row['username'];
+                        $firstname = $row['firstname'];
+                        $lastname = $row['lastname'];
+                        $userlevel = $row['userlevel'];
 
-                        <div class="section">
-
-                    <?php   
-                        //u_id บรรทัด8
-                        $select_user = "SELECT * FROM user WHERE id =$u_id";
-                        
-                        $query_user = mysqli_query($conn, $select_user);
-
-                        while ($row = mysqli_fetch_array($query_user)) {
-                            $username = $row['username'];
-                            $firstname = $row['firstname'];
-                            $lastname = $row['lastname'];
-                            $userlevel = $row['userlevel'];
-
-                    ?>
+                ?>
 
                         <div class="group">
+                            <label name="username">ชื่อผู้ใช้ : <?php echo $username; ?></label>
+                        </div>
 
-                                <label name="username">ชื่อผู้ใช้ : <?php echo $username; ?></label>
-                            </div>
+                        <div class="group">
+                            <label name="firstname">ชื่อจริง : <?php echo $firstname; ?> </label>
+                        </div>
 
-                            <div class="group">
-                                <label name="firstname">ชื่อจริง : <?php echo $firstname; ?> </label>
-                            </div>
+                        <div class="group">
+                            <label name="lastname">นามสกุล : <?php echo $lastname; ?> </label>
+                        </div>
 
-                            <div class="group">
-                                <label name="lastname">นามสกุล : <?php echo $lastname; ?> </label>
-                            </div>
+                        <!-- <div class="group">
+                            <label name="userlevel">ตำแหน่ง  : <?php echo $userlevel; ?> </label>
+                        </div> -->
 
-                            <!-- <div class="group">
-                                <label name="userlevel">ตำแหน่ง  : <?php echo $userlevel; ?> </label>
-                            </div> -->
-
-                            <?php switch ($userlevel) {
+                        <?php switch ($userlevel) {
                                 case "a":
                             ?>
                             <div class="group">
@@ -103,19 +98,17 @@
                                 <div class="group">
                                 <label> ตำแหน่ง  : <?php echo "พนักงาน"; ?> </label>
                             </div>
-
                                 <?php break; ?>
 
-                    <?php } ?>
-
-
+                        <?php } ?>
                 <?php } ?>
-
-                        </div>
-                        
-
-        </div>
-        </div>
+                </div>
+            </div>
+                    
+    </div>
+    </div>
+    
+</div>
     
 </body>
 </html>

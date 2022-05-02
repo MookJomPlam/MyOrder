@@ -10,7 +10,6 @@
 
     
     if (isset($_POST['submit'])) {
-
         $p_name = $_POST['name'];
         $p_price = $_POST['price'];
         $p_image = $_FILES['image']['name'];
@@ -42,38 +41,33 @@
 </head>
 <body>
 
-    <header>
-        <div class="container">
-            <nav class="navbar">
-                <h2>Admin</h2>
-                <h3>ยินดีต้อนรับคุณ : <?php echo $_SESSION['username']; ?> </h3>
-            </nav>
-    </header>
+<header>
+    <div class="container"> 
+        <nav class="navbar">
+            <h2>Admin</h2>
+            <h3>ยินดีต้อนรับคุณ : <?php echo $_SESSION['username']; ?> </h3>
+        </nav>
+</header>
 
         <div class="content">
             <div class="content_grid">
-            
+
                 <div class="side">
-                    <div class="side_bar">
-                        <ul>
-                            <li><a href="admin.php">หน้าแรก</a></li>
-                            <li><a href="member.php">พนักงาน</a></li>
-                            <li><a href="item.php">รายการอาหาร</a></li>
-                            <li><a href="order.php">ออเดอร์</a></li>
-                            <li> <a href="logout.php">ออกจากระบบ</a> </li>
-                        </ul>
-                            
-                    </div>
-                    </div>
+                    <ul>
+                        <li><a href="admin.php">หน้าแรก</a></li>
+                        <li><a href="member.php">พนักงาน</a></li>
+                        <li><a href="item.php">รายการอาหาร</a></li>
+                        <li><a href="order.php">ออเดอร์</a></li>
+                        <li> <a href="logout.php">ออกจากระบบ</a> </li>
+                    </ul>                         
+                </div>
 
-            <div class="section">
-                <h4>เพิ่มรายการ</h4>
-                <hr>
+        <div class="section">
+            <h4>เพิ่มรายการ</h4>
+            <hr>
 
-                <div class="showinfo">
-
+            <div class="showinfo">
                 <form action="add.php" method="post" enctype="multipart/form-data">
-
 
                     <div class="group">
                         <label for="username">ชื่ออาหาร :</label>
@@ -95,14 +89,14 @@
                     </div>
                     
                 </from>
-
-                </div>
-
             </div>
 
-            </div>
+        </div>
+
         </div>
         </div>
+
+    </div>
     
 </body>
 </html>

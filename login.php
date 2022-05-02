@@ -2,6 +2,8 @@
 
     session_start();
 
+    require_once "connection.php";
+
 ?>
 
 
@@ -18,22 +20,21 @@
 </head>
 <body>
 
-
     <div class="box">
     <form action="login_file.php" method="post">
 
-    <h2>เข้าสู่ระบบ</h2>
+        <h2>เข้าสู่ระบบ</h2>
         
         <div class="group">
-        <label for="username">ชื่อผู้ใช้</label>
-        <input type="text" name="username" placeholder="Username" required>
+            <label for="username">ชื่อผู้ใช้</label>
+            <input type="text" name="username" placeholder="Username" required>
         </div>
 
         <br>
 
         <div class="group">
-        <label for="password">รหัสผ่าน</label>
-        <input type="password" name="password" placeholder="Password" required>
+            <label for="password">รหัสผ่าน</label>
+            <input type="password" name="password" placeholder="Password" required>
         </div>
 
         <br>
@@ -43,7 +44,6 @@
         </div>
 
         <br>
-
 
     </form>
     </div>
