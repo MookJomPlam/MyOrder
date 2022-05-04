@@ -4,7 +4,7 @@
 
     session_start();
 
-    // เคลียร์โต๊ะ  ไปบรรทัด 122 menu.php 
+    // เคลียร์โต๊ะ  ไปบรรทัด 118 member_order.php 
     if (isset($_GET['id'])) {
         $geturlatid = $_GET ['id'];
         
@@ -13,7 +13,7 @@
         $result = mysqli_query($conn, $update_query);
         $result2 = mysqli_query($conn, $update_query2);
       
-        $updatetbl_user = "UPDATE tbl_user SET cartstatus='0', status = '0' WHERE id ='$geturlatid'"; 
+        $updatetbl_user = "UPDATE tbl_user SET cartstatus='0', location='0' WHERE id ='$geturlatid'"; 
         // check ถ้าสำเร็จ
         if (mysqli_query($conn, $updatetbl_user)) {
             echo "<script>alert('เคลียร์ออเดอร์');</script>";

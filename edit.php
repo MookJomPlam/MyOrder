@@ -42,7 +42,6 @@
     }
 ?>      
 
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -54,63 +53,61 @@
 </head>
 <body>
 
-    <header>
-        <div class="container">
-            <nav class="navbar">
-                <h2>Admin</h2>
-                <h3>ยินดีต้อนรับคุณ : <?php echo $_SESSION['username']; ?> </h3>
-            </nav>
-    </header>
+<header>
+    <div class="container">
+        <nav class="navbar">
+            <h2>Admin</h2>
+            <h3>ยินดีต้อนรับคุณ : <?php echo $_SESSION['username']; ?> </h3>
+        </nav>
+</header>
 
-        <div class="content">
-            <div class="content_grid">
-            
+    <div class="content">
+        <div class="content_grid">
+        
                 <div class="side">
-                    <div class="side_bar">
-                        <ul>
-                            <li><a href="admin.php">หน้าแรก</a></li>
-                            <li><a href="member.php">พนักงาน</a></li>
-                            <li><a href="item.php">รายการอาหาร</a></li>    
-                            <li><a href="order.php">ออเดอร์</a></li>
-                            <li><a href="logout.php">ออกจากระบบ</a> </li>
-                        </ul>
-                            
-                    </div>
-                    </div>
-
-                <div class="section">
-                    <h4>แก้ไขรายการ</h4>
-                    <hr>
-
-                    <div class="showinfo">
-                <form action="edit.php?edit_form=<?php echo $p_id; ?>" method="post" enctype="multipart/form-data">  <!-- ไปที่ $_GET (34) -->
-                
-                    <div class="group">
-                        <label for="username">ชื่ออาหาร : </label>
-                        <input type="text" name="name" value = "<?php echo $p_name; ?>">
-                    </div>
-
-                    <div class="group">
-                        <label for="price">ราคา :</label>
-                        <input type="text" name="price" value = "<?php echo $p_price; ?>">
-                    </div>
-
-                    <div class="group">
-                        <lable for="image">รูปภาพ :</lable>
-                        <input type="file" name="image" value = "<?php echo $p_image; ?>">
-                    </div>
-
-                    <div class="group">
-                        <input type="submit" name="submit" value="ยืนยัน">
-                    </div>
-                </form>
+                <ul>
+                    <li><a href="admin.php">หน้าแรก</a></li>
+                    <li><a href="member.php">พนักงาน</a></li>
+                    <li><a href="item.php">รายการอาหาร</a></li>    
+                    <li><a href="order.php">ออเดอร์</a></li>
+                    <li><a href="logout.php">ออกจากระบบ</a> </li>
+                </ul>  
                 </div>
 
+            <div class="section">
+                <h4>แก้ไขรายการ</h4>
+                <hr>
+
+            <div class="showinfo">
+            <form action="edit.php?edit_form=<?php echo $p_id; ?>" method="post" enctype="multipart/form-data">  <!-- ไปที่ $_GET (34) -->
+            
+                <div class="group">
+                    <label for="username">ชื่ออาหาร : </label>
+                    <input type="text" name="name" value = "<?php echo $p_name; ?>" required>
+                </div>
+
+                <div class="group">
+                    <label for="price">ราคา :</label>
+                    <input type="text" name="price" value = "<?php echo $p_price; ?>" required>
+                </div>
+
+                <div class="group">
+                    <lable for="image">รูปภาพ :</lable>
+                    <input type="file" name="image" value = "<?php echo $p_image; ?>" required>
+                </div>
+
+                <div class="group">
+                    <input type="submit" name="submit" value="ยืนยัน">
+                </div>
+
+            </form>
             </div>
 
             </div>
-        </div>
-        </div>
+
+    </div>
+    </div>
+</div>
     
 </body>
 </html>

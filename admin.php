@@ -20,19 +20,18 @@
 </head>
 <body>
 
-    <header>
-        <div class="container">
-            <nav class="navbar">
-                <h2>Admin</h2>
-                <h3>ยินดีต้อนรับคุณ : <?php echo $_SESSION['username']; ?></h3>
-            </nav>
-    </header>
+<header>
+    <div class="container">
+        <nav class="navbar">
+            <h2>Admin</h2>
+            <h3>ยินดีต้อนรับคุณ : <?php echo $_SESSION['username']; ?></h3>
+        </nav>
+</header>
 
         <div class="content">
             <div class="content_grid">
-            
+
                 <div class="side">
-    
                     <ul>
                         <li><a href="admin.php">หน้าแรก</a></li>
                         <li><a href="member.php">พนักงาน</a></li>
@@ -40,15 +39,8 @@
                         <li><a href="order.php">ออเดอร์</a></li>
                         <li> <a href="logout.php">ออกจากระบบ</a> </li>
                     </ul>
-                        <!-- <div class="out">
-                            <ul>
-                                <li>
-                                    <a href="logout.php">ออกจากระบบ</a>
-                                </li>
-                            </ul>
-                        </div> -->
                 </div>
-
+                
                 <div class="showinfo">
                     <h4>ยินดีต้อนรับสู่หน้า Admin</h4>
                     <img width="640" height="360" src="image/admin.jpg"  alt="No have picture">
@@ -56,7 +48,8 @@
 
             </div>
         </div>
-        </div>
+
+    </div>
     
 </body>
 </html>

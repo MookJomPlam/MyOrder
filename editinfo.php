@@ -8,7 +8,7 @@
         header("location: login.php");
     }
     
-    // member.php   edit?= บรรทัด 89
+    // member.php   edit?= บรรทัด 84
     if(isset($_GET['edit'])) { 
         $edit_id = $_GET['edit'];
         $edit_query = "SELECT * FROM user WHERE id = '$edit_id'"; 
@@ -51,61 +51,65 @@
 </head>
 <body>
 
-    <header>
-        <div class="container">
-            <nav class="navbar">
-                <h2>Admin</h2>
-                <h3>ยินดีต้อนรับคุณ : <?php echo $_SESSION['username']; ?></h3>
-            </nav>
-    </header>
+<header>
+<div class="container">
+    <nav class="navbar">
+        <h2>Admin</h2>
+        <h3>ยินดีต้อนรับคุณ : <?php echo $_SESSION['username']; ?></h3>
+    </nav>
+</header>
 
-        <div class="content">
-            <div class="content_grid">
+<div class="content">
+    <div class="content_grid">
+    
+        <div class="side">
+        <ul>
+            <li><a href="admin.php">หน้าแรก</a></li>
+            <li><a href="member.php">พนักงาน</a></li>
+            <li><a href="item.php">รายการอาหาร</a></li>
+            <li><a href="order.php">ออเดอร์</a></li>
+            <li><a href="logout.php">ออกจากระบบ</a></li>
+        </ul>     
+        </div>
+
+        <div class="section">
+            <h4>แก้ไขข้อมูล</h4>
+            <hr>
+
+        <div class="showinfo">
+        <form action="editinfo.php?edit_form=<?php echo $id; ?>" method="post" enctype="multipart/form-data"> 
             
-                <div class="side">
+            <div class="group">
+                <label>ชื่อจริง : </label>
+                <input type="text" name="firstname" value="<?php echo $firstname; ?>" required>
+            </div>
+
+            <div class="group">
+                <label>นามสกุล : </label>
+                <input type="text" name="lastname" value = "<?php echo $lastname; ?>" required>
+                </div>  
+
+            <div class="group">
+                <label>ตำแหน่ง : </label>
+                <select name="userlevel" value = "<?php echo $userlevel; ?>" required>
+                    <option value="">เลือกสถานะ</option>
+                    <option value="a">ผู้ดูแล</option>
+                    <option value="m">พนักงาน</option>
+                </select>
+            </div>
+
+            <div class="group">
+                <input type="submit" name="submit" value="ยืนยัน">
+            </div>
     
-                <ul>
-                        <li><a href="admin.php">หน้าแรก</a></li>
-                        <li><a href="member.php">พนักงาน</a></li>
-                        <li><a href="item.php">รายการอาหาร</a></li>
-                        <li><a href="order.php">ออเดอร์</a></li>
-                        <li><a href="logout.php">ออกจากระบบ</a></li>
-                    </ul>
-                        
-                </div>
+        </form>
+        </div>
 
-                <div class="section">
-                    <h4>แก้ไขข้อมูล</h4>
-                    <hr>
-
-                    <div class="showinfo">
-
-                <form action="editinfo.php?edit_form=<?php echo $id; ?>" method="post" enctype="multipart/form-data"> 
-                    
-                    <div class="group">
-                        <label>ชื่อจริง : </label>
-                        <input type="text" name="firstname" value="<?php echo $firstname; ?>">
-                    </div>
+        </div>
         
-                    <div class="group">
-                        <label>นามสกุล : </label>
-                        <input type="text" name="lastname" value = "<?php echo $lastname; ?>">
-                     </div>  
+    </div>
+    </div>
+</div>
 
-                    <div class="group">
-                        <label>ตำแหน่ง : </label>
-                        <select name="userlevel" alue = "<?php echo $userlevel; ?>">
-                            <option value="">เลือกสถานะ</option>
-                            <option value="a">ผู้ดูแล</option>
-                            <option value="m">พนักงาน</option>
-                        </select>
-                    </div>
-
-                    <div class="group">
-                        <input type="submit" name="submit" value="ยืนยัน">
-                    </div>
-                    
-                </form>
-    
 </body>
 </html>
