@@ -58,7 +58,8 @@
                 </tr>
                     
                 <?php 
-                    $select_order = "SELECT o.updateAt,u.name,u.cartstatus,u.id FROM id18837104_loginadminuser.orders o 
+                    $select_order = "SELECT o.updateAt,u.name,u.cartstatus,u.id 
+                    FROM id18837104_loginadminuser.orders o 
                     left join id18837104_loginadminuser.tbl_product t on o.product_id=t.p_id 
                     left join id18837104_loginadminuser.tbl_user u on o.user_id=u.id
                     group by o.user_id
