@@ -18,6 +18,8 @@
             $p_name = $edit_row['p_name'];
             $p_price = $edit_row['p_price'];
             $p_image = $edit_row['p_image'];
+            $p_status = $edit_row['p_status'];
+
         }
     }
 
@@ -27,10 +29,13 @@
         $p_price = $_POST['price'];
         $p_image = $_FILES['image']['name'];
         $image_tmp = $_FILES['image']['tmp_name'];
+        $p_status = $_POST['status'];
+
 
         move_uploaded_file($image_tmp, "image/$p_image");
 
-        $update_query = "UPDATE tbl_product SET p_name = '$p_name', p_price = '$p_price', p_image = '$p_image' WHERE p_id = '$update_id'";
+        $update_query = "UPDATE tbl_product SET p_name = '$p_name', p_price = '$p_price', p_image = '$p_image', 
+                            p_status = '$p_status' WHERE p_id = '$update_id'";
 
         $result = mysqli_query($conn, $update_query);
         if ($result) {
@@ -93,7 +98,28 @@
 
                 <div class="group">
                     <lable for="image">รูปภาพ :</lable>
-                    <input type="file" name="image" value = "<?php echo $p_image; ?>" required>
+                    <img style="width:9rem; height:9rem;" src="image/<?php echo $p_image; ?>" alt="ไม่พบรูปภาพ">
+                    <input type="file" name="image" value ="อัพโหลด"  required>
+                </div>
+
+                <div class="group">
+                    <label>สถานะ :</label>
+                    <select name="status"  required>
+                        <option value="<?php echo $p_status; ?>"><?php switch ($p_status) {
+                        case 1:
+                            ?>
+                            <?php echo "พร้อม"; ?>
+                            <?php break; ?>
+                            
+                            <?php  case 2: ?>
+                                <?php echo "ไม่พร้อม"; ?>
+
+                                <?php break; ?>
+                    <?php } ?>
+                        </option>
+                        <option value="1">พร้อม</option>
+                        <option value="2">ไม่พร้อม</option>
+                    </select>
                 </div>
 
                 <div class="group">

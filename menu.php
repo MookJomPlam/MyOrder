@@ -9,12 +9,12 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <meta charset="utf-8">
+    <meta charset="utf-8"> 
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Menu Page</title>
+    <title>Menu Page</title> 
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <!-- icon ตะกร้า -->
-    <link rel="stylesheet" href="CSS/menu_a.css">
+    <link rel="stylesheet" href="CSS/menu_a.css"> 
+    <!-- เชื่อม icon -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" integrity="sha512-+4zCK9k+qNFUR5X+cKL9EIR+ZOhtIloNl9GIKS57V1MyNsYpYcUrUeQc9vNfzsWfV28IaLL3i96P9sdNyeRssA==" crossorigin="anonymous" />
 
   </head>
@@ -23,39 +23,36 @@
 
   <!-- header  -->
   <header>
-    <div class = "container">
+    <div class = "container"> 
       <!-- nav  -->
-      <nav class = "navbar">
+      <nav class = "navbar"> 
         <h1 class = "navbar-brand">ร้านอาหารต้นไทร</h1>
 
-        <div class = "cart">
-          <button class="click">
+        <div class = "cart"> 
+          <button class="click"> 
           <i class = "fas fa-shopping-cart"></i>
           </button>
       </div>
       <!-- end nav  -->
 
-      <div class="list-order">
-          <div class="cart_in">
+      <div class="list-order"> 
+          <div class="cart_in"> 
             <h2>รายการที่เลือก</h2>
 
-          <div class="group">
+          <div class="group"> 
           <?php
                   $get_id_from_url = $_GET['id']; //57
-                  
                   $selectTBLUser = "SELECT * FROM tbl_user where id=$get_id_from_url";
-                      
                   $query_tbl_user = mysqli_query($conn, $selectTBLUser);
-
                   while ($row = mysqli_fetch_array($query_tbl_user)) {
-                  $tbl_user_cartstatus = $row['cartstatus'];
-                  $tbl_user_location = $row['location'];
+                  $tbl_user_cartstatus = $row['cartstatus'];  
+                  $tbl_user_location = $row['location']; 
 
-                  if($tbl_user_location == 0){
+                  if($tbl_user_location == 0){ 
                   ?>
-                    <div class="group-location">
+                    <div class="group-location"> 
                       <label>ทานที่  :</label>
-                      <select form="updateorder" name="location" required>
+                      <select form="updateorder" name="location" required> 
                           <option value="">สถานที่</option>
                           <option value="1">ร้าน</option>
                           <option value="2">กลับบ้าน</option>
@@ -63,8 +60,8 @@
                     </div>
 
                     <?php } if($tbl_user_location == 1){?>
-                        <label>ทานที่ : <?php switch ($tbl_user_location) {
-                        case 1:
+                        <label>ทานที่ : <?php switch ($tbl_user_location) { 
+                        case 1:                
                           echo "ร้าน";
                           break;} ?>
                         </label> 
@@ -72,21 +69,21 @@
 
                         <?php } if($tbl_user_location == 2){?>
                           <label>ทานที่ : <?php switch ($tbl_user_location) {
-                          case 2:
+                          case 2:              
                             echo "กลับบ้าน";
                             break;} ?>
                           </label> 
                         <?php } ?>
 
-                <div class="status">
-                  <label>สถานะอาหาร : <?php switch ($tbl_user_cartstatus) {
-                    case 1:
+                <div class="status"> 
+                  <label>สถานะอาหาร : <?php switch ($tbl_user_cartstatus) { 
+                    case 1:           
                       echo "รอการยืนยัน";
                     break;
-                    case 2:
+                    case 2:          
                       echo "ดำเนินการ";
                     break;
-                    case 3:
+                    case 3:          
                       echo "สำเร็จ";
                     break;} ?>
                     </label> 
@@ -98,9 +95,9 @@
 
                 
 
-                  <div class="table_viet">
-                    <table>
-                        <tr>
+                  <div class="table_viet"> 
+                    <table>   
+                        <tr>    
                             <th>รายการ</th>
                             <th>จำนวน</th>
                             <th>ราคา</th>
@@ -109,12 +106,11 @@
                         
                     <?php 
                       $url_idd = $_GET['id']; //100
-
                       $select_post = "SELECT *,sum(t.p_price) as sumprice,count(c.product_id) as num 
                       FROM id18837104_loginadminuser.cart c 
                       right join id18837104_loginadminuser.tbl_product t 
                       on c.product_id=t.p_id where c.userid=$url_idd group by c.product_id;";
-                  
+
                       $query_post = mysqli_query($conn, $select_post);
 
                       while ($row = mysqli_fetch_array($query_post)) {
@@ -128,26 +124,25 @@
                     ?>
                       
                         <tr>
-                          <td><?php echo $p_name; ?></td>
-                          <td><?php echo $num; ?></td> 
-                          <td><?php echo $p_price; ?></td>
-                          <td><div class="del">
+                          <td><?php echo $p_name; ?></td> 
+                          <td><?php echo $num; ?></td>  
+                          <td><?php echo $p_price; ?></td> 
+                          <td><div class="del"> 
 
                             <?php //ตัวเดียวกับ สั่งซื้อ 294
-                              $delete_cart = $_GET['id']; 
+                              $delete_cart = $_GET['id'];  
 
                               $delete_cart2 = "SELECT * from tbl_user WHERE id=$delete_cart";
                               $delete_cart3 = mysqli_query($conn,$delete_cart2);
-
                               while ($row = mysqli_fetch_array($delete_cart3)) {
                                 $delete_cart4 = $row['cartstatus'];
 
-                                if($delete_cart4 == 0){
+                                if($delete_cart4 == 0){ 
                             ?>
-                               <!--  delete_cart 5 -->
+                                
                                 <a href="delete_cart.php?id=<?php echo $id; ?>&userid=<?php echo $userid; ?>">ลบ</a>
                                 <?php } 
-                                else if($delete_cart4 == 1){?>
+                                else if($delete_cart4 == 1){?>  
 
                                       <?php }
                                     }?>
@@ -164,9 +159,8 @@
               
 
                 <?php $url_id = $_GET['id']; //158
-
-                    $select_post = 
-                    "SELECT *,sum(t.p_price) as sumprice,count(c.product_id) as num 
+                    $select_post =  
+                    "SELECT *,sum(t.p_price) as sumprice,count(c.product_id) as num  
                     FROM id18837104_loginadminuser.cart c 
                     right join id18837104_loginadminuser.tbl_product t 
                     on c.product_id=t.p_id where c.userid=$url_id;";
@@ -184,7 +178,7 @@
           
                   ?>
                   <div class="cart-total">
-                      <div class="cart-span">
+                      <div class="cart-span"> 
                           <h3>ราคา : </h3> 
                           <h3><?php echo $p_price; ?></h3> 
                           <h3> บาท</h3>
@@ -193,22 +187,24 @@
                       <?php
                         $getid = $_GET['id']; //186
 
-                        $tbl_user="SELECT * from tbl_user WHERE id=$getid";
+                        //เลือก tbl_user จากฐานข้อมูล หา id = ตัวแปร $_GET['id']"
+                        $tbl_user="SELECT * from tbl_user WHERE id=$getid"; 
+                        //รันคำสั่ง SQL จากตัวแปร  $tbl_user และใช้การเชื่อมต่อฐานข้อมูลจากตัวแปร $conn
                         $querytbl_user = mysqli_query($conn, $tbl_user);
-
+                        //นำตัวแปร $querytbl_user มาวน Loop 
                         while ($row = mysqli_fetch_array($querytbl_user)) {
                           $querytbluser = $row['cartstatus'];
             
                         ?>
 
                         <?php 
-                            if ($querytbluser==0){?>
+                            if ($querytbluser==0){?> 
                           <form id="updateorder" action="updateorder.php" method="post" enctype="multipart/form-data" >
                           <input name="id" value="<?php echo $getid ?>" style ="display:none">
-                          <button class="cart_ok" type = "submit" name="submit" onclick="return confirm('ยืนยันรายการ')">ยืนยัน </button>
+                          <button class="cart_ok" type = "submit" name="submit">ยืนยัน </button>
                         </from>
                     
-                        <?php }else if($querytbluser==1) {?> 
+                        <?php }else if($querytbluser==1) {?>  
                           <form id="cancel_order" action="cancel_order.php" method="post" enctype="multipart/form-data" >
                           <input name="id" value="<?php echo $getid ?>" style ="display:none">
                           <button class="cart_ok" type = "submit" name="submit" onclick="return confirm('ยกเลิกรายการ')">ยกเลิก </button>
@@ -224,13 +220,13 @@
       </nav>
       <!-- end nav  -->
       
-      <div class = "banner">
-        <div class = "banner-content">
+      <div class = "banner"> 
+        <div class = "banner-content"> 
           <h1>ยินดีต้อนรับ</h1>
-          <p class = "text"> ร้านอาหารเปิดให้บริการมากกว่า 10 ปี 
-              <br>
+          <p class = "text"> ร้านอาหารเปิดให้บริการมากกว่า 10 ปี    
+              <br>        
               หลากหลายเมนู อาหารจานเดียว, อาหารตามสั่ง, ก๋วยเตี๋ยว  
-              <br>
+              <br>       
               เหมาะสำหรับเด็กและผู้ใหญ่เป็นร้านอาหารครอบครัว
               พร้อมเปิดให้บริการแก่ทุกท่าน
               </p>
@@ -241,19 +237,19 @@
   </header>
   
 
-  <section class = "products">
-    <div class = "container">
+  <section class = "products"> 
+    <div class = "container"> 
       <h2>เมนู</h2>
 
-      <div class = "product-list">
+      <div class = "product-list"> 
 
         <?php 
           $id = $_GET['id'];  //294*
-
-          $select_tbl = "SELECT * FROM tbl_product";
-
+          //เลือก tbl_product จากฐานข้อมูล"
+          $select_tbl = "SELECT * FROM tbl_product where p_status = 1";
+          //รันคำสั่ง SQL จากตัวแปร $select_tbl และใช้การเชื่อมต่อฐานข้อมูลจากตัวแปร $conn
           $run_tbl = mysqli_query($conn, $select_tbl);
-
+          //นำตัวแปร $run_tbl มาวน Loop 
           while ($row = mysqli_fetch_array($run_tbl)) {
           $p_id = $row['p_id'];
           $p_name = $row['p_name'];
@@ -262,33 +258,33 @@
           
         ?>
 
-          <div class = "product-item">
+          <div class = "product-item"> 
               <div class = "product-img">
-                <img src = "image/<?php echo $p_image; ?>" alt = "ไม่พบรูปภาพ">
+                <img src = "image/<?php echo $p_image; ?>" alt = "ไม่พบรูปภาพ"> 
               </div>
           
-              <div class = "product-content">
-                <h3 class = "product-name"><?php echo $p_name; ?></h3>
+              <div class = "product-content"> 
+                <h3 class = "product-name"><?php echo $p_name; ?></h3>  
                 <p class = "product-price"><?php echo $p_price; ?> บาท</p>
 
       <!-- กดสั่งซื้อ ตัวเดียวกับ ลบ 141-->
             <?php
                 $add_cart = $_GET['id']; 
-
+                //เลือก tbl_product จากฐานข้อมูล หา id = ตัวแปร $_GET['id'] "
                 $add_cart2 = "SELECT * from tbl_user WHERE id=$add_cart";
-
+                //รันคำสั่ง SQL จากตัวแปร $add_cart2 และใช้การเชื่อมต่อฐานข้อมูลจากตัวแปร $conn
                 $add_cart3 = mysqli_query($conn,$add_cart2);
-
+                 //นำตัวแปร $$add_cart3 มาวน Loop 
                 while ($row = mysqli_fetch_array($add_cart3)) {
                   $add_cart4 = $row['cartstatus'];
 
-                  if($add_cart4 == 0){
+                  if($add_cart4 == 0){ //ถ้า ตัวแปร $add_cart4 = 0 จะแสดง
 
                   ?>
-                  <!-- _GET จาก add_cart.php  -->
-                  <a href="add_cart.php?id=<?php echo $id; ?>&p_id=<?php echo $p_id; ?>"> สั่งซื้อ </a>
+                  <!-- _GET จาก add_cart.php  --> 
+                  <a href="add_cart.php?id=<?php echo $id; ?>&p_id=<?php echo $p_id; ?>"> สั่งซื้อ </a> 
                     
-                    <?php } else if($add_cart4 == 1){?>
+                    <?php } else if($add_cart4 == 1){?>  
 
                     <?php }
                   }?>
@@ -305,23 +301,24 @@
 
   <!-- footer -->
   <footer>
-    <div class = "footer-banner">
-      <div class = "container">
+    <div class = "footer-banner"> 
+      <div class = "container"> 
         <h2> ติดต่อ </h2>
-          <p class = "text">ที่อยู่: หมู่ 4 เลขที่ 134 ระหว่างปั๊มปตทคลองหกและเดอะพอย์ทคอนโด ถนน รังสิต - นครนายก อำเภอธัญบุรี ปทุมธานี 12110
+          <p class = "text">ที่อยู่: หมู่ 4 เลขที่ 134 ระหว่างปั๊มปตทคลองหกและเดอะพอย์ทคอนโด  
+            ถนน รังสิต - นครนายก อำเภอธัญบุรี ปทุมธานี 12110
             เวลาทำการ: 
-            <br>
+            <br>     
               เปิดบริการ 06:00 - 15:00
-              <br>
+              <br>   
               ปิดบริการ วันจันทร์
-            <br>
+            <br>   
             โทร : 099-8765432
           </p>
       </div>
     </div>
 
-    <div class = "container">
-      <div class = "social-icons">
+    <div class = "container"> 
+      <div class = "social-icons"> 
 
         <!-- <a href = "#">
           <i class = "fab fa-facebook-f"></i>
@@ -342,11 +339,11 @@
 
   <script>
 
-      let click = document.querySelector('.click');
+      let click = document.querySelector('.click'); //ค่าที่เจอใน document  Class="click"
 
-      let list = document.querySelector('.list-order');
+      let list = document.querySelector('.list-order'); //ค่าที่เจอใน document  Class="list-order"
 
-      click.addEventListener("click",()=>{
+      click.addEventListener("click",()=>{ //แนบเหตุการณ์ เมื่อผู้ใช้คลิก
 
           list.classList.toggle('newlist');
 

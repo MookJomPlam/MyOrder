@@ -45,7 +45,7 @@
             <div class="section">
             <h4>รายการอาหาร</h4>
             <hr>
-                
+
             <div class="add"> 
                 <a href="add.php"> + เพิ่มรายการอาหาร</a></li>
             </div>
@@ -54,7 +54,7 @@
                 <div class="grid-container">
                 <?php
 
-                    $select_post = "SELECT * FROM tbl_product";
+                    $select_post = "SELECT * FROM tbl_product order by p_status";
                 
                     $query_post = mysqli_query($conn, $select_post);
                     
@@ -63,13 +63,27 @@
                         $p_name = $row['p_name'];
                         $p_price = $row['p_price'];
                         $p_image = $row['p_image'];
-                    
+                        $p_status = $row['p_status'];
+                         
                 ?>
                     <div class="grid-item">
                         <p>รหัสสินค้า : <?php echo $p_id; ?></p>
                         <img src="image/<?php echo $p_image; ?>" alt="ไม่พบรูปภาพ">
                         <p><?php echo $p_name; ?></p>
-                        <p >ราคา : <?php echo $p_price ?></p>
+                    <div class="edit_del">
+                        <p>ราคา : <?php echo $p_price; ?></p>
+                        <p><?php switch ($p_status) {
+                        case 1:
+                            ?>
+                        <p style="color:green"><?php echo "พร้อม"; ?></p>
+                            <?php break; ?> 
+                            
+                            <?php  case 2: ?>
+                                <p style="color:red"> <?php echo "ไม่พร้อม"; ?></p>
+
+                                <?php break; ?>
+                <?php } ?></p>
+                    </div>
                         
                         <div class="edit_del">
                             <div class="edit">

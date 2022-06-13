@@ -14,10 +14,12 @@
         $p_price = $_POST['price'];
         $p_image = $_FILES['image']['name'];
         $image_tmp = $_FILES['image']['tmp_name'];
+        $p_status = $_POST['status'];
 
         move_uploaded_file($image_tmp, "image/$p_image");
 
-        $insert_query = "INSERT INTO tbl_product (p_name, p_price, p_image) VALUES ('$p_name', '$p_price', '$p_image')";
+        $insert_query = "INSERT INTO tbl_product (p_name, p_price, p_image, p_status) 
+                            VALUES ('$p_name', '$p_price', '$p_image', '$p_status')";
         $result = mysqli_query($conn, $insert_query);
         if ($result) {
             echo "<script>alert('เพิ่มรายการสำเร็จ');</script>";
@@ -82,6 +84,15 @@
                     <div class="group">
                         <lable>รูปภาพ :</lable>
                         <input type="file" name="image" alt=" ไม่พบรูปภาพ " required>
+                    </div>
+
+                    <div class="group">
+                    <label>สถานะ  :</label>
+                    <select name="status" required>
+                        <option value="">เลือกสถานะ</option>
+                        <option value="1">พร้อม</option>
+                        <option value="2">ไม่พร้อม</option>
+                    </select>
                     </div>
 
                     <div class="group">

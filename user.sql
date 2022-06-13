@@ -13,7 +13,8 @@ CREATE TABLE tbl_product (
   p_id int(11) NOT NULL,
   p_name varchar(200) NOT NULL,
   p_price int(4) NOT NULL,
-  p_image varchar(200) NOT NULL
+  p_image varchar(200) NOT NULL,
+  p_status varchar(200) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 ------------------
